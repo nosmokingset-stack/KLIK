@@ -1,4 +1,5 @@
 {
-  "baseUrl": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/main/",
-  "description": "Public asset root; pin to the asset commit SHA after upload. Keep old assets for earlier templates."
+  "baseUrl": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/5033f677e78f983f8606be90cf0887c4ca699b03/",
+  "assetCommit": "5033f677e78f983f8606be90cf0887c4ca699b03",
+  "description": "Immutable public KLIK v1.1 assets"
 }

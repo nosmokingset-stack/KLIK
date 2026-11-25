@@ -11,4 +11,6 @@
 
 Public asset verification is recorded in preview/public-links-report.json after upload: unauthenticated GET, final HTTP status, Content-Type, body decode and hash match against the local file. That report is generated from asset-links.json; it does not contain credentials.
 
+Release result: **36/36 direct graphic URLs passed** unauthenticated GET (HTTP 200), expected image MIME, SHA-256 equality and Chrome image decoding. The landing also rendered successfully with its images loaded from those public URLs. Asset commit: `5033f677e78f983f8606be90cf0887c4ca699b03`.
+
 Limits: no Blogger editor/server transformation test, no real mobile-device/Safari test, no Lighthouse score claimed. The comparison is a visualization; device compatibility is not validated by this software work. Station-photo rights remain unconfirmed and those photographs are excluded.
