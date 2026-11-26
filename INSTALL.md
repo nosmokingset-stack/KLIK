@@ -9,7 +9,7 @@ The provided template.xml already contains direct public HTTPS image URLs from t
 
 This task did not install or publish the theme in Blogger. XML syntax and the local browser version are checked; final platform acceptance must be verified in its editor.
 
-For v1.5 also check the comparison marks, FAQ toggles, both clickable packs, independent colors, direct settlement/branch/locker search and mandatory consent in both languages. Open each legal document from the footer and from a filled order; confirm closing returns focus and leaves all fields intact. The real store is disabled by two server-side controls. Never turn on either control or install the theme on the live blog without explicit owner approval. See [the release verification report](VERIFY-V1.5.md).
+For v1.5 also check the comparison marks, FAQ toggles, both clickable packs, independent colors, direct settlement/branch/locker search and mandatory consent in both languages. Open each legal document from the footer and from a filled order; confirm closing returns focus and leaves all fields intact. The real store is disabled by the switch in the settings sheet and checked on the server. Never turn on the switch or install the theme on the live blog without explicit owner approval. See [the release verification report](VERIFY-V1.5.md).
 
 ## Asset management
 

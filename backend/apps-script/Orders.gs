@@ -40,8 +40,6 @@ function createOrderPrivate_(book,payload){
   const initial=orderSettings_(book);
   if(!initial.enabled)return {ok:false,error:'store_closed'};
   const props=PropertiesService.getScriptProperties();
-  const testBook=props.getProperty('KLIK_TEST_BOOK_ID')===book.getId();
-  if(!testBook&&props.getProperty('ALLOW_LIVE_ORDERS')!=='YES')return {ok:false,error:'store_closed'};
   const cityName=CacheService.getScriptCache().get('ua4:valid:'+payload.settlementRef);
   if(!cityName || cityName!==payload.settlementName)throw Error('city_expired');
   const point=verifiedPoint_(payload.settlementRef,payload.pointRef);

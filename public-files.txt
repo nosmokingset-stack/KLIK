@@ -68,6 +68,7 @@ backend/apps-script/Setup.gs
 backend/apps-script/Statistics.gs
 backend/apps-script/Transport.gs
 backend/apps-script/appsscript.json
+backend/tests/color-activation.cjs
 backend/tests/directory-filter.cjs
 backend/tests/directory-retries.cjs
 backend/tests/notifications.cjs
@@ -107,6 +108,7 @@ preview/modal-two-1440-v1.2.png
 preview/modal-two-390-v1.2.png
 preview/order-1440-v1.2.png
 preview/order-390-v1.2.png
+preview/order-mobile-v1.5.png
 preview/order-success-v1.5.png
 preview/order-v1.3.png
 preview/order-v1.4.png
@@ -125,4 +127,3 @@ styles-v1.3.css
 styles-v1.4.css
 styles-v1.5.css
 template.xml
-preview/order-mobile-v1.5.png

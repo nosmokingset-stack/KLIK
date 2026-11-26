@@ -16,6 +16,6 @@ The public Git allowlist is in .gitignore; public-files.txt lists the intended t
 
 Asset URLs are centralized in assets.config.json, generated into template.xml, and inventoried in asset-links.json. The final release pins the asset base to an immutable commit SHA. Keep previously used image paths available for earlier templates.
 
-Blue availability is currently disabled; manufacturing and lead time are unconfirmed. In V1.5, buyer details are submitted by POST only when the owner separately enables sales. The public endpoint never returns order lists or keys. Until the two server controls are enabled, real orders are rejected. No customer data is intentionally logged or saved to localStorage.
+Yellow and blue availability can be changed independently in the settings sheet. In V1.5, buyer details are submitted by POST only when the owner enables sales using the settings-sheet switch. The public endpoint never returns order lists or keys. While the switch is off, real orders are rejected. No customer data is intentionally logged or saved to localStorage.
 
 The Blogger theme itself has not been installed or published. This GitHub publication was explicitly requested for source control and asset hosting.

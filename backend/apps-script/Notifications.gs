@@ -5,7 +5,8 @@ function sendOrderNoticePrivate_(book,number,row){
   const body=['Нове замовлення KLIK!','Номер замовлення: '+number,
     'Покупець: '+row[4],'Телефон: '+row[5],'Населений пункт: '+row[6],
     'Точка Нової пошти: '+row[7],'Адреса: '+row[8],'Комплект: '+row[10],
-    'Кольори: '+[row[12],row[13]].filter(Boolean).join(', '),
+    'Колір кнопки №1: '+row[12],
+    ...(row[13]?['Колір кнопки №2: '+row[13]]:[]),
     'Вартість товару: '+row[14]+' грн','Оплата: при отриманні','Статус: Нове',
     'Таблиця: '+book.getUrl()].join('\n');
   MailApp.sendEmail(address,'KLIK – нове замовлення №'+number,body);

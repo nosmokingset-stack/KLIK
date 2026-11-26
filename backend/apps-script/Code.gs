@@ -1,5 +1,6 @@
 function onOpen() {
   migrateNotificationAddress_();
+  enableBlueOnce_();
   cleanupDirectorySettings_();
   migrateLegalVersion_();
   try{cleanupDirectorySheet_();}catch(_){}
@@ -7,6 +8,19 @@ function onOpen() {
     .addItem('Перевірити довідник Нової пошти','testDirectoryOwner_')
     .addItem('Перевірити тестове замовлення і email','testOrderOwner_')
     .addItem('Перевірити email сповіщень','testNotificationOwner_').addToUi();
+}
+function enableBlueOnce_(){
+  const book=SpreadsheetApp.getActiveSpreadsheet(),props=PropertiesService.getScriptProperties();
+  if(!book||book.getId()!==props.getProperty('SPREADSHEET_ID'))return;
+  const settings=book.getSheetByName('Налаштування');
+  if(!settings||settings.getRange('A9').getDisplayValue()!=='Синій доступний')return;
+  const lock=LockService.getScriptLock();lock.waitLock(10000);
+  try{
+    if(props.getProperty('BLUE_AVAILABILITY_INITIALIZED')==='done')return;
+    settings.getRange('B9').setValue(true);
+    SpreadsheetApp.flush();
+    props.setProperty('BLUE_AVAILABILITY_INITIALIZED','done');
+  }finally{lock.releaseLock();}
 }
 function migrateLegalVersion_(){
   const book=SpreadsheetApp.getActiveSpreadsheet(),props=PropertiesService.getScriptProperties();

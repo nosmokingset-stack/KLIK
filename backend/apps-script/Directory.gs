@@ -66,19 +66,13 @@ function verifiedPoint_(settlementRef,pointRef){
 function doGet(e){
   const p=e&&e.parameter||{};let body;
   try{
-    if(p.action==='health')body={ok:true,scope:'UA',ordersEnabled:false};
+    if(p.action==='health')body={ok:true,scope:'UA'};
     else if(p.action==='cities')body={ok:true,items:cityLookup_(p.q)};
     else if(p.action==='points')body=Object.assign({ok:true},cityPage_(p.city,Number(p.page||1)));
     else if(p.action==='config'){
-      const cache=CacheService.getScriptCache(),hit=cache.get('public-config-v1');
-      if(hit)body=JSON.parse(hit);
-      else{
-        const book=SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID'));
-        const cfg=orderSettings_(book);
-        body={ok:true,one:cfg.one,two:cfg.two,yellow:cfg.yellow,blue:cfg.blue,
-          enabled:cfg.enabled&&PropertiesService.getScriptProperties().getProperty('ALLOW_LIVE_ORDERS')==='YES',legal:cfg.legal};
-        cache.put('public-config-v1',JSON.stringify(body),15);
-      }
+      const book=SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID'));
+      const cfg=orderSettings_(book);
+      body={ok:true,one:cfg.one,two:cfg.two,yellow:cfg.yellow,blue:cfg.blue,enabled:cfg.enabled,legal:cfg.legal};
     }
     else body={ok:false,error:'unknown_action'};
   }catch(_){body={ok:false,error:'directory_unavailable'};}

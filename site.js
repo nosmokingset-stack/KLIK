@@ -7,8 +7,8 @@
  };
  Object.assign(translations.uk,{difference:'Відчуй різницю з KLIK!',before:'До KLIK',after:'З KLIK',beforeDescription:'Доводиться постійно утримувати кнопку',afterDescription:'Вода набирається, а твої руки вільні',beforeAlt:'Демонстраційна візуалізація: людина утримує пальцем кнопку подачі води',afterAlt:'Демонстраційна візуалізація: жовта кнопка KLIK на автоматі, вода надходить у пляшку без руки',comparisonNote:'Демонстраційна цифрова візуалізація, а не фотографія випробувань. Сумісність із конкретним автоматом потребує перевірки.'});
  Object.assign(translations.ru,{difference:'Почувствуй разницу с KLIK!',before:'До KLIK',after:'С KLIK',beforeDescription:'Приходится постоянно удерживать кнопку',afterDescription:'Вода набирается, а твои руки свободны',beforeAlt:'Демонстрационная визуализация: человек удерживает пальцем кнопку подачи воды',afterAlt:'Демонстрационная визуализация: жёлтая кнопка KLIK на автомате, вода поступает в бутылку без руки',comparisonNote:'Демонстрационная цифровая визуализация, а не фотография испытаний. Совместимость с конкретным автоматом требует проверки.'});
- Object.assign(translations.uk,{kioskAlt:'Харківський кіоск «Питна вода для харків’ян»',selectPackage:'Обрати комплект',dialogTitle:'Замовлення KLIK',closeDialog:'Закрити вікно',choosePackage:'Обери свій комплект',chooseColor:'Обери колір',colorOne:'Колір кнопки №1',colorTwo:'Колір кнопки №2',yellow:'Жовтий',blue:'Синій',blueStatus:'Синя кнопка ще не виготовлена. Зображення показує візуалізацію кольору; наявність і термін виготовлення не підтверджені.',customerDetails:'Дані покупця',customerName:'Твоє ім’я',customerPhone:'Номер телефону',customerCity:'Місто',customerBranch:'Відділення Нової пошти',totalLabel:'До сплати',shippingExcluded:'Вартість доставки не включена.',placeOrder:'Оформити замовлення',ordersUnavailable:'Онлайн-замовлення поки недоступне. Дані не надсилаються.',notSent:'Замовлення не надіслано. Онлайн-оформлення ще не підключене.',nameRequired:'Укажи своє ім’я (щонайменше 2 символи).',phoneRequired:'Укажи повний номер: +380 та 9 цифр.',cityRequired:'Укажи місто (щонайменше 2 символи).',branchRequired:'Укажи відділення Нової пошти.',independentBrand:'KLIK – незалежний бренд, не офіційний продукт міської адміністрації.'});
- Object.assign(translations.ru,{kioskAlt:'Харьковский киоск «Питна вода для харків’ян»',selectPackage:'Выбрать комплект',dialogTitle:'Заказ KLIK',closeDialog:'Закрыть окно',choosePackage:'Выбери свой комплект',chooseColor:'Выбери цвет',colorOne:'Цвет кнопки №1',colorTwo:'Цвет кнопки №2',yellow:'Жёлтый',blue:'Синий',blueStatus:'Синяя кнопка ещё не изготовлена. Изображение показывает визуализацию цвета; наличие и срок изготовления не подтверждены.',customerDetails:'Данные покупателя',customerName:'Твоё имя',customerPhone:'Номер телефона',customerCity:'Город',customerBranch:'Отделение Новой почты',totalLabel:'К оплате',shippingExcluded:'Стоимость доставки не включена.',placeOrder:'Оформить заказ',ordersUnavailable:'Онлайн-заказ пока недоступен. Данные не отправляются.',notSent:'Заказ не отправлен. Онлайн-оформление ещё не подключено.',nameRequired:'Укажи своё имя (не менее 2 символов).',phoneRequired:'Укажи полный номер: +380 и 9 цифр.',cityRequired:'Укажи город (не менее 2 символов).',branchRequired:'Укажи отделение Новой почты.',independentBrand:'KLIK – независимый бренд, не официальный продукт городской администрации.'});
+ Object.assign(translations.uk,{kioskAlt:'Харківський кіоск «Питна вода для харків’ян»',selectPackage:'Обрати комплект',dialogTitle:'Замовлення KLIK',closeDialog:'Закрити вікно',choosePackage:'Обери свій комплект',chooseColor:'Обери колір',colorOne:'Колір кнопки №1',colorTwo:'Колір кнопки №2',yellow:'Жовтий',blue:'Синій',blueStatus:'Синій колір тимчасово недоступний.',customerDetails:'Дані покупця',customerName:'Твоє ім’я',customerPhone:'Номер телефону',customerCity:'Місто',customerBranch:'Відділення Нової пошти',totalLabel:'До сплати',shippingExcluded:'Вартість доставки не включена.',placeOrder:'Оформити замовлення',ordersUnavailable:'Онлайн-замовлення поки недоступне. Дані не надсилаються.',notSent:'Замовлення не надіслано. Онлайн-оформлення ще не підключене.',nameRequired:'Укажи своє ім’я (щонайменше 2 символи).',phoneRequired:'Укажи повний номер: +380 та 9 цифр.',cityRequired:'Укажи місто (щонайменше 2 символи).',branchRequired:'Укажи відділення Нової пошти.',independentBrand:'KLIK – незалежний бренд, не офіційний продукт міської адміністрації.'});
+ Object.assign(translations.ru,{kioskAlt:'Харьковский киоск «Питна вода для харків’ян»',selectPackage:'Выбрать комплект',dialogTitle:'Заказ KLIK',closeDialog:'Закрыть окно',choosePackage:'Выбери свой комплект',chooseColor:'Выбери цвет',colorOne:'Цвет кнопки №1',colorTwo:'Цвет кнопки №2',yellow:'Жёлтый',blue:'Синий',blueStatus:'Синий цвет временно недоступен.',customerDetails:'Данные покупателя',customerName:'Твоё имя',customerPhone:'Номер телефона',customerCity:'Город',customerBranch:'Отделение Новой почты',totalLabel:'К оплате',shippingExcluded:'Стоимость доставки не включена.',placeOrder:'Оформить заказ',ordersUnavailable:'Онлайн-заказ пока недоступен. Данные не отправляются.',notSent:'Заказ не отправлен. Онлайн-оформление ещё не подключено.',nameRequired:'Укажи своё имя (не менее 2 символов).',phoneRequired:'Укажи полный номер: +380 и 9 цифр.',cityRequired:'Укажи город (не менее 2 символов).',branchRequired:'Укажи отделение Новой почты.',independentBrand:'KLIK – независимый бренд, не официальный продукт городской администрации.'});
  Object.assign(translations.uk, {
   "how": "Як користуватися",
   "safetyNav": "Безпека",
@@ -71,7 +71,7 @@
   "storeSub": "Обирай свій комплект KLIK!",
   "region": "Доставка по Україні",
   "regionD": "Обирай доступне відділення або поштомат Нової пошти у своєму населеному пункті.",
-  "modalPay": "Оплата при отриманні. Для поштомата спосіб оплати уточнюється під час підтвердження.",
+  "modalPay": "Оплата при отриманні.",
   "shippingExcluded": "Вартість доставки сплачується окремо.",
   "customerName": "Ім’я та прізвище",
   "nameRequired": "Укажи ім’я та прізвище.",
@@ -160,7 +160,7 @@
   "storeSub": "Выбирай свой комплект KLIK!",
   "region": "Доставка по Украине",
   "regionD": "Выбирай доступное отделение или почтомат Новой почты в своём населённом пункте.",
-  "modalPay": "Оплата при получении. Для почтомата способ оплаты уточняется при подтверждении.",
+  "modalPay": "Оплата при получении.",
   "shippingExcluded": "Стоимость доставки оплачивается отдельно.",
   "customerName": "Имя и фамилия",
   "nameRequired": "Укажи имя и фамилию.",
@@ -187,8 +187,8 @@
   "q10": "Как оформить заказ?",
   "a10": "Выбери нужный комплект в разделе «Стоимость и заказ», нажми «Заказать», выбери цвет кнопок и заполни контактные данные."
 });
- Object.assign(translations.uk,{customerCity:'Населений пункт',customerBranch:'Відділення або поштомат Нової пошти'});
- Object.assign(translations.ru,{customerCity:'Населённый пункт',customerBranch:'Отделение или почтомат Новой почты'});
+ Object.assign(translations.uk,{customerCity:'Населений пункт',customerBranch:'Відділення або поштомат Нової пошти',blueStatus:'Синій колір тимчасово недоступний.'});
+ Object.assign(translations.ru,{customerCity:'Населённый пункт',customerBranch:'Отделение или почтомат Новой почты',blueStatus:'Синий цвет временно недоступен.'});
  const legalDialog = document.getElementById('legal-dialog');
  const orderDialog = document.getElementById('order-dialog');
  const legalScroll = legalDialog.querySelector('.legal-scroll');
@@ -291,7 +291,7 @@
    const cfg=window.klikPublicConfig;
    document.getElementById('order-total').textContent=(cfg?(count===1?cfg.one:cfg.two):(count===1?199:299))+' '+translations[language].currency;
    const selectedBlue=form.querySelector('[name="color1"]:checked').value==='blue'||count===2&&form.querySelector('[name="color2"]:checked').value==='blue';
-   document.getElementById('blue-status').hidden=!selectedBlue;
+   document.getElementById('blue-status').hidden=!selectedBlue||Boolean(window.klikPublicConfig&&window.klikPublicConfig.blue);
    if(validationActive)validateFields();
   };
   function finishClose(){if(dialog.open)return;syncScrollLock();if(opener&&opener.isConnected)opener.focus({preventScroll:true});}

@@ -13,6 +13,12 @@ assert.equal(addr,'nosmokingset@gmail.com');
 addr='other@example.com';ctx.migrateNotificationAddress_();assert.equal(addr,'other@example.com');
 ctx.sendOrderNoticePrivate_(book,'KLIK000001',Array(25).fill(''));
 assert.equal(sent[0],'other@example.com');
+for(const [one,two] of [['Жовтий','Жовтий'],['Жовтий','Синій'],['Синій','Жовтий'],['Синій','Синій']]){
+  const row=Array(25).fill('');row[12]=one;row[13]=two;
+  ctx.sendOrderNoticePrivate_(book,'KLIK000001',row);
+  assert(sent[2].includes('Колір кнопки №1: '+one));
+  assert(sent[2].includes('Колір кнопки №2: '+two));
+}
 const noticeProps={};
 ctx.PropertiesService={getScriptProperties:()=>({getProperty:k=>noticeProps[k]||null,setProperty:(k,v)=>{noticeProps[k]=v}})};
 let sends=0;

@@ -50,12 +50,14 @@
    if(!Number.isSafeInteger(c.one)||!Number.isSafeInteger(c.two)||c.one<=0||c.two<=0||typeof c.legal!=='string')throw Error('config');
    config=window.klikPublicConfig=c;
    root.querySelector('#order-service-note').hidden=c.enabled;
-   root.querySelectorAll('[name=color1][value=blue],[name=color2][value=blue]').forEach(input=>{input.disabled=!c.blue;});
+   const count=Number(root.querySelector('[name=quantity]:checked').value);
+   root.querySelectorAll('[name=color1],[name=color2]').forEach(input=>{
+    input.disabled=!c[input.value]||(input.name==='color2'&&count===1);
+   });
    root.querySelectorAll('.package-option').forEach((el,i)=>{el.querySelector('.package-price').firstChild.textContent=(i?c.two:c.one)+' ';});
    document.querySelectorAll('.price-card .price').forEach((el,i)=>{el.firstChild.textContent=(i?c.two:c.one)+' ';});
    const saving=2*c.one-c.two;
    document.querySelectorAll('[data-i18n=saving]').forEach(el=>{el.hidden=saving<=0;if(saving>0)el.textContent=(ru()?'Экономия ':'Економія ')+saving+' грн';});
-   const count=Number(root.querySelector('[name=quantity]:checked').value);
    root.querySelector('#order-total').textContent=(count===1?c.one:c.two)+' грн';
   }catch(_){config=null;window.klikPublicConfig=null;}
  }
@@ -63,7 +65,7 @@
  document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>{if(config)loadConfig();}));
  root.addEventListener('input',()=>{if(!inFlight)requestId=null;});
  root.addEventListener('change',()=>{if(!inFlight)requestId=null;});
- root.addEventListener('submit',event=>{
+ root.addEventListener('submit',async event=>{
   event.preventDefault();event.stopImmediatePropagation();
   if(inFlight)return;
   if(!selectedCity||!selectedBranch){
@@ -73,8 +75,18 @@
   }
   const status=root.querySelector('#order-submit-status'),button=root.querySelector('.order-submit');
   const show=message=>{status.hidden=false;status.textContent=message;status.scrollIntoView({block:'nearest'});};
+  const previousConfig=config;
+  const selectedQuantity=Number(root.querySelector('[name=quantity]:checked').value);
+  const displayedPrice=Number((root.querySelector('#order-total').textContent.match(/\d+/)||[])[0]);
+  inFlight=true;button.disabled=true;
+  await loadConfig();
+  inFlight=false;button.disabled=false;
   if(!config){show(say('Сервіс замовлень недоступний. Спробуй пізніше.','Сервис заказов недоступен. Попробуй позже.'));return;}
   if(!config.enabled){show(say('Прийом замовлень тимчасово вимкнено.','Приём заказов временно отключён.'));return;}
+  const oldPrice=previousConfig?(selectedQuantity===1?previousConfig.one:previousConfig.two):displayedPrice;
+  if(oldPrice!==(selectedQuantity===1?config.one:config.two)){
+   requestId=null;show(say('Ціна змінилася. Перевір нову суму та підтвердь замовлення ще раз.','Цена изменилась. Проверь новую сумму и подтверди заказ ещё раз.'));return;
+  }
   const name=root.querySelector('#customer-name').value.trim(),phone=root.querySelector('#customer-phone').value.replace(/\D/g,'');
   if(name.split(/\s+/u).filter(x=>/\p{L}/u.test(x)).length<2){root.querySelector('#customer-name').focus();show(say('Укажи ім’я та прізвище.','Укажи имя и фамилию.'));return;}
   if(!/^380[1-9]\d{8}$/.test(phone)){root.querySelector('#customer-phone').focus();show(say('Укажи повний номер телефону.','Укажи полный номер телефона.'));return;}

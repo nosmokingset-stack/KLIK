@@ -1,3 +1,4 @@
 .directory-status{display:block;font-size:13px;line-height:1.35;color:#405c7c;min-height:1em;margin-top:4px}
+.color-option input:disabled+.color-choice{opacity:.45;cursor:not-allowed}
 .order-success{border-left:4px solid #168851;background:#effbf4;color:#173d28;padding:16px;overflow-wrap:anywhere}
 .order-success strong{display:block;font-size:18px}.order-success p{margin:8px 0}.order-success .button{margin-top:8px}

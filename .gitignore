@@ -73,6 +73,7 @@
 !/backend/tests/orders.cjs
 !/backend/tests/notifications.cjs
 !/backend/tests/transport.cjs
+!/backend/tests/color-activation.cjs
 !/backend/tests/bridge.cjs
 /backend/apps-script/*
 !/backend/apps-script/*.gs
