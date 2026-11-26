@@ -1,0 +1,18 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
+const ctx=vm.createContext({});
+for(const f of ['Code.gs','Notifications.gs'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../apps-script',f),'utf8'),ctx);
+let addr='igoryarmack@gmail.com',done='',sent;
+const sheet={getRange:k=>({getDisplayValue:()=>k==='A4'?'Email сповіщень':addr,setValue:v=>{addr=v}})};
+const book={getId:()=> 'KLIK',getSheetByName:()=>sheet,getUrl:()=> 'https://private.invalid/'};
+ctx.SpreadsheetApp={getActiveSpreadsheet:()=>book};
+ctx.PropertiesService={getScriptProperties:()=>({getProperty:k=>k==='SPREADSHEET_ID'?'KLIK':done,setProperty:(_,v)=>{done=v}})};
+ctx.LockService={getScriptLock:()=>({waitLock:()=>{},releaseLock:()=>{}})};
+ctx.MailApp={sendEmail:(...args)=>{sent=args}};
+ctx.migrateNotificationAddress_();
+assert.equal(addr,'nosmokingset@gmail.com');
+addr='other@example.com';ctx.migrateNotificationAddress_();assert.equal(addr,'other@example.com');
+ctx.sendOrderNoticePrivate_(book,'KLIK000001',Array(25).fill(''));
+assert.equal(sent[0],'other@example.com');
+done='';addr='custom@example.com';ctx.migrateNotificationAddress_();assert.equal(addr,'custom@example.com');
+assert.equal(done,'done');
+console.log('PASS: one-time migration preserves custom address; notification reads current sheet setting');

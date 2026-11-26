@@ -42,11 +42,13 @@ function createOrderPrivate_(book,payload){
     if(!cfg.enabled)return {ok:false,error:'store_closed'};
     const v=validateOrder_(payload,cfg,point);
     if(v.priceChanged)return {ok:false,error:'price_changed',price:v.price};
-    const props=PropertiesService.getScriptProperties(),counter=Number(props.getProperty('ORDER_COUNTER'));
+    const props=PropertiesService.getScriptProperties();
+    const counterKey=book.getId()===props.getProperty('KLIK_TEST_BOOK_ID')?'ORDER_TEST_COUNTER':'ORDER_COUNTER';
+    const raw=props.getProperty(counterKey),counter=raw===null&&counterKey==='ORDER_TEST_COUNTER'?0:Number(raw);
     if(!Number.isSafeInteger(counter)||counter<0)throw Error('counter');
     const next=counter+1,number='KLIK'+String(next).padStart(6,'0');
     // Reserve before writing: a failed write may leave a gap, but cannot reuse a number.
-    props.setProperty('ORDER_COUNTER',String(next));
+    props.setProperty(counterKey,String(next));
     const now=new Date(),colors=payload.colors.map(c=>c==='yellow'?'Жовтий':'Синій');
     sheet.appendRow([textCell_(number),now,now,'Нове',textCell_(v.name),textCell_(v.phone),
       textCell_(payload.settlementName),textCell_(point.name),textCell_(point.address),textCell_(point.ref),

@@ -67,6 +67,7 @@
 !/backend/tests/directory-retries.cjs
 !/backend/tests/directory-filter.cjs
 !/backend/tests/orders.cjs
+!/backend/tests/notifications.cjs
 /backend/apps-script/*
 !/backend/apps-script/*.gs
 !/backend/apps-script/appsscript.json
