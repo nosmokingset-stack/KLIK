@@ -2,5 +2,6 @@
   "timeZone": "Europe/Kyiv",
   "runtimeVersion": "V8",
   "exceptionLogging": "NONE",
+  "webapp": {"executeAs":"USER_DEPLOYING","access":"ANYONE_ANONYMOUS"},
   "oauthScopes": ["https://www.googleapis.com/auth/spreadsheets.currentonly","https://www.googleapis.com/auth/script.external_request"]
 }

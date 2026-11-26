@@ -57,55 +57,57 @@ function listPages_(method,params,request) {
   }
   npFailure_('page_limit');
 }
-function selectBranches_(warehouses, city, types, stamp) {
-  const ordinary=new Map(types.filter(t=>/^(поштове|вантажне) відділення(?:$|\s|\()/i.test(String(t.Description).trim())).map(t=>[t.Ref,t.Description]));
-  if(!ordinary.size)npFailure_('no_recognized_types types='+types.length);
-  const rows=warehouses.filter(w=>w.CityRef===city && ordinary.has(w.TypeOfWarehouse) &&
-    (!w.CategoryOfWarehouse || String(w.CategoryOfWarehouse).toLowerCase()==='branch') &&
-    (!w.WarehouseStatus || String(w.WarehouseStatus).toLowerCase()==='working') &&
-    w.Ref && w.Number && w.Description && w.ShortAddress).map(w=>[
-      w.Ref,String(w.Number),w.Description,w.ShortAddress,ordinary.get(w.TypeOfWarehouse),w.WarehouseStatus||'',city,stamp
-    ]);
-  if(!rows.length){
-    const local=warehouses.filter(w=>w.CityRef===city),typed=local.filter(w=>ordinary.has(w.TypeOfWarehouse));
-    npFailure_('no_matches total='+warehouses.length+' local='+local.length+' types='+typed.length+' branch='+typed.filter(w=>!w.CategoryOfWarehouse||String(w.CategoryOfWarehouse).toLowerCase()==='branch').length+' working='+typed.filter(w=>!w.WarehouseStatus||String(w.WarehouseStatus).toLowerCase()==='working').length);
+function pointRows_(warehouses, city, stamp) {
+  const clean=v=>String(v==null?'':v).trim().replace(/\s+/g,' ');
+  const rows=[];
+  for(const w of warehouses){
+    if(clean(w.CityRef).toLowerCase()!==city.toLowerCase() || !clean(w.Ref) || !clean(w.Number) || !clean(w.ShortAddress))continue;
+    const category=clean(w.CategoryOfWarehouse).toLowerCase(), status=clean(w.WarehouseStatus).toLowerCase();
+    if(status && status!=='working')continue;
+    const heading=clean(w.Description).split(':')[0].toLowerCase();
+    if(!heading || /parcel\s*shop|пункт приймання|пункт видачі|партнерськ/.test(heading))continue;
+    const byName=/^(?:поштомат|почтомат|постамат)/.test(heading)?'locker':/^(?:(?:поштове|вантажне) )?відділення/.test(heading)?'branch':'';
+    const byCategory={branch:'branch',postomat:'locker',poshtomat:'locker',parcelstation:'locker',postmachine:'locker'}[category];
+    if(category && !byCategory || byCategory && byName && byCategory!==byName)continue;
+    const kind=byCategory||byName;
+    if(!['branch','locker'].includes(kind))continue;
+    rows.push([w.Ref,String(w.Number),w.Description,w.ShortAddress,kind==='branch'?'Відділення':'Поштомат',w.WarehouseStatus||'',w.CityRef,stamp,w.CityDescription||'']);
   }
-  return rows.sort((a,b)=>Number(a[1])-Number(b[1]));
+  return rows;
 }
 function syncBranches_(){
   setupKlik_();
-  const book=SpreadsheetApp.getActiveSpreadsheet(), props=PropertiesService.getScriptProperties();
+  const ui=SpreadsheetApp.getUi(),book=SpreadsheetApp.getActiveSpreadsheet(),props=PropertiesService.getScriptProperties();
   if(!book||book.getId()!==props.getProperty('SPREADSHEET_ID'))throw Error('Не та таблиця.');
+  const cfg=book.getSheetByName('Налаштування');
+  if(String(cfg.getRange('A7').getValue())==='Місто доставки')cfg.getRange('A7:B7').setValues([['Географія доставки','Україна']]);
+  const ask=ui.prompt('Довідник Нової пошти','Назва населеного пункту України:',ui.ButtonSet.OK_CANCEL);
+  if(ask.getSelectedButton()!==ui.Button.OK)return;
+  const found=cityLookup_(ask.getResponseText());
+  if(!found.length){ui.alert('Населений пункт не знайдено.');return;}
+  let choice=found[0];
+  if(found.length>1){
+    const ans=ui.prompt('Оберіть населений пункт',found.map((c,i)=>(i+1)+'. '+c.label).join('\n'),ui.ButtonSet.OK_CANCEL);
+    if(ans.getSelectedButton()!==ui.Button.OK)return;
+    choice=found[Number(ans.getResponseText())-1];if(!choice)throw Error('Невірний номер.');
+  }
   const lock=LockService.getScriptLock();lock.waitLock(20000);
   const log=book.getSheetByName('Журнал');
-  let stage='areas';
   try{
-    const areas=directoryRequest_('getAreas',{}).data.filter(a=>/^Харківська(?: область)?$/i.test(String(a.Description).trim()));
-    if(areas.length!==1)npFailure_('area_matches='+areas.length);
-    stage='cities';
-    const cities=listPages_('getCities',{FindByString:'Харків'},directoryRequest_).filter(c=>
-      c.Description==='Харків' && c.Area===areas[0].Ref && (!c.SettlementTypeDescription || /^(місто|м\.?)$/i.test(c.SettlementTypeDescription)));
-    if(cities.length!==1)npFailure_('city_matches='+cities.length);
-    const city=cities[0].Ref, last=props.getProperty('NOVA_POSHTA_CITY_REF');
-    if(last && last!==city)npFailure_('city_ref_changed');
-    stage='types';
-    const stamp=new Date(),types=directoryRequest_('getWarehouseTypes',{}).data;
-    stage='warehouses';
-    const warehouses=listPages_('getWarehouses',{CityRef:city},directoryRequest_);
-    stage='filter';
-    const rows=selectBranches_(warehouses,city,types,stamp);
-    stage='write';
-    const sheet=book.getSheetByName('Відділення НП'), height=Math.max(sheet.getLastRow()-1,rows.length);
-    if(height+1>sheet.getMaxRows())sheet.insertRowsAfter(sheet.getMaxRows(),height+1-sheet.getMaxRows());
-    // Replace the snapshot in one write, only after every page has been validated.
-    const safe=rows.map(row=>row.map(v=>typeof v==='string'&&/^[\s]*[=+@-]/.test(v)?"'"+v:v));
-    while(safe.length<height)safe.push(Array(8).fill(''));
-    sheet.getRange(2,1,height,8).setValues(safe);SpreadsheetApp.flush();
-    props.setProperties({NOVA_POSHTA_CITY_REF:city,NP_LAST_SUCCESS:stamp.toISOString()});
-    log.appendRow([stamp,'Відділення НП','Інформація','','Довідник Харкова оновлено',String(rows.length)]);
+    const stamp=new Date(),all=listPages_('getWarehouses',{CityRef:choice.ref},directoryRequest_),rows=pointRows_(all,choice.ref,stamp);
+    if(!rows.length)npFailure_('no_active_points total='+all.length);
+    const sh=book.getSheetByName('Відділення НП'),n=sh.getLastRow()-1;
+    const others=n?sh.getRange(2,1,n,9).getValues().filter(r=>r[0] && r[6]!==choice.ref):[];
+    // Preserve snapshots of other cities. Only this city's complete refresh is replaced.
+    const merged=others.concat(rows).map(row=>row.map(v=>typeof v==='string'&&/^\s*[=+@-]/.test(v)?"'"+v:v));
+    while(merged.length<n)merged.push(Array(9).fill(''));
+    if(merged.length+1>sh.getMaxRows())sh.insertRowsAfter(sh.getMaxRows(),merged.length+1-sh.getMaxRows());
+    sh.getRange('I1').setValue('Населений пункт');
+    sh.getRange(2,1,merged.length,9).setValues(merged);SpreadsheetApp.flush();
+    props.setProperty('NP_LAST_SUCCESS',stamp.toISOString());
+    log.appendRow([stamp,'Відділення НП','Інформація','','Оновлено точки доставки: '+choice.label,String(rows.length)]);
   }catch(e){
-    const detail='NP:'+stage+' '+(e.npReason||'service_error');
-    log.appendRow([new Date(),'Відділення НП','Помилка','','Не вдалося оновити довідник',detail]);
-    throw Error('Оновлення не завершено. '+detail);
+    const detail='NP:directory '+(e.npReason||'service_error');
+    log.appendRow([new Date(),'Відділення НП','Помилка','','Не вдалося оновити довідник',detail]);throw Error(detail);
   }finally{lock.releaseLock();}
 }
