@@ -1045,7 +1045,7 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
     const names=order.colors.map(c=>c==='yellow'?say('жовтий','жёлтый'):say('синій','синий')).join(', ');
     const pack=order.quantity===1?say('Одна кнопка','Одна кнопка'):say('Дві кнопки','Две кнопки');
     details.textContent=r.number+' · '+pack+' · '+names+' · '+order.confirmedPrice+' грн · '+selectedBranch.name;
-    const contact=document.createElement('p');contact.textContent=say('Найближчим часом ми зв’яжемося з тобою для підтвердження.','В ближайшее время мы свяжемся с тобой для подтверждения.');
+    const contact=document.createElement('p');contact.textContent=say('Найближчим часом ми надішлемо тобі повідомлення для підтвердження замовлення через Telegram, Viber або SMS.','В ближайшее время мы отправим тебе сообщение для подтверждения заказа через Telegram, Viber или SMS.');
     const close=document.createElement('button');close.type='button';close.className='button';close.textContent=say('Закрити','Закрыть');close.addEventListener('click',()=>root.closest('dialog').close());
     status.append(title,details,contact,close);status.scrollIntoView({block:'nearest'});button.disabled=true;
    }else if(r.error==='price_changed'){
