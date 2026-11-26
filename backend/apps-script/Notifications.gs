@@ -10,6 +10,23 @@ function sendOrderNoticePrivate_(book,number,row){
     'Таблиця: '+book.getUrl()].join('\n');
   MailApp.sendEmail(address,'KLIK – нове замовлення №'+number,body);
 }
+function sendOrderNoticeOnce_(book,number,row){
+  if(!/^KLIK\d{6,}$/.test(number))throw Error('invalid_order_number');
+  const props=PropertiesService.getScriptProperties(),key='NOTICE_'+number;
+  const lock=LockService.getScriptLock();lock.waitLock(20000);
+  try{
+    if(props.getProperty(key))return;
+    // Mark before sending: on ambiguous failure an owner must inspect email before retrying.
+    props.setProperty(key,'uncertain');
+  }finally{lock.releaseLock();}
+  try{
+    sendOrderNoticePrivate_(book,number,row);
+    props.setProperty(key,'sent');
+    book.getSheetByName('Журнал').appendRow([new Date(),'Email замовлення','Інформація',number,'Сповіщення передано MailApp','sent']);
+  }catch(_){
+    try{book.getSheetByName('Журнал').appendRow([new Date(),'Email замовлення','Помилка',number,'Перевірте доставку до повторної відправки','uncertain']);}catch(__){}
+  }
+}
 function testNotificationOwner_(){
   const book=SpreadsheetApp.getActiveSpreadsheet(),props=PropertiesService.getScriptProperties();
   if(!book||book.getId()!==props.getProperty('SPREADSHEET_ID'))throw Error('Не та таблиця.');

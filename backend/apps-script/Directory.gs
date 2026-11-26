@@ -27,7 +27,7 @@ function cityLookup_(raw){
       .map(c=>({ref:c.Ref,label:c.Present}));
   });
   const c=CacheService.getScriptCache();
-  for(const item of result)c.put('ua3:valid:'+item.ref,'1',21600);
+  for(const item of result)c.put('ua3:valid:'+item.ref,item.label,21600);
   return result;
 }
 function cityPage_(ref,p){
@@ -63,9 +63,16 @@ function doGet(e){
     if(p.action==='health')body={ok:true,scope:'UA',ordersEnabled:false};
     else if(p.action==='cities')body={ok:true,items:cityLookup_(p.q)};
     else if(p.action==='points')body=Object.assign({ok:true},cityPage_(p.city,Number(p.page||1)));
+    else if(p.action==='config'){
+      const book=SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID'));
+      const cfg=orderSettings_(book);
+      body={ok:true,one:cfg.one,two:cfg.two,yellow:cfg.yellow,blue:cfg.blue,enabled:cfg.enabled,legal:cfg.legal};
+    }
     else body={ok:false,error:'unknown_action'};
   }catch(_){body={ok:false,error:'directory_unavailable'};}
-  return ContentService.createTextOutput(JSON.stringify(body)).setMimeType(ContentService.MimeType.JSON);
+  const json=JSON.stringify(body);
+  if(/^(klikDirectory_[a-f0-9]{32})$/.test(p.callback||''))return ContentService.createTextOutput(p.callback+'('+json+');').setMimeType(ContentService.MimeType.JAVASCRIPT);
+  return ContentService.createTextOutput(json).setMimeType(ContentService.MimeType.JSON);
 }
 function testDirectoryOwner_(){
   const ui=SpreadsheetApp.getUi(),book=SpreadsheetApp.getActiveSpreadsheet();

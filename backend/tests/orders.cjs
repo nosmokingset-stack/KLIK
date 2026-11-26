@@ -19,6 +19,7 @@ const book={getId:()=> 'production',getSheetByName:n=>n==='Замовлення'
 ctx.LockService={getScriptLock:()=>({waitLock:()=>{assert(!held);held=true},releaseLock:()=>{held=false}})};
 ctx.PropertiesService={getScriptProperties:()=>({getProperty:k=>k==='ORDER_COUNTER'?seq:null,setProperty:(_,v)=>{seq=v}})};
 ctx.SpreadsheetApp={flush:()=>{}};
+ctx.CacheService={getScriptCache:()=>({get:()=>p.settlementName})};
 ctx.verifiedPoint_=()=>point;
 assert.equal(ctx.createOrderPrivate_(book,p).number,'KLIK000001');
 sheet.getRange=(r,c)=>({getDisplayValues:()=>c===25?rows.map(x=>[String(x[24]).replace(/^'/,'')]):[rows[r-2].map(x=>String(x).replace(/^'/,''))]});

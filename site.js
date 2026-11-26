@@ -255,7 +255,6 @@
   document.querySelectorAll('[data-i18n-alt]').forEach(el=>el.alt=dict[el.dataset.i18nAlt]);
   document.querySelectorAll('[data-i18n-label]').forEach(el=>el.setAttribute('aria-label',dict[el.dataset.i18nLabel]));
   document.querySelectorAll('[data-language]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.language===language)));
-  document.getElementById('customer-city').value = dict.cityName;
   renderLegal();
   setMenu(false);
   renderOrder();
@@ -284,10 +283,11 @@
   }
   renderOrder=()=>{
    const count=quantity();secondColors.hidden=count===1;
-   secondColors.querySelectorAll('input').forEach(input=>{input.disabled=count===1;});
+   secondColors.querySelectorAll('input').forEach(input=>{input.disabled=count===1||(window.klikPublicConfig&&!window.klikPublicConfig[input.value]);});
    document.querySelector('.color-fieldsets').classList.toggle('two-colors',count===2);
    document.getElementById('first-color-legend').textContent=translations[language][count===1?'chooseColor':'colorOne'];
-   document.getElementById('order-total').textContent=(count===1?199:299)+' '+translations[language].currency;
+   const cfg=window.klikPublicConfig;
+   document.getElementById('order-total').textContent=(cfg?(count===1?cfg.one:cfg.two):(count===1?199:299))+' '+translations[language].currency;
    const selectedBlue=form.querySelector('[name="color1"]:checked').value==='blue'||count===2&&form.querySelector('[name="color2"]:checked').value==='blue';
    document.getElementById('blue-status').hidden=!selectedBlue;
    if(validationActive)validateFields();

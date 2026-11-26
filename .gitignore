@@ -15,6 +15,8 @@
 !/site.css
 !/styles-v1.2.css
 !/site.js
+!/directory.js
+!/styles-v1.5.css
 !/index.html
 !/template.xml
 !/public-files.txt
@@ -68,8 +70,11 @@
 !/backend/tests/directory-filter.cjs
 !/backend/tests/orders.cjs
 !/backend/tests/notifications.cjs
+!/backend/tests/transport.cjs
+!/backend/tests/bridge.cjs
 /backend/apps-script/*
 !/backend/apps-script/*.gs
+!/backend/apps-script/*.html
 !/backend/apps-script/appsscript.json
 !/backend/apps-script/README.md
 **/.clasp*.json

@@ -31,10 +31,19 @@ function findOrder_(sheet,requestId){
 }
 function createOrderPrivate_(book,payload){
   if(!payload || typeof payload!=='object')throw Error('invalid');
+  if(!/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(payload.requestId||''))throw Error('request');
+  const initialLock=LockService.getScriptLock();initialLock.waitLock(20000);
+  try{
+    const existing=findOrder_(book.getSheetByName('Замовлення'),payload.requestId);
+    if(existing)return {ok:true,number:existing[0],duplicate:true};
+  }finally{initialLock.releaseLock();}
   const initial=orderSettings_(book);
   if(!initial.enabled)return {ok:false,error:'store_closed'};
+  const cityName=CacheService.getScriptCache().get('ua3:valid:'+payload.settlementRef);
+  if(!cityName || cityName!==payload.settlementName)throw Error('city_expired');
   const point=verifiedPoint_(payload.settlementRef,payload.pointRef);
   const lock=LockService.getScriptLock();lock.waitLock(20000);
+  let result,notify=true;
   try{
     const sheet=book.getSheetByName('Замовлення'),existing=findOrder_(sheet,payload.requestId);
     if(existing)return {ok:true,number:existing[0],duplicate:true};
@@ -44,6 +53,7 @@ function createOrderPrivate_(book,payload){
     if(v.priceChanged)return {ok:false,error:'price_changed',price:v.price};
     const props=PropertiesService.getScriptProperties();
     const counterKey=book.getId()===props.getProperty('KLIK_TEST_BOOK_ID')?'ORDER_TEST_COUNTER':'ORDER_COUNTER';
+    notify=counterKey!=='ORDER_TEST_COUNTER';
     const raw=props.getProperty(counterKey),counter=raw===null&&counterKey==='ORDER_TEST_COUNTER'?0:Number(raw);
     if(!Number.isSafeInteger(counter)||counter<0)throw Error('counter');
     const next=counter+1,number='KLIK'+String(next).padStart(6,'0');
@@ -55,6 +65,13 @@ function createOrderPrivate_(book,payload){
       payload.quantity===1?'Одна кнопка':'Дві кнопки',payload.quantity,colors[0],colors[1]||'',v.amount,
       'При отриманні','','','','',payload.language,'Так',textCell_(cfg.legal),'Сайт KLIK',textCell_(payload.requestId)]);
     SpreadsheetApp.flush();
-    return {ok:true,number,duplicate:false};
+    result={ok:true,number,duplicate:false};
   }finally{lock.releaseLock();}
+  try{
+    const saved=findOrder_(book.getSheetByName('Замовлення'),payload.requestId);
+    if(saved&&notify)sendOrderNoticeOnce_(book,result.number,saved);
+  }catch(_){
+    // A saved order is never rolled back because mail or logging failed.
+  }
+  return result;
 }

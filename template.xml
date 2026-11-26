@@ -243,6 +243,8 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
 }
 @media(prefers-reduced-motion:reduce){.legal-dialog[open]{animation:none}}
 
+.directory-status{display:block;font-size:13px;line-height:1.35;color:#405c7c;min-height:1em;margin-top:4px}
+
 ]]></b:skin>
 <b:template-skin><![CDATA[body#layout .blogger-system{display:block!important}]]></b:template-skin>
 </head><body>
@@ -334,9 +336,9 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   <button class="price-card" type="button" data-order-quantity="1" aria-haspopup="dialog" aria-controls="order-dialog"><img src="https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/01-yellow-single-640-transparent.webp" loading="lazy" width="640" height="583" decoding="async" alt="Одна жовта магнітна кнопка KLIK" data-i18n-alt="singleAlt"/><span class="price-card-copy"><span class="price-card-title" data-i18n="one">Одна кнопка</span><span class="price">199 <small data-i18n="currency">грн</small></span><span class="price-card-action"><svg class="icon" aria-hidden="true"><use href="#icon-cart"/></svg><span data-i18n="order">Замовити</span></span></span></button>
   <button class="price-card featured" type="button" data-order-quantity="2" aria-haspopup="dialog" aria-controls="order-dialog"><span class="saving" data-i18n="saving">Економія 99 грн</span><img src="https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/03-yellow-blue-pair-640-transparent.webp" loading="lazy" width="640" height="360" decoding="async" alt="Жовта кнопка KLIK та візуалізація синьої" data-i18n-alt="pairAlt"/><span class="price-card-copy"><span class="price-card-title" data-i18n="two">Дві кнопки</span><span class="price">299 <small data-i18n="currency">грн</small></span><span class="price-card-action"><svg class="icon" aria-hidden="true"><use href="#icon-cart"/></svg><span data-i18n="order">Замовити</span></span></span></button>
  </div><div class="fulfilment">
-  <div><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg><p><strong data-i18n="region">Тільки для Харкова</strong><span data-i18n="regionD">KLIK створено спеціально для харків’ян. Продаж здійснюється лише в межах міста Харкова.</span></p></div>
-  <div><svg class="icon" aria-hidden="true"><use href="#icon-truck"/></svg><p><strong data-i18n="ship">Доставка</strong><span data-i18n="shipD">До відділення Нової пошти в Харкові. Вартість доставки не входить до ціни комплекту.</span></p></div>
-  <div><svg class="icon" aria-hidden="true"><use href="#icon-pay"/></svg><p><strong data-i18n="pay">Оплата при отриманні</strong><span data-i18n="payD">Сплачуй за замовлення при отриманні у відділенні Нової пошти. Без передоплати.</span></p></div>
+  <div><svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg><p><strong data-i18n="region">Доставка по Україні</strong><span data-i18n="regionD">Обирай доступне відділення або поштомат Нової пошти у своєму населеному пункті.</span></p></div>
+  <div><svg class="icon" aria-hidden="true"><use href="#icon-truck"/></svg><p><strong data-i18n="ship">Доставка</strong><span data-i18n="shipD">Новою поштою по Україні до відділення або поштомата. Вартість доставки сплачується окремо.</span></p></div>
+  <div><svg class="icon" aria-hidden="true"><use href="#icon-pay"/></svg><p><strong data-i18n="pay">Оплата при отриманні</strong><span data-i18n="payD">Оплата при отриманні. Умови оплати уточнюються під час підтвердження замовлення.</span></p></div>
 </div></div></section><!-- ORDER END -->
 <section class="faq section-band" id="faq" aria-labelledby="faq-title"><div class="container faq-layout">
   <h2 id="faq-title" data-i18n="faqTitle">Часті запитання</h2>
@@ -352,7 +354,7 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
     <details><summary data-i18n="q6">Навіщо купувати дві кнопки KLIK?</summary><p data-i18n="a6">Якщо ти набираєш багато води додому, дві кнопки дозволять одночасно наповнювати дві ємності на автоматі з двома кранами. Це зручно та допомагає заощадити час.</p></details>
     <details><summary data-i18n="q7">Чи можна обрати колір KLIK?</summary><p data-i18n="a7">Так! Ти можеш обрати жовтий або синій колір за наявності. При замовленні двох кнопок можна обрати колір кожної окремо.</p></details>
     <details><summary data-i18n="q8">Чи можна залишати автомат без нагляду під час набирання води?</summary><p data-i18n="a8">Ні. Залишайся поруч з автоматом та контролюй наповнення ємностей. Коли вода набралася, просто зніми KLIK та забери його із собою.</p></details>
-    <details><summary data-i18n="q9">Як здійснюється доставка та оплата?</summary><p data-i18n="a9">Доставка здійснюється Новою поштою в межах міста Харкова. Оплата при отриманні замовлення у відділенні Нової пошти. Жодної передоплати! Вартість доставки сплачується окремо.</p></details>
+    <details><summary data-i18n="q9">Як здійснюється доставка та оплата?</summary><p data-i18n="a9">Доставка Новою поштою по Україні до доступного відділення або поштомата. Оплата при отриманні; спосіб оплати уточнюється під час підтвердження. Доставка сплачується окремо.</p></details>
     <details><summary data-i18n="q10">Як оформити замовлення?</summary><p data-i18n="a10">Обери потрібний комплект у розділі «Вартість та замовлення», натисни «Замовити», обери колір кнопок та заповни контактні дані.</p></details>
   </div>
 </div></section>
@@ -377,7 +379,7 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
 <dialog class="order-dialog" id="order-dialog" aria-labelledby="dialog-title" aria-describedby="order-service-note"><div class="dialog-shell"><header class="dialog-header"><h2 id="dialog-title" tabindex="-1" data-i18n="dialogTitle">Замовлення KLIK</h2><div class="dialog-tools"><div class="languages" role="group" aria-label="Мова сайту" data-i18n-label="language"><button type="button" data-language="uk" aria-pressed="true" lang="uk">UA</button><button type="button" data-language="ru" aria-pressed="false" lang="ru">RU</button></div><button class="dialog-close" type="button" aria-label="Закрити вікно" data-i18n-label="closeDialog"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button></div></header>
 <form id="order-form" method="dialog" novalidate="novalidate"><fieldset class="package-fieldset"><legend data-i18n="choosePackage">Обери свій комплект</legend><div class="package-options"><label class="package-option"><input type="radio" name="quantity" value="1" checked="checked"/><span class="package-choice"><span class="selection-check" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span><strong data-i18n="one">Одна кнопка</strong><span class="package-price">199 <span data-i18n="currency">грн</span></span></span></label><label class="package-option"><input type="radio" name="quantity" value="2"/><span class="package-choice"><span class="selection-check" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span><strong data-i18n="two">Дві кнопки</strong><span class="package-price">299 <span data-i18n="currency">грн</span></span><span class="package-saving" data-i18n="saving">Економія 99 грн</span></span></label></div></fieldset>
 <div class="color-fieldsets"><fieldset class="color-fieldset" id="color-fieldset-1"><legend id="first-color-legend">Обери колір</legend><div class="color-options"><label class="color-option"><input type="radio" name="color1" value="yellow" checked="checked"/><span class="color-choice"><img src="https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/01-yellow-single-640-transparent.webp" width="64" height="64" alt="" loading="lazy"/><span data-i18n="yellow">Жовтий</span><span class="selection-check" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span></span></label><label class="color-option"><input type="radio" name="color1" value="blue"/><span class="color-choice"><img src="https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/02-blue-single-640-transparent.webp" width="64" height="64" alt="" loading="lazy"/><span data-i18n="blue">Синій</span><span class="selection-check" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span></span></label></div></fieldset><fieldset class="color-fieldset" id="color-fieldset-2" hidden="hidden"><legend data-i18n="colorTwo">Колір кнопки №2</legend><div class="color-options"><label class="color-option"><input type="radio" name="color2" value="yellow" checked="checked" disabled="disabled"/><span class="color-choice"><img src="https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/01-yellow-single-640-transparent.webp" width="64" height="64" alt="" loading="lazy"/><span data-i18n="yellow">Жовтий</span><span class="selection-check" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span></span></label><label class="color-option"><input type="radio" name="color2" value="blue" disabled="disabled"/><span class="color-choice"><img src="https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/02-blue-single-640-transparent.webp" width="64" height="64" alt="" loading="lazy"/><span data-i18n="blue">Синій</span><span class="selection-check" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span></span></label></div></fieldset></div><p class="blue-status" id="blue-status" role="status" hidden="hidden" data-i18n="blueStatus">Синя кнопка ще не виготовлена. Зображення показує візуалізацію кольору; наявність і термін виготовлення не підтверджені.</p>
-<fieldset class="customer-fieldset"><legend data-i18n="customerDetails">Дані покупця</legend><div class="customer-fields"><div class="form-field"><label for="customer-name" data-i18n="customerName">Ім’я та прізвище</label><input id="customer-name" name="customer-name" type="text" autocomplete="name" maxlength="80" required="required" aria-describedby="customer-name-error"/><span class="field-error" id="customer-name-error" hidden="hidden"></span></div><div class="form-field"><label for="customer-phone" data-i18n="customerPhone">Номер телефону</label><input id="customer-phone" name="customer-phone" type="tel" autocomplete="tel" maxlength="25" required="required" aria-describedby="customer-phone-error" inputmode="tel" placeholder="+380 (__) ___-__-__"/><span class="field-error" id="customer-phone-error" hidden="hidden"></span></div><div class="form-field"><label for="customer-city" data-i18n="customerCity">Місто</label><input id="customer-city" name="customer-city" type="text" readonly="readonly" value="Харків"/></div><div class="form-field"><label for="customer-branch" data-i18n="customerBranch">Відділення Нової пошти</label><input id="customer-branch" name="customer-branch" type="text" autocomplete="off" maxlength="120" required="required" aria-describedby="customer-branch-error"/><span class="field-error" id="customer-branch-error" hidden="hidden"></span></div></div></fieldset><div class="order-summary"><span data-i18n="totalLabel">До сплати</span><output id="order-total" aria-live="polite">199 грн</output></div><div class="payment-note"><svg class="icon" aria-hidden="true"><use href="#icon-pay"/></svg><div><p data-i18n="modalPay">Оплата при отриманні у відділенні Нової пошти. Без передоплати.</p><p data-i18n="shippingExcluded">Вартість доставки сплачується окремо.</p></div></div>
+<fieldset class="customer-fieldset"><legend data-i18n="customerDetails">Дані покупця</legend><div class="customer-fields"><div class="form-field"><label for="customer-name" data-i18n="customerName">Ім’я та прізвище</label><input id="customer-name" name="customer-name" type="text" autocomplete="name" maxlength="80" required="required" aria-describedby="customer-name-error"/><span class="field-error" id="customer-name-error" hidden="hidden"></span></div><div class="form-field"><label for="customer-phone" data-i18n="customerPhone">Номер телефону</label><input id="customer-phone" name="customer-phone" type="tel" autocomplete="tel" maxlength="25" required="required" aria-describedby="customer-phone-error" inputmode="tel" placeholder="+380 (__) ___-__-__"/><span class="field-error" id="customer-phone-error" hidden="hidden"></span></div><div class="form-field"><label for="customer-city" data-i18n="customerCity">Місто</label><input id="customer-city" name="customer-city" type="text" autocomplete="off" maxlength="80" list="city-options" required="required" aria-describedby="city-status"/><datalist id="city-options"></datalist><span id="city-status" class="directory-status" role="status"></span></div><div class="form-field"><label for="customer-branch" data-i18n="customerBranch">Відділення Нової пошти</label><input id="customer-branch" name="customer-branch" type="text" autocomplete="off" maxlength="180" list="branch-options" required="required" aria-describedby="customer-branch-error branch-status"/><datalist id="branch-options"></datalist><span id="branch-status" class="directory-status" role="status"></span><span class="field-error" id="customer-branch-error" hidden="hidden"></span></div></div></fieldset><div class="order-summary"><span data-i18n="totalLabel">До сплати</span><output id="order-total" aria-live="polite">199 грн</output></div><div class="payment-note"><svg class="icon" aria-hidden="true"><use href="#icon-pay"/></svg><div><p data-i18n="modalPay">Оплата при отриманні. Для поштомата спосіб оплати уточнюється під час підтвердження.</p><p data-i18n="shippingExcluded">Вартість доставки сплачується окремо.</p></div></div>
 <div class="consent"><input id="order-consent" type="checkbox" required="required" aria-labelledby="consent-text" aria-describedby="order-consent-error"/>
   <div id="consent-text"><label for="order-consent" data-i18n="agreeStart">Я ознайомився(-лася) з умовами</label> <button type="button" class="legal-link" data-document-open="offer" aria-haspopup="dialog" aria-controls="legal-dialog" data-i18n="agreeOffer">публічної оферти</button>, <button type="button" class="legal-link" data-document-open="privacy" aria-haspopup="dialog" aria-controls="legal-dialog" data-i18n="agreePrivacy">політикою конфіденційності</button> <span data-i18n="agreeAnd">та</span> <button type="button" class="legal-link" data-document-open="returns" aria-haspopup="dialog" aria-controls="legal-dialog" data-i18n="agreeReturns">умовами повернення товару</button>.</div>
   <p class="field-error" id="order-consent-error" hidden="hidden"></p>
@@ -461,9 +463,8 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   <p>Перед відправленням замовлення покупець має можливість ознайомитися з його складом, вартістю та умовами придбання.</p>
   <p>Договір укладається шляхом прийняття покупцем умов оферти та підтвердження замовлення відповідно до законодавства України.</p>
   <h3>5. Доставка та оплата</h3>
-  <p>Продаж товарів KLIK здійснюється виключно в межах міста Харкова.</p>
-  <p>Доставка здійснюється до обраного відділення Нової пошти в Харкові.</p>
-  <p>Оплата товару здійснюється при отриманні. Передоплата не потрібна.</p>
+  <p>Доставка здійснюється Новою поштою по Україні до доступного відділення або поштомата.</p>
+  <p>Оплата товару здійснюється при отриманні. Передоплата не потрібна. Спосіб оплати для поштомата уточнюється під час підтвердження замовлення.</p>
   <p>Строк відправлення та наявність обраного кольору уточнюються під час підтвердження замовлення.</p>
   <h3>6. Правила використання товару</h3>
   <p>KLIK необхідно використовувати за призначенням.</p>
@@ -503,9 +504,8 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   <p>Перед отправкой заказа покупатель может ознакомиться с его составом, стоимостью и условиями приобретения.</p>
   <p>Договор заключается путём принятия покупателем условий оферты и подтверждения заказа в соответствии с законодательством Украины.</p>
   <h3>5. Доставка и оплата</h3>
-  <p>Продажа товаров KLIK осуществляется исключительно в пределах города Харькова.</p>
-  <p>Доставка осуществляется в выбранное отделение Новой почты в Харькове.</p>
-  <p>Оплата товара производится при получении. Предоплата не требуется.</p>
+  <p>Доставка осуществляется Новой почтой по Украине в доступное отделение или почтомат.</p>
+  <p>Оплата товара производится при получении. Предоплата не требуется. Способ оплаты для почтомата уточняется при подтверждении заказа.</p>
   <p>Срок отправки и наличие выбранного цвета уточняются при подтверждении заказа.</p>
   <h3>6. Правила использования товара</h3>
   <p>KLIK следует использовать по назначению.</p>
@@ -531,7 +531,7 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   <ul>
   <li>Ім’я та прізвище покупця.</li>
   <li>Номер телефону.</li>
-  <li>Номер відділення Нової пошти.</li>
+  <li>Населений пункт та обране відділення або поштомат Нової пошти.</li>
   <li>Інформацію про обраний комплект та колір виробу.</li>
   <li>Додаткові відомості, добровільно надані покупцем.</li>
   </ul>
@@ -559,7 +559,7 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   <ul>
   <li>Имя и фамилия покупателя.</li>
   <li>Номер телефона.</li>
-  <li>Номер отделения Новой почты.</li>
+  <li>Населённый пункт и выбранное отделение или почтомат Новой почты.</li>
   <li>Информация о выбранном комплекте и цвете изделия.</li>
   <li>Дополнительные сведения, добровольно предоставленные покупателем.</li>
   </ul>
@@ -637,8 +637,8 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   "fixD": "Вбудований магніт утримує KLIK на металевій поверхні автомата.",
   "ship": "Доставка",
   "pay": "Оплата при отриманні",
-  "shipD": "До відділення Нової пошти в Харкові. Вартість доставки не входить до ціни комплекту.",
-  "payD": "Сплачуй за замовлення при отриманні у відділенні Нової пошти. Без передоплати.",
+  "shipD": "Новою поштою по Україні до відділення або поштомата. Вартість доставки сплачується окремо.",
+  "payD": "Оплата при отриманні. Умови оплати уточнюються під час підтвердження замовлення.",
   "made": "Зроблено в Харкові",
   "q1": "Як працює KLIK?",
   "a1": "Вбудований магніт притягує KLIK до металевої поверхні автомата та утримує кнопку подачі води в натиснутому положенні. Більше не потрібно постійно тримати палець на кнопці. Вода набирається, а твої руки вільні!",
@@ -658,9 +658,9 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   "a8": "Ні. Залишайся поруч з автоматом та контролюй наповнення ємностей. Коли вода набралася, просто зніми KLIK та забери його із собою.",
   "effort": "Без зайвих зусиль",
   "storeSub": "Обирай свій комплект KLIK!",
-  "region": "Тільки для Харкова",
-  "regionD": "KLIK створено спеціально для харків’ян. Продаж здійснюється лише в межах міста Харкова.",
-  "modalPay": "Оплата при отриманні у відділенні Нової пошти. Без передоплати.",
+  "region": "Доставка по Україні",
+  "regionD": "Обирай доступне відділення або поштомат Нової пошти у своєму населеному пункті.",
+  "modalPay": "Оплата при отриманні. Для поштомата спосіб оплати уточнюється під час підтвердження.",
   "shippingExcluded": "Вартість доставки сплачується окремо.",
   "customerName": "Ім’я та прізвище",
   "nameRequired": "Укажи ім’я та прізвище.",
@@ -683,7 +683,7 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   "close": "Закрити",
   "draft": "Попередня редакція",
   "q9": "Як здійснюється доставка та оплата?",
-  "a9": "Доставка здійснюється Новою поштою в межах міста Харкова. Оплата при отриманні замовлення у відділенні Нової пошти. Жодної передоплати! Вартість доставки сплачується окремо.",
+  "a9": "Доставка Новою поштою по Україні до доступного відділення або поштомата. Оплата при отриманні; спосіб оплати уточнюється під час підтвердження. Доставка сплачується окремо.",
   "q10": "Як оформити замовлення?",
   "a10": "Обери потрібний комплект у розділі «Вартість та замовлення», натисни «Замовити», обери колір кнопок та заповни контактні дані."
 });
@@ -726,8 +726,8 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   "fixD": "Встроенный магнит удерживает KLIK на металлической поверхности автомата.",
   "ship": "Доставка",
   "pay": "Оплата при получении",
-  "shipD": "В отделение Новой почты в Харькове. Доставка оплачивается отдельно от стоимости комплекта.",
-  "payD": "Оплачивай заказ при получении в отделении Новой почты. Без предоплаты.",
+  "shipD": "Новой почтой по Украине в отделение или почтомат. Доставка оплачивается отдельно.",
+  "payD": "Оплата при получении. Условия оплаты уточняются при подтверждении заказа.",
   "made": "Сделано в Харькове",
   "q1": "Как работает KLIK?",
   "a1": "Встроенный магнит притягивает KLIK к металлической поверхности автомата и удерживает кнопку подачи воды нажатой. Больше не нужно держать палец на кнопке. Вода набирается, а твои руки свободны!",
@@ -747,9 +747,9 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   "a8": "Нет. Оставайся рядом с автоматом и следи за наполнением ёмкостей. Когда вода наберётся, сними KLIK и забери её с собой.",
   "effort": "Без лишних усилий",
   "storeSub": "Выбирай свой комплект KLIK!",
-  "region": "Только для Харькова",
-  "regionD": "KLIK создана специально для харьковчан. Продажа только в пределах города Харькова.",
-  "modalPay": "Оплата при получении в отделении Новой почты. Без предоплаты.",
+  "region": "Доставка по Украине",
+  "regionD": "Выбирай доступное отделение или почтомат Новой почты в своём населённом пункте.",
+  "modalPay": "Оплата при получении. Для почтомата способ оплаты уточняется при подтверждении.",
   "shippingExcluded": "Стоимость доставки оплачивается отдельно.",
   "customerName": "Имя и фамилия",
   "nameRequired": "Укажи имя и фамилию.",
@@ -772,7 +772,7 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   "close": "Закрыть",
   "draft": "Предварительная редакция",
   "q9": "Как происходит доставка и оплата?",
-  "a9": "Доставка Новой почтой в пределах города Харькова. Оплата при получении заказа в отделении Новой почты. Никакой предоплаты! Стоимость доставки оплачивается отдельно.",
+  "a9": "Доставка Новой почтой по Украине в доступное отделение или почтомат. Оплата при получении; способ оплаты уточняется при подтверждении. Доставка оплачивается отдельно.",
   "q10": "Как оформить заказ?",
   "a10": "Выбери нужный комплект в разделе «Стоимость и заказ», нажми «Заказать», выбери цвет кнопок и заполни контактные данные."
 });
@@ -844,7 +844,6 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   document.querySelectorAll('[data-i18n-alt]').forEach(el=>el.alt=dict[el.dataset.i18nAlt]);
   document.querySelectorAll('[data-i18n-label]').forEach(el=>el.setAttribute('aria-label',dict[el.dataset.i18nLabel]));
   document.querySelectorAll('[data-language]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.language===language)));
-  document.getElementById('customer-city').value = dict.cityName;
   renderLegal();
   setMenu(false);
   renderOrder();
@@ -873,10 +872,11 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   }
   renderOrder=()=>{
    const count=quantity();secondColors.hidden=count===1;
-   secondColors.querySelectorAll('input').forEach(input=>{input.disabled=count===1;});
+   secondColors.querySelectorAll('input').forEach(input=>{input.disabled=count===1||(window.klikPublicConfig&&!window.klikPublicConfig[input.value]);});
    document.querySelector('.color-fieldsets').classList.toggle('two-colors',count===2);
    document.getElementById('first-color-legend').textContent=translations[language][count===1?'chooseColor':'colorOne'];
-   document.getElementById('order-total').textContent=(count===1?199:299)+' '+translations[language].currency;
+   const cfg=window.klikPublicConfig;
+   document.getElementById('order-total').textContent=(cfg?(count===1?cfg.one:cfg.two):(count===1?199:299))+' '+translations[language].currency;
    const selectedBlue=form.querySelector('[name="color1"]:checked').value==='blue'||count===2&&form.querySelector('[name="color2"]:checked').value==='blue';
    document.getElementById('blue-status').hidden=!selectedBlue;
    if(validationActive)validateFields();
@@ -920,6 +920,115 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   const problem=document.querySelector('.problem');
   if(problem){const sequence=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){problem.classList.add('is-visible');sequence.disconnect();}},{threshold:.08});problem.classList.add('comparison-motion');sequence.observe(problem);}
  }
+})();
+
+(function(){
+ 'use strict';
+ const root=document.getElementById('order-form');if(!root)return;
+ const city=root.querySelector('#customer-city'),branch=root.querySelector('#customer-branch');
+ const cities=root.querySelector('#city-options'),branches=root.querySelector('#branch-options');
+ const cs=root.querySelector('#city-status'),bs=root.querySelector('#branch-status');
+ const endpoint='https://script.google.com/macros/s/AKfycbxw9BRSOcWBCcMWZgxC0WvS_FIbUoFaGKjDMXQ971svfk0EAoim5iAPPVi2M1sR_VR1/exec';
+ let selectedCity=null,selectedBranch=null,cityItems=[],branchItems=[],cityTimer,cityRevision=0,branchRevision=0;
+ const ru=()=>document.documentElement.lang==='ru';
+ const say=(uk,rus)=>ru()?rus:uk;
+ let config=null,requestId=null,inFlight=false,requestNonce='',resultFrame=null;
+ function send(action,payload={}){
+  if(!['cities','points','config'].includes(action))return Promise.reject(Error('invalid'));
+  const callback='klikDirectory_'+crypto.randomUUID().replaceAll('-','');
+  const url=new URL(endpoint);url.searchParams.set('action',action);url.searchParams.set('callback',callback);
+  for(const [key,value] of Object.entries(payload))url.searchParams.set(key,String(value));
+  return new Promise((resolve,reject)=>{
+   const script=document.createElement('script');
+   const cleanup=()=>{clearTimeout(timeout);delete window[callback];script.remove();};
+   const timeout=setTimeout(()=>{cleanup();reject(Error('timeout'));},20000);
+   window[callback]=result=>{cleanup();if(result&&result.ok)resolve(result);else reject(Error('unavailable'));};
+   script.onerror=()=>{cleanup();reject(Error('offline'));};
+   script.src=url.href;document.head.append(script);
+  });
+ }
+ function options(list,items,format){list.replaceChildren(...items.map(item=>{const o=document.createElement('option');o.value=format(item);return o;}));}
+ function clearBranch(){selectedBranch=null;branch.value='';branchItems=[];branches.replaceChildren();bs.textContent='';branchRevision++;}
+ city.addEventListener('input',()=>{
+  const hit=cityItems.filter(c=>c.label===city.value);
+  if(hit.length===1){if(!selectedCity||selectedCity.ref!==hit[0].ref){selectedCity=hit[0];clearBranch();loadPoints(hit[0]);}return;}
+  selectedCity=null;clearBranch();const q=city.value.trim(),rev=++cityRevision;clearTimeout(cityTimer);
+  cities.replaceChildren();cityItems=[];
+  if(q.length<3){cs.textContent='';return;}
+  cs.textContent=say('Завантаження…','Загрузка…');
+  cityTimer=setTimeout(async()=>{try{const r=await send('cities',{q});if(rev!==cityRevision)return;cityItems=r.items;options(cities,cityItems,x=>x.label);cs.textContent=cityItems.length?'':say('Не знайдено','Не найдено');}catch(_){if(rev===cityRevision)cs.textContent=say('Не вдалося завантажити. Спробуй ще раз.','Не удалось загрузить. Попробуй ещё раз.');}},450);
+ });
+ async function loadPoints(item){
+  const rev=++branchRevision;bs.textContent=say('Завантаження…','Загрузка…');
+  try{
+   let page=1,more=true,all=[];
+   while(more&&page<=30){const r=await send('points',{city:item.ref,page});if(rev!==branchRevision)return;all=all.concat(r.items);more=r.more;page++;}
+   if(more)throw Error('incomplete');
+   branchItems=all;options(branches,all,x=>x.name);bs.textContent=all.length?'':say('Не знайдено','Не найдено');
+  }catch(_){if(rev===branchRevision)bs.textContent=say('Не вдалося завантажити. Обери населений пункт знову.','Не удалось загрузить. Выбери населённый пункт снова.');}
+ }
+ branch.addEventListener('input',()=>{const hits=branchItems.filter(x=>x.name===branch.value);selectedBranch=hits.length===1?hits[0]:null;});
+ async function loadConfig(){
+  try{
+   const c=await send('config');
+   if(!Number.isSafeInteger(c.one)||!Number.isSafeInteger(c.two)||c.one<=0||c.two<=0||typeof c.legal!=='string')throw Error('config');
+   config=window.klikPublicConfig=c;
+   root.querySelectorAll('[name=color1][value=blue],[name=color2][value=blue]').forEach(input=>{input.disabled=!c.blue;});
+   root.querySelectorAll('.package-option').forEach((el,i)=>{el.querySelector('.package-price').firstChild.textContent=(i?c.two:c.one)+' ';});
+   const count=Number(root.querySelector('[name=quantity]:checked').value);
+   root.querySelector('#order-total').textContent=(count===1?c.one:c.two)+' грн';
+  }catch(_){config=null;window.klikPublicConfig=null;}
+ }
+ loadConfig();
+ root.addEventListener('input',()=>{if(!inFlight)requestId=null;});
+ root.addEventListener('change',()=>{if(!inFlight)requestId=null;});
+ root.addEventListener('submit',event=>{
+  event.preventDefault();event.stopImmediatePropagation();
+  if(inFlight)return;
+  if(!selectedCity||!selectedBranch){
+   if(!selectedCity){cs.textContent=say('Обери населений пункт зі списку.','Выбери населённый пункт из списка.');city.focus();}
+   else {bs.textContent=say('Обери відділення або поштомат зі списку.','Выбери отделение или почтомат из списка.');branch.focus();}
+   return;
+  }
+  const status=root.querySelector('#order-submit-status'),button=root.querySelector('.order-submit');
+  const show=message=>{status.hidden=false;status.textContent=message;status.scrollIntoView({block:'nearest'});};
+  if(!config){show(say('Сервіс замовлень недоступний. Спробуй пізніше.','Сервис заказов недоступен. Попробуй позже.'));return;}
+  if(!config.enabled){show(say('Прийом замовлень тимчасово вимкнено.','Приём заказов временно отключён.'));return;}
+  const name=root.querySelector('#customer-name').value.trim(),phone=root.querySelector('#customer-phone').value.replace(/\D/g,'');
+  if(name.split(/\s+/u).filter(x=>/\p{L}/u.test(x)).length<2){root.querySelector('#customer-name').focus();show(say('Укажи ім’я та прізвище.','Укажи имя и фамилию.'));return;}
+  if(!/^380[1-9]\d{8}$/.test(phone)){root.querySelector('#customer-phone').focus();show(say('Укажи повний номер телефону.','Укажи полный номер телефона.'));return;}
+  if(!root.querySelector('#order-consent').checked){root.querySelector('#order-consent').focus();show(say('Підтвердь ознайомлення з умовами.','Подтверди согласие с условиями.'));return;}
+  const quantity=Number(root.querySelector('[name=quantity]:checked').value),colors=[root.querySelector('[name=color1]:checked').value];
+  if(quantity===2)colors.push(root.querySelector('[name=color2]:checked').value);
+  if(colors.some(c=>!config[c])){show(say('Обраний колір тимчасово недоступний.','Выбранный цвет временно недоступен.'));return;}
+  if(!['https://klickkhua.blogspot.com','https://klik.kh.ua'].includes(location.origin)){show(say('Оформлення доступне лише на сайті KLIK.','Оформление доступно только на сайте KLIK.'));return;}
+  requestId=requestId||crypto.randomUUID();requestNonce=crypto.randomUUID().replaceAll('-','');
+  const order={name,phone,quantity,colors,settlementRef:selectedCity.ref,settlementName:selectedCity.label,pointRef:selectedBranch.ref,
+   consent:true,legalVersion:config.legal,language:document.documentElement.lang,requestId,confirmedPrice:quantity===1?config.one:config.two};
+  inFlight=true;button.disabled=true;show(say('Надсилаємо замовлення…','Отправляем заказ…'));
+  resultFrame=document.createElement('iframe');resultFrame.hidden=true;resultFrame.name='klik-order-'+requestNonce;document.body.append(resultFrame);
+  const post=document.createElement('form');post.method='post';post.action=endpoint;post.target=resultFrame.name;post.hidden=true;
+  for(const [key,value] of Object.entries({origin:location.origin,nonce:requestNonce,order:JSON.stringify(order)})){
+   const input=document.createElement('input');input.name=key;input.value=value;post.append(input);
+  }
+  document.body.append(post);post.submit();post.remove();
+  const timer=setTimeout(()=>{window.removeEventListener('message',response);if(inFlight){inFlight=false;button.disabled=false;show(say('Відповідь не отримано. Спробуй ще раз: поля форми збережено.','Ответ не получен. Попробуй ещё раз: поля формы сохранены.'));}},35000);
+  function response(e){
+   if(!inFlight||!resultFrame||!/^https:\/\/[a-z0-9-]+\.googleusercontent\.com$/i.test(e.origin))return;
+   let child;try{child=resultFrame.contentWindow[0];}catch(_){}
+   if(e.source!==resultFrame.contentWindow&&e.source!==child)return;
+   if(!e.data||e.data.channel!=='klik-order-v1'||e.data.nonce!==requestNonce)return;
+   clearTimeout(timer);window.removeEventListener('message',response);inFlight=false;button.disabled=false;
+   const r=e.data.result||{};
+   if(r.ok&&/^KLIK\d{6,}$/.test(r.number)){
+    show(say('Дякуємо! Замовлення '+r.number+' збережено. Ми зв’яжемося з тобою для підтвердження.','Спасибо! Заказ '+r.number+' сохранён. Мы свяжемся с тобой для подтверждения.'));
+    button.disabled=true;
+   }else if(r.error==='price_changed'){
+    loadConfig();requestId=null;show(say('Ціна змінилася. Перевір нову суму та підтвердь замовлення ще раз.','Цена изменилась. Проверь новую сумму и подтверди заказ ещё раз.'));
+   }else show(say('Не вдалося оформити замовлення. Дані збережено, спробуй ще раз.','Не удалось оформить заказ. Данные сохранены, попробуй ещё раз.'));
+  }
+  window.addEventListener('message',response);
+ },true);
 })();
 
 //]]></script>
