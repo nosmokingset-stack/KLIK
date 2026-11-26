@@ -1,10 +1,21 @@
 function onOpen() {
   migrateNotificationAddress_();
   cleanupDirectorySettings_();
+  cleanupDirectorySheet_();
   SpreadsheetApp.getUi().createMenu('KLIK').addItem('Підготувати таблицю','setupKlik_')
     .addItem('Перевірити довідник Нової пошти','testDirectoryOwner_')
     .addItem('Перевірити тестове замовлення і email','testOrderOwner_')
     .addItem('Перевірити email сповіщень','testNotificationOwner_').addToUi();
+}
+function cleanupDirectorySheet_(){
+  const book=SpreadsheetApp.getActiveSpreadsheet(),props=PropertiesService.getScriptProperties();
+  if(!book||book.getId()!==props.getProperty('SPREADSHEET_ID')||props.getProperty('DIRECTORY_REMOVED_V1')==='done')return;
+  const sheet=book.getSheetByName('Відділення НП');
+  if(!sheet){props.setProperty('DIRECTORY_REMOVED_V1','done');return;}
+  const expected=['Ref','Номер','Назва','Адреса','Тип','Статус','Ref міста','Оновлено'];
+  if(sheet.getLastColumn()>9||JSON.stringify(sheet.getRange(1,1,1,8).getDisplayValues()[0])!==JSON.stringify(expected))return;
+  book.deleteSheet(sheet);
+  props.setProperty('DIRECTORY_REMOVED_V1','done');
 }
 function cleanupDirectorySettings_(){
   const book=SpreadsheetApp.getActiveSpreadsheet(),props=PropertiesService.getScriptProperties();

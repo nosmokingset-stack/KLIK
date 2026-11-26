@@ -20,4 +20,12 @@ const rows=['Інша настройка','Щоденно оновлювати �
 book.getSheetByName=()=>({getLastRow:()=>4,getRange:(r,col,n,w)=>w===1?{getDisplayValues:()=>rows.map(v=>[v])}:{clearContent:()=>cleared.push(r)}});
 ctx.cleanupDirectorySettings_();
 assert.deepEqual(cleared,[3,4]);
+let deleted=false,marker='';
+const headers=['Ref','Номер','Назва','Адреса','Тип','Статус','Ref міста','Оновлено'];
+const stale={getLastColumn:()=>8,getRange:()=>({getDisplayValues:()=>[headers]})};
+book.getSheetByName=n=>n==='Відділення НП'?stale:null;
+book.deleteSheet=s=>{assert.equal(s,stale);deleted=true};
+ctx.PropertiesService={getScriptProperties:()=>({getProperty:k=>k==='SPREADSHEET_ID'?'KLIK':marker,setProperty:(_,v)=>{marker=v}})};
+ctx.cleanupDirectorySheet_();assert(deleted);assert.equal(marker,'done');
+deleted=false;marker='';stale.getLastColumn=()=>10;ctx.cleanupDirectorySheet_();assert.equal(deleted,false);
 console.log('PASS: one-time migration preserves custom address; notification reads current sheet setting');
