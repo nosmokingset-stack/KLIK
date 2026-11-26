@@ -58,3 +58,27 @@ function doGet(e){
   }catch(_){body={ok:false,error:'directory_unavailable'};}
   return ContentService.createTextOutput(JSON.stringify(body)).setMimeType(ContentService.MimeType.JSON);
 }
+function testDirectoryOwner_(){
+  const ui=SpreadsheetApp.getUi(),book=SpreadsheetApp.getActiveSpreadsheet();
+  if(!book || book.getId()!==PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID'))throw Error('Не та таблиця.');
+  const log=book.getSheetByName('Журнал');
+  try{
+    const choices=cityLookup_('Харків');
+    const city=choices.find(c=>/^(?:м\.\s*)?Харків(?:\s*\(|\s*,)/i.test(c.label)&&/Харківськ/i.test(c.label));
+    if(!city)throw Error('kharkiv_not_found');
+    let page=1,branches=0,lockers=0,more=true;
+    while(more && page<=12){
+      const r=cityPage_(city.ref,page++);
+      branches+=r.items.filter(x=>x.kind==='branch').length;
+      lockers+=r.items.filter(x=>x.kind==='locker').length;
+      more=r.more;
+    }
+    if(more || !branches || !lockers)throw Error('incomplete_or_missing_types');
+    log.appendRow([new Date(),'Тест довідника','Інформація','','Населений пункт, відділення, поштомати','PASS branches='+branches+' lockers='+lockers]);
+    ui.alert('Перевірку завершено: відділень '+branches+', поштоматів '+lockers+'.');
+  }catch(e){
+    const safe=/^(kharkiv_not_found|incomplete_or_missing_types)$/.test(e.message)?e.message:(e.npReason||'service_error');
+    log.appendRow([new Date(),'Тест довідника','Помилка','','Перевірку не завершено','NP:test '+safe]);
+    ui.alert('Перевірку не завершено. Код: '+safe);
+  }
+}

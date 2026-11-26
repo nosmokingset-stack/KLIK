@@ -1,0 +1,26 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
+const ctx=vm.createContext({});
+for(const f of ['Directory.gs','Orders.gs'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../apps-script',f),'utf8'),ctx);
+const uuid='12345678-1234-4234-8234-123456789abc';
+const p={name:'Тест Покупець',phone:'+380 (67) 123-45-67',quantity:2,colors:['yellow','yellow'],
+  settlementRef:uuid,settlementName:'Харків',pointRef:uuid,consent:true,legalVersion:'draft',language:'uk',requestId:uuid,confirmedPrice:299};
+const cfg={one:199,two:299,yellow:true,blue:false,enabled:true,legal:'draft'},point={ref:uuid};
+assert.equal(ctx.validateOrder_(p,cfg,point).amount,299);
+assert.equal(ctx.validateOrder_({...p,confirmedPrice:199},cfg,point).priceChanged,true);
+assert.throws(()=>ctx.validateOrder_({...p,colors:['yellow','blue']},cfg,point));
+assert.throws(()=>ctx.validateOrder_({...p,consent:false},cfg,point));
+assert.throws(()=>ctx.validateOrder_({...p,pointRef:'bad'},cfg,point));
+assert.throws(()=>ctx.validateOrder_({...p,settlementName:'x'.repeat(151)},cfg,point));
+assert.equal(ctx.textCell_('=1+1'),"'=1+1");
+let rows=[],seq='0',held=false;
+const sheet={getLastRow:()=>rows.length+1,getRange:()=>({getDisplayValues:()=>rows.map(r=>[String(r[24]).replace(/^'/,'')])}),appendRow:r=>rows.push(r)};
+const settings={getRange:a=>({getValue:()=>({B5:199,B6:299,B8:true,B9:false,B10:true,B11:'draft'}[a])})};
+const book={getSheetByName:n=>n==='Замовлення'?sheet:settings};
+ctx.LockService={getScriptLock:()=>({waitLock:()=>{assert(!held);held=true},releaseLock:()=>{held=false}})};
+ctx.PropertiesService={getScriptProperties:()=>({getProperty:()=>seq,setProperty:(_,v)=>{seq=v}})};
+ctx.SpreadsheetApp={flush:()=>{}};
+assert.equal(ctx.createOrderPrivate_(book,p,point).number,'KLIK000001');
+sheet.getRange=(r,c)=>({getDisplayValues:()=>c===25?rows.map(x=>[String(x[24]).replace(/^'/,'')]):[rows[r-2].map(x=>String(x).replace(/^'/,''))]});
+assert.equal(ctx.createOrderPrivate_(book,p,point).duplicate,true);
+assert.equal(rows.length,1);assert.equal(seq,'1');assert.equal(held,false);
+console.log('PASS: server validation, pricing, consent, color availability and spreadsheet formula protection');
