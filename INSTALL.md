@@ -1,4 +1,4 @@
-# Install KLIK v1.1 in Blogger
+# Install KLIK v1.2 in Blogger
 
 The provided template.xml already contains direct public HTTPS image URLs from the KLIK GitHub repository. No manual image upload to Blogger, URL copying or XML image edits are required.
 
@@ -8,6 +8,8 @@ The provided template.xml already contains direct public HTTPS image URLs from t
 4. Verify images, UA/RU, mobile menu, anchor links, both comparison panels and their visualization disclaimer in preview and after saving. Check Console/Network and the ?m=1 variant. Blogger may normalize XML during save, so recheck the rendered result.
 
 This task did not install or publish the theme in Blogger. XML syntax and the local browser version are checked; final platform acceptance must be verified in its editor.
+
+For v1.2 also check the recognizable kiosk behind the products, absence of prices on hero, relocated cards in order, dialog preselection, both independent colors for a pair, blue production status, keyboard/backdrop close, phone mask and required-field messages in both languages. The dialog is client-only: data is not sent and no success is simulated. Do not treat form completion as an actual order. A server integration will be a separate change.
 
 ## Asset management
 
