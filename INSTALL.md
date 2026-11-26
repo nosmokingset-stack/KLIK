@@ -1,4 +1,4 @@
-# Install KLIK v1.2 in Blogger
+# Install KLIK v1.3 in Blogger
 
 The provided template.xml already contains direct public HTTPS image URLs from the KLIK GitHub repository. No manual image upload to Blogger, URL copying or XML image edits are required.
 
@@ -9,7 +9,7 @@ The provided template.xml already contains direct public HTTPS image URLs from t
 
 This task did not install or publish the theme in Blogger. XML syntax and the local browser version are checked; final platform acceptance must be verified in its editor.
 
-For v1.2 also check the recognizable kiosk behind the products, absence of prices on hero, relocated cards in order, dialog preselection, both independent colors for a pair, blue production status, keyboard/backdrop close, phone mask and required-field messages in both languages. The dialog is client-only: data is not sent and no success is simulated. Do not treat form completion as an actual order. A server integration will be a separate change.
+For v1.3 also check the recognizable kiosk behind the products, absence of prices on hero, relocated cards in order, dialog preselection, both independent colors for a pair, blue production status, keyboard/backdrop close, phone mask and required-field messages in both languages. The dialog is client-only: data is not sent and no success is simulated. Do not treat form completion as an actual order. A server integration will be a separate change.
 
 ## Asset management
 

@@ -1,0 +1,303 @@
+[
+  {
+    "path": "assets/logo/klik-approved.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/logo/klik-approved.webp",
+    "status": 200,
+    "bytes": 27334,
+    "sha256": "1ae03400e99ddc87d1cd2bf5f13fe123773885f80459191bbb78a91c480768ba"
+  },
+  {
+    "path": "assets/products/01-yellow-single-1200-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/01-yellow-single-1200-transparent.webp",
+    "status": 200,
+    "bytes": 90122,
+    "sha256": "fdab43f7e179b8585606415e020377bd9a16aec4526872c4238bf9dbc4b3af35"
+  },
+  {
+    "path": "assets/products/01-yellow-single-1200-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/01-yellow-single-1200-white.webp",
+    "status": 200,
+    "bytes": 38954,
+    "sha256": "bd9567a12f696617534f032ad624eb0104e48046a96c32b7386592275b1fd281"
+  },
+  {
+    "path": "assets/products/01-yellow-single-640-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/01-yellow-single-640-transparent.webp",
+    "status": 200,
+    "bytes": 31976,
+    "sha256": "0e2c5fab5c44b60897649e600978cd8728efebf8aa7c5e66a06c8ecaca331f9e"
+  },
+  {
+    "path": "assets/products/01-yellow-single-640-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/01-yellow-single-640-white.webp",
+    "status": 200,
+    "bytes": 13904,
+    "sha256": "dcfd1a6d4c8fb2e4d63cad4987505b5eb9077f37195205d9da509d7237054cc4"
+  },
+  {
+    "path": "assets/products/02-blue-single-1200-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/02-blue-single-1200-transparent.webp",
+    "status": 200,
+    "bytes": 93134,
+    "sha256": "f7896c4ce8825a623aca1f4c0a1e5d71b638b3dba9f4f95701e18c48bca60f85"
+  },
+  {
+    "path": "assets/products/02-blue-single-1200-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/02-blue-single-1200-white.webp",
+    "status": 200,
+    "bytes": 46634,
+    "sha256": "f7fc77d9ab89c01c0171a442f0b931221ea3ad7a3fcdc886d7d1f6247194b0c0"
+  },
+  {
+    "path": "assets/products/02-blue-single-640-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/02-blue-single-640-transparent.webp",
+    "status": 200,
+    "bytes": 32306,
+    "sha256": "e1bf8d74ec7295e4d6eb6e9bc3278783460c2e2ff10d16eb0ead50b6a1016b0a"
+  },
+  {
+    "path": "assets/products/02-blue-single-640-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/02-blue-single-640-white.webp",
+    "status": 200,
+    "bytes": 16632,
+    "sha256": "66de86f53b045e23ca17ec7a4e71b0b012624f4758af74af3bd38611f595504a"
+  },
+  {
+    "path": "assets/products/03-yellow-blue-pair-1200-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/03-yellow-blue-pair-1200-transparent.webp",
+    "status": 200,
+    "bytes": 80998,
+    "sha256": "9543468d6c9cb20b04a7c3787b59408c9bdac5218f631e16d838195b1facb1bd"
+  },
+  {
+    "path": "assets/products/03-yellow-blue-pair-1200-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/03-yellow-blue-pair-1200-white.webp",
+    "status": 200,
+    "bytes": 34934,
+    "sha256": "691fce4b4115e2634f918e673200c47f618dd41d60e54cca9e5182be136c3d91"
+  },
+  {
+    "path": "assets/products/03-yellow-blue-pair-640-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/03-yellow-blue-pair-640-transparent.webp",
+    "status": 200,
+    "bytes": 28540,
+    "sha256": "84aa1b7c3e235e7926774b1c8a0a161e618dd7b90359239ee8bdfe1e8142aea6"
+  },
+  {
+    "path": "assets/products/03-yellow-blue-pair-640-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/03-yellow-blue-pair-640-white.webp",
+    "status": 200,
+    "bytes": 12126,
+    "sha256": "4347b5bf5ea8836033fdc342f96e2f0aef9213f31f8f2b0e45648ff0154fc9e8"
+  },
+  {
+    "path": "assets/products/04-yellow-pair-1200-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/04-yellow-pair-1200-transparent.webp",
+    "status": 200,
+    "bytes": 57462,
+    "sha256": "12962a3b81009dec20fea2a910cd3784908c182a6268df2b84e829209a46b3b8"
+  },
+  {
+    "path": "assets/products/04-yellow-pair-1200-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/04-yellow-pair-1200-white.webp",
+    "status": 200,
+    "bytes": 22998,
+    "sha256": "5e822d5cec9974a08e2ec82e2a3f8129dd76ac342315be468b96cb15c1a5e000"
+  },
+  {
+    "path": "assets/products/04-yellow-pair-640-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/04-yellow-pair-640-transparent.webp",
+    "status": 200,
+    "bytes": 21910,
+    "sha256": "b45dbe80cdacd74ce281cb94d791ec9e7ba748bdee987374363265efef3133e2"
+  },
+  {
+    "path": "assets/products/04-yellow-pair-640-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/04-yellow-pair-640-white.webp",
+    "status": 200,
+    "bytes": 8560,
+    "sha256": "763eafbdb0ba202bce4b23ce01f1262b65fa09599cb7748f3b847d5f70f093b9"
+  },
+  {
+    "path": "assets/products/05-blue-pair-1200-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/05-blue-pair-1200-transparent.webp",
+    "status": 200,
+    "bytes": 95050,
+    "sha256": "ed8fd74dde5ee469231e755a5999094e490b0cda1102b939f29973477ee40ed1"
+  },
+  {
+    "path": "assets/products/05-blue-pair-1200-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/05-blue-pair-1200-white.webp",
+    "status": 200,
+    "bytes": 36688,
+    "sha256": "bbb6fc29a6eeac704db37efc1e7c08e5062326abfdc79e2a5e7160283b45375c"
+  },
+  {
+    "path": "assets/products/05-blue-pair-640-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/05-blue-pair-640-transparent.webp",
+    "status": 200,
+    "bytes": 30994,
+    "sha256": "3f79a3e245ef15fb4d8c04151ee2aa3d0a2710262b5bfead0520e11911ed5ec7"
+  },
+  {
+    "path": "assets/products/05-blue-pair-640-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/05-blue-pair-640-white.webp",
+    "status": 200,
+    "bytes": 12212,
+    "sha256": "f0514d1363850b6245896ceea94fab0933bea5a183f117768d319b9127f0b6a7"
+  },
+  {
+    "path": "assets/products/06-yellow-blue-angles-1200-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/06-yellow-blue-angles-1200-transparent.webp",
+    "status": 200,
+    "bytes": 68688,
+    "sha256": "d39be0dadb45b2421707cb401fc7c11d5cbc7c70e096f6cda69df43e7dee50ab"
+  },
+  {
+    "path": "assets/products/06-yellow-blue-angles-1200-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/06-yellow-blue-angles-1200-white.webp",
+    "status": 200,
+    "bytes": 29314,
+    "sha256": "eafcb71905dd59cc2a6aed4314a2a24bec5bc99b0791d44860b88849075ae857"
+  },
+  {
+    "path": "assets/products/06-yellow-blue-angles-640-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/06-yellow-blue-angles-640-transparent.webp",
+    "status": 200,
+    "bytes": 25626,
+    "sha256": "a3b863f44e1e4781edab6fb63334baefd6051b1f65a58002934c42a70f56e2ec"
+  },
+  {
+    "path": "assets/products/06-yellow-blue-angles-640-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/06-yellow-blue-angles-640-white.webp",
+    "status": 200,
+    "bytes": 10610,
+    "sha256": "6f6c79f38809709ce28e212519a8079e4ffe8dbe1d511028d3d0d0e24a2f30d3"
+  },
+  {
+    "path": "assets/products/07-hero-water-1200-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/07-hero-water-1200-transparent.webp",
+    "status": 200,
+    "bytes": 160156,
+    "sha256": "2731b8d0cb578a224c6778f42e85363b93d7e0217cc03d278fc59ddf9da32837"
+  },
+  {
+    "path": "assets/products/07-hero-water-1200-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/07-hero-water-1200-white.webp",
+    "status": 200,
+    "bytes": 65024,
+    "sha256": "8952357558e3cf78f348e3f4c3ee94a4aa5ad5f91f03a5390ada0e54d32d1dfc"
+  },
+  {
+    "path": "assets/products/07-hero-water-640-transparent.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/07-hero-water-640-transparent.webp",
+    "status": 200,
+    "bytes": 53574,
+    "sha256": "9fed16dc59dbce2354ef34655249d8d037c18f728dca13bc953219e969f6eb19"
+  },
+  {
+    "path": "assets/products/07-hero-water-640-white.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/07-hero-water-640-white.webp",
+    "status": 200,
+    "bytes": 22644,
+    "sha256": "a574a2eb0ed0c2c4cf9c0e3aebbbba8088c5c3da351f03dc384888babf79793b"
+  },
+  {
+    "path": "assets/comparisons/after-480.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/comparisons/after-480.webp",
+    "status": 200,
+    "bytes": 27810,
+    "sha256": "97af8c9eebbe984c3bedbc5160551694cc60eb71b7a9d59e63a132d93ca88671"
+  },
+  {
+    "path": "assets/comparisons/after-720.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/comparisons/after-720.webp",
+    "status": 200,
+    "bytes": 52606,
+    "sha256": "b809fb4786f889b73530715cd547fc4c2a60830b236f763b929063b91859e3ce"
+  },
+  {
+    "path": "assets/comparisons/before-480.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/comparisons/before-480.webp",
+    "status": 200,
+    "bytes": 33636,
+    "sha256": "e24e74afdeef9b91717e15cdaaa389e4631de73463b3134f2693638b4dfbe310"
+  },
+  {
+    "path": "assets/comparisons/before-720.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/comparisons/before-720.webp",
+    "status": 200,
+    "bytes": 63346,
+    "sha256": "ac23c11a473bc90c5a9d5355bf0ed719b8a6f41d54c5203f9afa637dd4d783a3"
+  },
+  {
+    "path": "assets/decor/hero-waves.svg",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/decor/hero-waves.svg",
+    "status": 200,
+    "bytes": 436,
+    "sha256": "e8e2b96e7bbc9e6cbe3fc0cd2293f1458a9ac3e1406a2584686de6a515c634da"
+  },
+  {
+    "path": "assets/decor/water-drop.svg",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/decor/water-drop.svg",
+    "status": 200,
+    "bytes": 444,
+    "sha256": "a75106823bf30b31639f8b480db4f9b813e2393552724181bc007c9fce0c9da4"
+  },
+  {
+    "path": "assets/icons/sprite.svg",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/icons/sprite.svg",
+    "status": 200,
+    "bytes": 1393,
+    "sha256": "4ac48feafe0b75cc0c0dbec775834d63f86bd56aef5ad87bc9d046b1ad2bf601"
+  },
+  {
+    "path": "assets/water-stations/kiosk-approved-v1.2-1200.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/water-stations/kiosk-approved-v1.2-1200.webp",
+    "status": 200,
+    "bytes": 106358,
+    "sha256": "494d297de7baa4f2a08bd607075c0b606ce0a727933878a937d72e6bc66c4f1a"
+  },
+  {
+    "path": "assets/water-stations/kiosk-approved-v1.2-800.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/water-stations/kiosk-approved-v1.2-800.webp",
+    "status": 200,
+    "bytes": 59470,
+    "sha256": "c11f377c80908f41b3b6dccb7a255ff84245f90a938af4fcfc783fb22e77e2fc"
+  },
+  {
+    "path": "assets/how-to/step-01.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/how-to/step-01.webp",
+    "status": 200,
+    "bytes": 59502,
+    "sha256": "81cf9986f228c05bcc83fd6e2d826b469b2d62b069b6cf6f1fce7ef59bc988f5"
+  },
+  {
+    "path": "assets/how-to/step-02.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/how-to/step-02.webp",
+    "status": 200,
+    "bytes": 68130,
+    "sha256": "728916e343b65560d8ecae4dfe7da798af3720d227ec979250b07902fa0aa786"
+  },
+  {
+    "path": "assets/how-to/step-03.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/how-to/step-03.webp",
+    "status": 200,
+    "bytes": 66982,
+    "sha256": "6dfc2e99a7e805bc553e1cfe8514794bf2d8e949cedcc71ab8f8247ed9f07569"
+  },
+  {
+    "path": "assets/products/klik-bottom.webp",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/klik-bottom.webp",
+    "status": 200,
+    "bytes": 52346,
+    "sha256": "ed0b41034ad2386f55396d8308ad5b278df309c1edf1395ddd2d6d9aef7fcfb1"
+  },
+  {
+    "path": "assets/products/klik-bottom-master.png",
+    "url": "https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/klik-bottom-master.png",
+    "status": 200,
+    "bytes": 1429227,
+    "sha256": "52ecad6674e28042bbdbd717dbb54575b84b0acfc9c39863995c38f8361076f7"
+  }
+]

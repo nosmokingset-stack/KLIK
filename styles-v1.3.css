@@ -1,0 +1,102 @@
+:root {
+  --blue: #0066d9;
+  --deep: #09278c;
+  --sky: #008ce5;
+  --aqua: #00b9ed;
+  --pale: #e5f4ff;
+}
+.hero {background:linear-gradient(118deg,#fff 7%,#f1fbff 44%,#bdeaff 100%)}
+.wordmark,.hero h1,.section-band h2,.problem-heading h2 {color:var(--deep)}
+.problem {background:linear-gradient(165deg,#e8f2ff,#dbf4ff 68%,#f9fdff)}
+.comparison-grid {align-items:stretch}
+.comparison-card {display:flex;flex-direction:column}
+.comparison-copy {flex:1}
+.comparison-arrow {align-self:center}
+.comparison-list {max-width:480px;text-align:left;margin:18px auto 0;padding:0;list-style:none}
+.comparison-list li {position:relative;padding-left:27px;margin-top:8px;line-height:1.45}
+.comparison-list li::before {
+  content:"×";position:absolute;left:0;top:.15em;width:19px;height:19px;line-height:18px;
+  border-radius:50%;background:#ffe7e5;color:#a43336;font-size:16px;font-weight:bold;text-align:center;
+}
+.comparison-after li::before {content:"✓";background:#d8f7e8;color:#11704c}
+.comparison-end {margin-top:28px;text-align:center;font-size:23px;color:var(--deep)}
+.comparison-end strong {background:linear-gradient(transparent 69%,var(--yellow) 69%);padding:0 .15em}
+.comparison-note {margin-top:12px}
+.section-band {padding-block:72px}
+.section-band h2 {font-size:42px;line-height:1.14;letter-spacing:0}
+.section-intro {margin-bottom:30px}
+.section-intro p {margin-top:10px;color:#125394;font-size:20px;font-weight:600}
+.how {background:linear-gradient(#edf9ff 0%,white 35%,#ecf8ff 100%)}
+.step-grid {list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:0;margin:0}
+.step-grid li {min-width:0}
+.step-grid figure {margin:0;position:relative}
+.step-grid img {width:100%;border-radius:14px;box-shadow:0 8px 22px #17488419}
+.step-grid figure span {position:absolute;top:13px;left:13px;border-radius:8px;background:var(--yellow);color:#162446;font:800 27px/1 Montserrat,Arial,sans-serif;padding:9px 11px}
+.step-grid h3 {font-size:23px;line-height:1.2;color:var(--deep);margin:18px 0 8px}
+.visual-caption {font-size:13px;color:#455569;margin-top:12px}
+.how-end {text-align:center;margin-top:28px}
+.how-end strong {font-size:22px;color:var(--deep)}
+.how-end p {margin-top:7px}
+.care {
+  position:relative;isolation:isolate;overflow:hidden;padding-bottom:95px;
+  background:linear-gradient(118deg,#51ccf5,#c5efff 54%,#6ad0ff);
+}
+.care::after {content:"";position:absolute;z-index:-1;inset:auto 0 -1px;height:52px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath fill='%23008ce5' d='M0 30Q170 -12 340 32T700 32T1070 32T1440 30V80H0Z'/%3E%3Cpath fill='%230066d9' d='M0 49Q180 10 365 48T750 48T1110 48T1440 50V80H0Z'/%3E%3C/svg%3E") center/100% 100%}
+.care-layout {display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:50px;align-items:center}
+.care-photo {margin:0;display:grid;justify-items:center;gap:15px}
+.care-photo img {width:min(80%,400px);filter:drop-shadow(0 18px 14px #07498336)}
+.care-photo figcaption {display:flex;align-items:center;gap:7px;color:var(--deep);font-weight:700}
+.care-copy>strong {display:inline-block;background:var(--yellow);color:var(--deep);padding:6px 12px;border-radius:8px;margin:14px 0 6px}
+.care-copy>p {margin:10px 0;line-height:1.55}
+.care-copy ul {list-style:none;display:grid;gap:12px;padding:0;margin:22px 0 0}
+.care-copy li {display:flex;align-items:center;gap:16px;background:#ffffffc9;border:1px solid white;border-radius:14px;padding:15px 20px}
+.care-copy .icon {width:37px;height:37px;color:var(--deep)}
+.care-copy h3 {font-size:19px;color:var(--deep);margin-bottom:3px}
+.order-section {background:linear-gradient(165deg,var(--blue),var(--deep));border:none}
+.order-section>.container>h2 {color:white;font-size:38px;letter-spacing:0}
+.price-card {box-shadow:0 14px 34px #052b7529}
+.fulfilment {display:flex;gap:24px;margin:27px auto 0;max-width:800px;color:white;justify-content:space-between}
+.fulfilment>div {display:flex;gap:10px;align-items:center}
+.fulfilment .icon {color:#bbf1ff}
+.fulfilment span,.fulfilment strong {display:block}
+.fulfilment span {font-size:14px}
+.faq {background:var(--pale)}
+.faq-layout {display:grid;grid-template-columns:1fr 2fr;gap:36px}
+.questions {display:grid;gap:10px}
+.questions details {border:1px solid #d0e5f4;border-radius:12px;background:white;box-shadow:0 3px 10px #11395608}
+.questions summary {display:flex;align-items:center;justify-content:space-between;gap:18px;list-style:none;font-weight:700;padding:17px 20px;cursor:pointer;color:#113981}
+.questions summary::-webkit-details-marker {display:none}
+.questions summary::after {content:"+";font:500 24px/1 Arial;color:var(--blue)}
+.questions details[open] summary::after {content:"−"}
+.questions details p {padding:0 20px 18px;animation:appear .22s ease}
+.site-footer {background:#081f73;color:white;padding-block:35px}
+.site-footer .container {align-items:center}
+.footer-brand {display:flex;align-items:center;gap:16px}
+.footer-brand img {width:83px;height:auto}
+.footer-brand strong {font-size:20px}
+.footer-origin {max-width:440px}
+.footer-origin p {color:#d7e9ff;margin-top:6px}
+@media(max-width:960px) {
+  .nav {gap:12px}.nav a {font-size:13px}
+  .care-layout {gap:28px;grid-template-columns:.73fr 1fr}
+  .step-grid {gap:16px}.step-grid h3 {font-size:20px}
+  .faq-layout {grid-template-columns:1fr 1.7fr}
+}
+@media(max-width:800px) {
+  .nav {gap:0}.nav a {font-size:16px}.section-band {padding-block:48px}
+  .section-band h2,.order-section>.container>h2 {font-size:32px}
+  .care {padding-bottom:72px}.care-layout {gap:20px}
+  .faq-layout {grid-template-columns:1fr;gap:24px}
+}
+@media(max-width:650px) {
+  .step-grid,.care-layout {grid-template-columns:minmax(0,1fr)}
+  .step-grid {gap:30px}.step-grid h3 {margin-top:14px}
+  .section-intro p,.how-end strong,.comparison-end {font-size:18px}
+  .section-intro {margin-bottom:22px}
+  .comparison-list {font-size:15px}
+  .care-photo img {width:min(62%,285px)}.care-photo {gap:5px}
+  .care-copy li {padding:13px 14px;gap:12px}
+  .care-copy h3 {font-size:17px}
+  .fulfilment {flex-direction:column;gap:13px}
+  .site-footer .container {align-items:flex-start;gap:16px}
+}
