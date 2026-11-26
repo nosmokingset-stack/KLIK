@@ -37,7 +37,6 @@
   position:relative;isolation:isolate;overflow:hidden;padding-bottom:95px;
   background:linear-gradient(118deg,#51ccf5,#c5efff 54%,#6ad0ff);
 }
-.care::after {content:"";position:absolute;z-index:-1;inset:auto 0 -1px;height:52px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath fill='%23008ce5' d='M0 30Q170 -12 340 32T700 32T1070 32T1440 30V80H0Z'/%3E%3Cpath fill='%230066d9' d='M0 49Q180 10 365 48T750 48T1110 48T1440 50V80H0Z'/%3E%3C/svg%3E") center/100% 100%}
 .care-layout {display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:50px;align-items:center}
 .care-photo {margin:0;display:grid;justify-items:center;gap:15px}
 .care-photo img {width:min(80%,400px);filter:drop-shadow(0 18px 14px #07498336)}

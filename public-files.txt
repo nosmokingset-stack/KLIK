@@ -127,3 +127,15 @@ styles-v1.3.css
 styles-v1.4.css
 styles-v1.5.css
 template.xml
+preview/ribbon-care-1440.png
+preview/ribbon-care-390.png
+preview/ribbon-contacts-1440.png
+preview/ribbon-contacts-390.png
+preview/ribbon-faq-1440.png
+preview/ribbon-faq-390.png
+preview/ribbon-how-to-use-1440.png
+preview/ribbon-how-to-use-390.png
+preview/ribbon-order-1440.png
+preview/ribbon-order-390.png
+preview/ribbon-problem-1440.png
+preview/ribbon-problem-390.png

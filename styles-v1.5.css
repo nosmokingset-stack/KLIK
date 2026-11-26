@@ -2,3 +2,7 @@
 .color-option input:disabled+.color-choice{opacity:.45;cursor:not-allowed}
 .order-success{border-left:4px solid #168851;background:#effbf4;color:#173d28;padding:16px;overflow-wrap:anywhere}
 .order-success strong{display:block;font-size:18px}.order-success p{margin:8px 0}.order-success .button{margin-top:8px}
+.problem,.how,.care,.order-section,.faq,.site-footer{position:relative}
+.section-ribbon{position:absolute;inset:0 0 auto;display:block;width:100%;height:36px;pointer-events:none;z-index:2}
+.order-section .section-ribbon,.site-footer .section-ribbon{filter:drop-shadow(0 1px 1px #fff) drop-shadow(0 -1px 1px #fff)}
+@media(max-width:650px){.section-ribbon{height:24px}}
