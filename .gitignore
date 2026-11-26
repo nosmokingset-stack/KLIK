@@ -62,6 +62,9 @@
 !/backend/
 /backend/*
 !/backend/apps-script/
+!/backend/tests/
+/backend/tests/*
+!/backend/tests/directory-retries.cjs
 /backend/apps-script/*
 !/backend/apps-script/*.gs
 !/backend/apps-script/appsscript.json
