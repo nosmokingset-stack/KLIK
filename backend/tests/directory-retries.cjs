@@ -25,7 +25,7 @@ function mock(replies){
 }
 {
   const {c,calls}=mock([[200,{success:false,errorCodes:['12345']}],[200,ok]]);
-  assert.throws(()=>c.directoryRequest_('getCities',{}),e=>e.npReason==='api_rejected codes=12345');
+  assert.throws(()=>c.directoryRequest_('searchSettlements',{}),e=>e.npReason==='api_rejected codes=12345');
   assert.equal(calls.length,1);
 }
 {
@@ -35,7 +35,7 @@ function mock(replies){
 }
 {
   const {c,calls,sleeps}=mock([[429,{}, {'Retry-After':'500'}]]);
-  assert.throws(()=>c.directoryRequest_('getAreas',{}),e=>e.npReason==='sync_time_budget');
+  assert.throws(()=>c.directoryRequest_('searchSettlements',{}),e=>e.npReason==='sync_time_budget');
   assert.equal(calls.length,1);assert.deepEqual(sleeps,[]);
 }
 console.log('PASS: page identity, request pacing, exponential backoff, Retry-After, non-retriable errors, retry cap and time budget');

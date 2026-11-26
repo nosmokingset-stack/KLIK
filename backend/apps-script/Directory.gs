@@ -20,10 +20,12 @@ function directoryCache_(key,load){
 }
 function cityLookup_(raw){
   const q=String(raw||'').normalize('NFC').trim().replace(/\s+/g,' ').toLowerCase();
-  if(q.length<2||q.length>60||!/^[\p{L}\p{M} '\u2019\u02bc.\-]+$/u.test(q))return [];
-  const result=directoryCache_('c:'+q,()=>directoryRequest_('getCities',{FindByString:q,Limit:'40',Page:'1'}).data.filter(c=>refOK_(c.Ref)&&c.Description).map(c=>({
-    ref:c.Ref,label:[c.Description,c.AreaDescription,c.SettlementTypeDescription].filter(Boolean).join(', ')
-  })));
+  if(q.length<3||q.length>60||!/^[\p{L}\p{M} '\u2019\u02bc.\-]+$/u.test(q))return [];
+  const result=directoryCache_('s:'+q,()=>{
+    const d=directoryRequest_('searchSettlements',{CityName:q,Limit:'30'}).data;
+    return (d[0] && Array.isArray(d[0].Addresses)?d[0].Addresses:[]).filter(c=>refOK_(c.Ref)&&c.Present)
+      .map(c=>({ref:c.Ref,label:c.Present}));
+  });
   const c=CacheService.getScriptCache();
   for(const item of result)c.put('ua3:valid:'+item.ref,'1',21600);
   return result;
@@ -32,14 +34,19 @@ function cityPage_(ref,p){
   if(!refOK_(ref)||!Number.isInteger(p)||p<1||p>200)throw Error('invalid');
   const c=CacheService.getScriptCache();
   if(!c.get('ua3:valid:'+ref) || p>1 && !c.get('ua3:page:'+ref+':'+p))throw Error('expired');
-  const result=directoryCache_('p:'+ref+':'+p,()=>{
-    const r=directoryRequest_('getWarehouses',{CityRef:ref,Page:String(p),Limit:'200'});
+  const result=directoryCache_('w:'+ref+':'+p,()=>{
+    const r=directoryRequest_('getWarehouses',{SettlementRef:ref,Page:String(p),Limit:'200'});
     const total=Number(r.info && r.info.totalCount);
-    return {items:pointRows_(r.data,ref,'').map(a=>({ref:a[0],number:a[1],address:a[3],kind:a[4]==='Поштомат'?'locker':'branch'})),
+    return {items:mapPoints_(r.data),
       more:r.data.length>0&&(total>0?p*200<total:r.data.length>=200)};
   });
   if(result.more)c.put('ua3:page:'+ref+':'+(p+1),'1',21600);
   return result;
+}
+function mapPoints_(rows){
+  return rows.filter(w=>refOK_(w.Ref)&&w.Description&&(!w.WarehouseStatus||String(w.WarehouseStatus).toLowerCase()==='working'))
+    .map(w=>({ref:w.Ref,number:String(w.Number||''),name:w.Description,address:w.ShortAddress||w.SettlementStreetDescription||w.Description,
+      kind:/postomat|poshtomat|postmachine/i.test(String(w.CategoryOfWarehouse||''))||/поштомат|почтомат/i.test(w.Description)?'locker':'branch'}));
 }
 function doGet(e){
   const p=e&&e.parameter||{};let body;
