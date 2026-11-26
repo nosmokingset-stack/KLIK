@@ -48,6 +48,15 @@ function mapPoints_(rows){
     .map(w=>({ref:w.Ref,number:String(w.Number||''),name:w.Description,address:w.ShortAddress||w.SettlementStreetDescription||w.Description,
       kind:/postomat|poshtomat|postmachine/i.test(String(w.CategoryOfWarehouse||''))||/поштомат|почтомат/i.test(w.Description)?'locker':'branch'}));
 }
+function verifiedPoint_(settlementRef,pointRef){
+  if(!refOK_(settlementRef)||!refOK_(pointRef))throw Error('invalid_point');
+  return directoryCache_('verify:'+settlementRef+':'+pointRef,()=>{
+    const r=directoryRequest_('getWarehouses',{SettlementRef:settlementRef,Ref:pointRef,Page:'1',Limit:'10'});
+    const points=mapPoints_(r.data).filter(x=>x.ref.toLowerCase()===pointRef.toLowerCase());
+    if(points.length!==1)throw Error('invalid_point');
+    return points[0];
+  });
+}
 function doGet(e){
   const p=e&&e.parameter||{};let body;
   try{

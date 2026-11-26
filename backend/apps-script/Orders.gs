@@ -29,7 +29,11 @@ function findOrder_(sheet,requestId){
   const i=refs.findIndex(r=>r[0]===requestId);
   return i<0?null:sheet.getRange(i+2,1,1,25).getDisplayValues()[0];
 }
-function createOrderPrivate_(book,payload,point){
+function createOrderPrivate_(book,payload){
+  if(!payload || typeof payload!=='object')throw Error('invalid');
+  const initial=orderSettings_(book);
+  if(!initial.enabled)return {ok:false,error:'store_closed'};
+  const point=verifiedPoint_(payload.settlementRef,payload.pointRef);
   const lock=LockService.getScriptLock();lock.waitLock(20000);
   try{
     const sheet=book.getSheetByName('Замовлення'),existing=findOrder_(sheet,payload.requestId);
