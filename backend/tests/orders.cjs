@@ -17,7 +17,7 @@ const sheet={getLastRow:()=>rows.length+1,getRange:()=>({getDisplayValues:()=>ro
 const settings={getRange:a=>({getValue:()=>({B5:199,B6:299,B8:true,B9:false,B10:true,B11:'draft'}[a])})};
 const book={getId:()=> 'production',getSheetByName:n=>n==='Замовлення'?sheet:settings};
 ctx.LockService={getScriptLock:()=>({waitLock:()=>{assert(!held);held=true},releaseLock:()=>{held=false}})};
-ctx.PropertiesService={getScriptProperties:()=>({getProperty:k=>k==='ORDER_COUNTER'?seq:null,setProperty:(_,v)=>{seq=v}})};
+ctx.PropertiesService={getScriptProperties:()=>({getProperty:k=>k==='ORDER_COUNTER'?seq:k==='ALLOW_LIVE_ORDERS'?'YES':null,setProperty:(_,v)=>{seq=v}})};
 ctx.SpreadsheetApp={flush:()=>{}};
 ctx.CacheService={getScriptCache:()=>({get:()=>p.settlementName})};
 ctx.verifiedPoint_=()=>point;
@@ -25,4 +25,6 @@ assert.equal(ctx.createOrderPrivate_(book,p).number,'KLIK000001');
 sheet.getRange=(r,c)=>({getDisplayValues:()=>c===25?rows.map(x=>[String(x[24]).replace(/^'/,'')]):[rows[r-2].map(x=>String(x).replace(/^'/,''))]});
 assert.equal(ctx.createOrderPrivate_(book,p).duplicate,true);
 assert.equal(rows.length,1);assert.equal(seq,'1');assert.equal(held,false);
+ctx.PropertiesService={getScriptProperties:()=>({getProperty:k=>k==='ORDER_COUNTER'?seq:null,setProperty:()=>{throw Error('unexpected write')}})};
+assert.equal(ctx.createOrderPrivate_(book,{...p,requestId:'12345678-1234-4234-8234-123456789abd'}).error,'store_closed');
 console.log('PASS: server validation, pricing, consent, color availability and spreadsheet formula protection');

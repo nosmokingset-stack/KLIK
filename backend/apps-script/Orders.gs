@@ -39,6 +39,9 @@ function createOrderPrivate_(book,payload){
   }finally{initialLock.releaseLock();}
   const initial=orderSettings_(book);
   if(!initial.enabled)return {ok:false,error:'store_closed'};
+  const props=PropertiesService.getScriptProperties();
+  const testBook=props.getProperty('KLIK_TEST_BOOK_ID')===book.getId();
+  if(!testBook&&props.getProperty('ALLOW_LIVE_ORDERS')!=='YES')return {ok:false,error:'store_closed'};
   const cityName=CacheService.getScriptCache().get('ua3:valid:'+payload.settlementRef);
   if(!cityName || cityName!==payload.settlementName)throw Error('city_expired');
   const point=verifiedPoint_(payload.settlementRef,payload.pointRef);
@@ -51,7 +54,6 @@ function createOrderPrivate_(book,payload){
     if(!cfg.enabled)return {ok:false,error:'store_closed'};
     const v=validateOrder_(payload,cfg,point);
     if(v.priceChanged)return {ok:false,error:'price_changed',price:v.price};
-    const props=PropertiesService.getScriptProperties();
     const counterKey=book.getId()===props.getProperty('KLIK_TEST_BOOK_ID')?'ORDER_TEST_COUNTER':'ORDER_COUNTER';
     notify=counterKey!=='ORDER_TEST_COUNTER';
     const raw=props.getProperty(counterKey),counter=raw===null&&counterKey==='ORDER_TEST_COUNTER'?0:Number(raw);

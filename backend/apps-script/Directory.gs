@@ -66,7 +66,8 @@ function doGet(e){
     else if(p.action==='config'){
       const book=SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID'));
       const cfg=orderSettings_(book);
-      body={ok:true,one:cfg.one,two:cfg.two,yellow:cfg.yellow,blue:cfg.blue,enabled:cfg.enabled,legal:cfg.legal};
+      body={ok:true,one:cfg.one,two:cfg.two,yellow:cfg.yellow,blue:cfg.blue,
+        enabled:cfg.enabled&&PropertiesService.getScriptProperties().getProperty('ALLOW_LIVE_ORDERS')==='YES',legal:cfg.legal};
     }
     else body={ok:false,error:'unknown_action'};
   }catch(_){body={ok:false,error:'directory_unavailable'};}
