@@ -59,3 +59,15 @@
 !/VERIFY-V1.4.md
 !/preview/*-v1.4.png
 !/preview/public-links-v1.4.json
+!/backend/
+/backend/*
+!/backend/apps-script/
+/backend/apps-script/*
+!/backend/apps-script/*.gs
+!/backend/apps-script/appsscript.json
+!/backend/apps-script/README.md
+**/.clasp*.json
+**/.clasprc*
+**/credentials*.json
+**/client_secret*.json
+**/.env*
