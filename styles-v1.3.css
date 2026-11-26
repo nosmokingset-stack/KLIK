@@ -14,11 +14,7 @@
 .comparison-arrow {align-self:center}
 .comparison-list {max-width:480px;text-align:left;margin:18px auto 0;padding:0;list-style:none}
 .comparison-list li {position:relative;padding-left:27px;margin-top:8px;line-height:1.45}
-.comparison-list li::before {
-  content:"×";position:absolute;left:0;top:.15em;width:19px;height:19px;line-height:18px;
-  border-radius:50%;background:#ffe7e5;color:#a43336;font-size:16px;font-weight:bold;text-align:center;
-}
-.comparison-after li::before {content:"✓";background:#d8f7e8;color:#11704c}
+
 .comparison-end {margin-top:28px;text-align:center;font-size:23px;color:var(--deep)}
 .comparison-end strong {background:linear-gradient(transparent 69%,var(--yellow) 69%);padding:0 .15em}
 .comparison-note {margin-top:12px}
@@ -66,8 +62,7 @@
 .questions details {border:1px solid #d0e5f4;border-radius:12px;background:white;box-shadow:0 3px 10px #11395608}
 .questions summary {display:flex;align-items:center;justify-content:space-between;gap:18px;list-style:none;font-weight:700;padding:17px 20px;cursor:pointer;color:#113981}
 .questions summary::-webkit-details-marker {display:none}
-.questions summary::after {content:"+";font:500 24px/1 Arial;color:var(--blue)}
-.questions details[open] summary::after {content:"−"}
+
 .questions details p {padding:0 20px 18px;animation:appear .22s ease}
 .site-footer {background:#081f73;color:white;padding-block:35px}
 .site-footer .container {align-items:center}

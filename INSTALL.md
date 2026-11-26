@@ -1,4 +1,4 @@
-# Install KLIK v1.3 in Blogger
+# Install KLIK v1.4 in Blogger
 
 The provided template.xml already contains direct public HTTPS image URLs from the KLIK GitHub repository. No manual image upload to Blogger, URL copying or XML image edits are required.
 
@@ -9,7 +9,7 @@ The provided template.xml already contains direct public HTTPS image URLs from t
 
 This task did not install or publish the theme in Blogger. XML syntax and the local browser version are checked; final platform acceptance must be verified in its editor.
 
-For v1.3 also check the recognizable kiosk behind the products, absence of prices on hero, relocated cards in order, dialog preselection, both independent colors for a pair, blue production status, keyboard/backdrop close, phone mask and required-field messages in both languages. The dialog is client-only: data is not sent and no success is simulated. Do not treat form completion as an actual order. A server integration will be a separate change.
+For v1.4 also check the comparison marks, FAQ toggles, both clickable packs, independent colors for a pair, fixed city and mandatory consent in both languages. Open each legal document from the footer and from a filled order; confirm closing returns focus and leaves all fields intact. The form does not send orders or claim success. See [the release verification report](VERIFY-V1.4.md) for the test matrix and launch blockers.
 
 ## Asset management
 

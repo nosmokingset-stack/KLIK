@@ -1,6 +1,8 @@
-# Publication scope — KLIK v1.3
+# Publication scope: KLIK v1.4
 
 Public repository: https://github.com/nosmokingset-stack/KLIK
+
+Version 1.4 reuses the published images. It adds the supplied legal texts in Ukrainian and Russian, the specified shop contact details, twelve preview screenshots and an image availability report. No buyer records, seller registration details or return address were added.
 
 Included: the user-approved current KLIK logo, prepared product WebP images, approved demonstration comparison crops, code-native waves/drops/icons, website source and release preview screenshots. Version 1.2 also includes two sizes of the newly supplied transparent kiosk image, at the user's explicit direction. No new kiosk image was generated.
 

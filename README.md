@@ -1,4 +1,4 @@
-# KLIK v1.3 – Blogger landing page
+# KLIK v1.4 – Blogger landing page
 
 KLIK — «Магнітна кнопка для води». Один клік – вільні руки!
 
@@ -8,7 +8,7 @@ Standalone Blogger XML theme and buildless local preview. Ukrainian is the defau
 
 Open index.html locally, or run `node serve.cjs` and visit http://127.0.0.1:4173/. `preview/index.html` is an alternate preview entry. Internet access is used for Google Fonts; system-font fallbacks are available.
 
-Version 1.3 contains six landing sections, the approved kiosk hero, photo instructions, product care information and eight localized FAQ entries. See VERIFY-V1.3.md for the Blogger order-dialog diagnosis, browser checks and installation verification. The form previews the selection and validates buyer details locally.
+Version 1.4 contains six landing sections, ten localized FAQ entries and a Kharkiv-only order form. Customers can read the three legal drafts from the footer and the order dialog. The build includes legal.html in both outputs. See VERIFY-V1.4.md for the graphics diagnosis, checks and missing seller details. The form validates details locally.
 
 The existing header, navigation, brand typography/colors, decorative waves, eleven-section sequence and approved comparison block are preserved. The remaining eight sections are structural placeholders. Comparison text, frames and arrow are native, localized HTML/CSS/SVG. Reduced motion is supported throughout.
 

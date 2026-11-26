@@ -47,26 +47,56 @@
   "fix": "Надійне кріплення",
   "fixD": "Вбудований магніт утримує KLIK на металевій поверхні автомата.",
   "ship": "Доставка",
-  "pay": "Оплата",
-  "shipD": "Вартість доставки не входить до ціни комплекту.",
-  "payD": "Умови оплати уточнюються.",
+  "pay": "Оплата при отриманні",
+  "shipD": "До відділення Нової пошти в Харкові. Вартість доставки не входить до ціни комплекту.",
+  "payD": "Сплачуй за замовлення при отриманні у відділенні Нової пошти. Без передоплати.",
   "made": "Зроблено в Харкові",
   "q1": "Як працює KLIK?",
-  "a1": "Вбудований магніт кріпить KLIK до металевої поверхні. KLIK утримує штатну кнопку подачі води.",
-  "q2": "Чи потрібно постійно утримувати кнопку рукою?",
-  "a2": "Поки KLIK утримує кнопку, твої руки вільні. Залишайся поруч і зніми KLIK, коли бутель наповниться.",
-  "q3": "Чи може KLIK подряпати поверхню автомата?",
-  "a3": "З поверхнею контактує пластиковий корпус. Магніт схований усередині й не торкається металу.",
-  "q4": "Чи потрібно змінювати конструкцію автомата?",
-  "a4": "Змінювати конструкцію чи підключатися до електроніки не потрібно.",
-  "q5": "Чи підходить KLIK до всіх автоматів?",
-  "a5": "Сумісність із конкретним автоматом потрібно перевірити.",
-  "q6": "Чи можна замовити дві кнопки різних кольорів?",
-  "a6": "У комплекті з двох кнопок колір обирається окремо для кожної. Статус синьої кнопки вказано у формі.",
-  "q7": "Скільки коштує KLIK?",
-  "a7": "Одна кнопка – 199 грн, дві – 299 грн. Економія на комплекті – 99 грн.",
-  "q8": "Як оформити замовлення?",
-  "a8": "Обери комплект у розділі вартості. У вікні можна змінити кількість і кольори та заповнити дані. Онлайн-відправлення поки недоступне."
+  "a1": "Вбудований магніт притягує KLIK до металевої поверхні автомата та утримує кнопку подачі води в натиснутому положенні. Більше не потрібно постійно тримати палець на кнопці. Вода набирається, а твої руки вільні!",
+  "q2": "З чого складається KLIK?",
+  "a2": "KLIK складається з міцного пластикового корпусу та вбудованого феритового магніту. Корпус має зручну ручку для встановлення та зняття кнопки з автомата. Магніт повністю прихований усередині корпусу. Жодної електроніки, батарейок чи складних механізмів – усе максимально просто!",
+  "q3": "Чи безпечна кнопка KLIK для людини?",
+  "a3": "KLIK виготовлено з якісного пластику без неприємного запаху. Магніт повністю прихований усередині корпусу, а сама кнопка не контактує з питною водою. KLIK призначено для комфортного повсякденного використання.\n\nОсобам з імплантованими медичними пристроями необхідно враховувати рекомендації виробника таких пристроїв щодо контакту з магнітами.",
+  "q4": "Чи може KLIK пошкодити автомат?",
+  "a4": "KLIK не потребує втручання в конструкцію автомата. Магніт повністю прихований усередині пластикового корпусу, завдяки чому він не контактує безпосередньо з металевою поверхнею. Конструкція KLIK розроблена для дбайливого використання автомата.",
+  "q5": "Для яких автоматів підходить KLIK?",
+  "a5": "KLIK розроблено спеціально для міських автоматів безкоштовної видачі питної води, встановлених у Харкові за ініціативою міського голови Ігоря Терехова.",
+  "q6": "Навіщо купувати дві кнопки KLIK?",
+  "a6": "Якщо ти набираєш багато води додому, дві кнопки дозволять одночасно наповнювати дві ємності на автоматі з двома кранами. Це зручно та допомагає заощадити час.",
+  "q7": "Чи можна обрати колір KLIK?",
+  "a7": "Так! Ти можеш обрати жовтий або синій колір за наявності. При замовленні двох кнопок можна обрати колір кожної окремо.",
+  "q8": "Чи можна залишати автомат без нагляду під час набирання води?",
+  "a8": "Ні. Залишайся поруч з автоматом та контролюй наповнення ємностей. Коли вода набралася, просто зніми KLIK та забери його із собою.",
+  "effort": "Без зайвих зусиль",
+  "storeSub": "Обирай свій комплект KLIK!",
+  "region": "Тільки для Харкова",
+  "regionD": "KLIK створено спеціально для харків’ян. Продаж здійснюється лише в межах міста Харкова.",
+  "modalPay": "Оплата при отриманні у відділенні Нової пошти. Без передоплати.",
+  "shippingExcluded": "Вартість доставки сплачується окремо.",
+  "customerName": "Ім’я та прізвище",
+  "nameRequired": "Укажи ім’я та прізвище.",
+  "cityName": "Харків",
+  "faqSub": "Усе, що ти хотів знати про KLIK",
+  "footerBrand": "KLIK – магнітна кнопка для води",
+  "location": "Харків, Україна",
+  "privacy": "Політика конфіденційності",
+  "offer": "Публічна оферта",
+  "returns": "Повернення товару та коштів",
+  "rights": "© 2026 KLIK. Усі права захищено.",
+  "independentBrand": "KLIK є незалежним проєктом і не є офіційним представником Харківської міської ради.",
+  "legalNav": "Юридична інформація",
+  "agreeStart": "Я ознайомився(-лася) з умовами",
+  "agreeOffer": "публічної оферти",
+  "agreePrivacy": "політикою конфіденційності",
+  "agreeAnd": "та",
+  "agreeReturns": "умовами повернення товару",
+  "agreeRequired": "Підтвердь ознайомлення з умовами.",
+  "close": "Закрити",
+  "draft": "Попередня редакція",
+  "q9": "Як здійснюється доставка та оплата?",
+  "a9": "Доставка здійснюється Новою поштою в межах міста Харкова. Оплата при отриманні замовлення у відділенні Нової пошти. Жодної передоплати! Вартість доставки сплачується окремо.",
+  "q10": "Як оформити замовлення?",
+  "a10": "Обери потрібний комплект у розділі «Вартість та замовлення», натисни «Замовити», обери колір кнопок та заповни контактні дані."
 });
  Object.assign(translations.ru, {
   "how": "Как пользоваться",
@@ -106,27 +136,113 @@
   "fix": "Надёжное крепление",
   "fixD": "Встроенный магнит удерживает KLIK на металлической поверхности автомата.",
   "ship": "Доставка",
-  "pay": "Оплата",
-  "shipD": "Стоимость доставки не входит в цену комплекта.",
-  "payD": "Условия оплаты уточняются.",
+  "pay": "Оплата при получении",
+  "shipD": "В отделение Новой почты в Харькове. Доставка оплачивается отдельно от стоимости комплекта.",
+  "payD": "Оплачивай заказ при получении в отделении Новой почты. Без предоплаты.",
   "made": "Сделано в Харькове",
   "q1": "Как работает KLIK?",
-  "a1": "Встроенный магнит крепит KLIK к металлической поверхности. KLIK удерживает штатную кнопку подачи воды.",
-  "q2": "Нужно ли постоянно удерживать кнопку рукой?",
-  "a2": "Пока KLIK удерживает кнопку, руки свободны. Оставайся рядом и сними KLIK, когда бутыль наполнится.",
-  "q3": "Может ли KLIK поцарапать поверхность автомата?",
-  "a3": "С поверхностью соприкасается пластиковый корпус. Магнит скрыт внутри и не касается металла.",
-  "q4": "Нужно ли менять конструкцию автомата?",
-  "a4": "Менять конструкцию или подключаться к электронике не нужно.",
-  "q5": "Подходит ли KLIK для всех автоматов?",
-  "a5": "Совместимость с конкретным автоматом нужно проверить.",
-  "q6": "Можно ли заказать две кнопки разных цветов?",
-  "a6": "В комплекте из двух кнопок цвет выбирается отдельно для каждой. Статус синей кнопки указан в форме.",
-  "q7": "Сколько стоит KLIK?",
-  "a7": "Одна кнопка – 199 грн, две – 299 грн. Экономия на комплекте – 99 грн.",
-  "q8": "Как оформить заказ?",
-  "a8": "Выбери комплект в разделе стоимости. В окне можно изменить количество и цвета и заполнить данные. Онлайн-отправка пока недоступна."
+  "a1": "Встроенный магнит притягивает KLIK к металлической поверхности автомата и удерживает кнопку подачи воды нажатой. Больше не нужно держать палец на кнопке. Вода набирается, а твои руки свободны!",
+  "q2": "Из чего состоит KLIK?",
+  "a2": "KLIK состоит из прочного пластикового корпуса и встроенного ферритового магнита. За удобную ручку кнопку легко установить на автомат и снять. Магнит полностью скрыт внутри корпуса. Никакой электроники, батареек или сложных механизмов – всё максимально просто!",
+  "q3": "Безопасна ли кнопка KLIK для человека?",
+  "a3": "KLIK изготовлена из качественного пластика без неприятного запаха. Магнит полностью скрыт внутри корпуса, а сама кнопка не соприкасается с питьевой водой. KLIK предназначена для комфортного повседневного использования.\n\nЛюдям с имплантированными медицинскими устройствами следует учитывать рекомендации производителя этих устройств относительно контакта с магнитами.",
+  "q4": "Может ли KLIK повредить автомат?",
+  "a4": "Для использования KLIK не нужно вмешиваться в конструкцию автомата. Магнит полностью скрыт внутри пластикового корпуса и не касается металлической поверхности. Конструкция KLIK разработана для бережного использования автомата.",
+  "q5": "Для каких автоматов подходит KLIK?",
+  "a5": "KLIK разработана специально для городских автоматов бесплатной выдачи питьевой воды, установленных в Харькове по инициативе городского головы Игоря Терехова.",
+  "q6": "Зачем покупать две кнопки KLIK?",
+  "a6": "Если ты набираешь много воды домой, две кнопки позволят одновременно наполнять две ёмкости на автомате с двумя кранами. Это удобно и помогает экономить время.",
+  "q7": "Можно ли выбрать цвет KLIK?",
+  "a7": "Да! Ты можешь выбрать жёлтый или синий цвет при наличии. При заказе двух кнопок можно выбрать цвет каждой отдельно.",
+  "q8": "Можно ли оставлять автомат без присмотра во время набора воды?",
+  "a8": "Нет. Оставайся рядом с автоматом и следи за наполнением ёмкостей. Когда вода наберётся, сними KLIK и забери её с собой.",
+  "effort": "Без лишних усилий",
+  "storeSub": "Выбирай свой комплект KLIK!",
+  "region": "Только для Харькова",
+  "regionD": "KLIK создана специально для харьковчан. Продажа только в пределах города Харькова.",
+  "modalPay": "Оплата при получении в отделении Новой почты. Без предоплаты.",
+  "shippingExcluded": "Стоимость доставки оплачивается отдельно.",
+  "customerName": "Имя и фамилия",
+  "nameRequired": "Укажи имя и фамилию.",
+  "cityName": "Харьков",
+  "faqSub": "Всё, что ты хотел узнать о KLIK",
+  "footerBrand": "KLIK – магнитная кнопка для воды",
+  "location": "Харьков, Украина",
+  "privacy": "Политика конфиденциальности",
+  "offer": "Публичная оферта",
+  "returns": "Возврат товара и денежных средств",
+  "rights": "© 2026 KLIK. Все права защищены.",
+  "independentBrand": "KLIK – независимый проект и не является официальным представителем Харьковского городского совета.",
+  "legalNav": "Правовая информация",
+  "agreeStart": "Я ознакомился(-лась) с условиями",
+  "agreeOffer": "публичной оферты",
+  "agreePrivacy": "политикой конфиденциальности",
+  "agreeAnd": "и",
+  "agreeReturns": "условиями возврата товара",
+  "agreeRequired": "Подтверди ознакомление с условиями.",
+  "close": "Закрыть",
+  "draft": "Предварительная редакция",
+  "q9": "Как происходит доставка и оплата?",
+  "a9": "Доставка Новой почтой в пределах города Харькова. Оплата при получении заказа в отделении Новой почты. Никакой предоплаты! Стоимость доставки оплачивается отдельно.",
+  "q10": "Как оформить заказ?",
+  "a10": "Выбери нужный комплект в разделе «Стоимость и заказ», нажми «Заказать», выбери цвет кнопок и заполни контактные данные."
 });
+ const legalDialog = document.getElementById('legal-dialog');
+ const orderDialog = document.getElementById('order-dialog');
+ const legalScroll = legalDialog.querySelector('.legal-scroll');
+ const legalTitle = document.getElementById('legal-title');
+ const legalParties = {seller: '', controller: ''};
+ let currentDocument = null;
+ let legalOpener = null;
+
+ function renderLegal() {
+   if (!currentDocument) return;
+   legalScroll.querySelectorAll('[data-document]').forEach(article => {
+     article.hidden = article.dataset.document !== currentDocument || article.lang !== language;
+     if (!article.hidden) legalTitle.textContent = article.dataset.title;
+   });
+ }
+ function syncScrollLock() {
+   document.documentElement.classList.toggle('dialog-open', orderDialog.open || legalDialog.open);
+ }
+ function closeOnBackdrop(element, close) {
+   function outside(event) {
+     const rect = element.getBoundingClientRect();
+     return event.target === element && (event.clientX < rect.left || event.clientX > rect.right ||
+       event.clientY < rect.top || event.clientY > rect.bottom);
+   }
+   let pressed = false;
+   element.addEventListener('pointerdown', event => { pressed = outside(event); });
+   element.addEventListener('click', event => {
+     if (pressed && outside(event)) close();
+     pressed = false;
+   });
+ }
+ legalDialog.querySelectorAll('[data-legal-party]').forEach(line => {
+   const value = legalParties[line.dataset.legalParty];
+   if (value) { line.textContent = line.dataset.prefix + ': ' + value; line.hidden = false; }
+ });
+ document.querySelectorAll('[data-document-open]').forEach(button => {
+   button.addEventListener('click', () => {
+     if (legalDialog.open) return;
+     currentDocument = button.dataset.documentOpen;
+     legalOpener = button;
+     renderLegal();
+     legalDialog.showModal();
+     syncScrollLock();
+     legalScroll.scrollTop = 0;
+     legalTitle.focus({preventScroll:true});
+   });
+ });
+ legalDialog.querySelectorAll('[data-legal-close]').forEach(button =>
+   button.addEventListener('click', () => legalDialog.close()));
+ closeOnBackdrop(legalDialog, () => legalDialog.close());
+ legalDialog.addEventListener('close', () => {
+   if (legalDialog.open) return;
+   syncScrollLock();
+   currentDocument = null;
+   if (legalOpener && legalOpener.isConnected) legalOpener.focus({preventScroll:true});
+ });
  let renderOrder=()=>{};
  let language='uk';
  const toggle=document.querySelector('.menu-toggle');
@@ -139,6 +255,8 @@
   document.querySelectorAll('[data-i18n-alt]').forEach(el=>el.alt=dict[el.dataset.i18nAlt]);
   document.querySelectorAll('[data-i18n-label]').forEach(el=>el.setAttribute('aria-label',dict[el.dataset.i18nLabel]));
   document.querySelectorAll('[data-language]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.language===language)));
+  document.getElementById('customer-city').value = dict.cityName;
+  renderLegal();
   setMenu(false);
   renderOrder();
  }
@@ -156,12 +274,12 @@
   const form=document.getElementById('order-form');
   const phone=document.getElementById('customer-phone');
   const secondColors=document.getElementById('color-fieldset-2');
-  const fields=[['customer-name','nameRequired',value=>value.trim().length>=2],['customer-phone','phoneRequired',value=>/^380[1-9]\d{8}$/.test(value.replace(/\D/g,''))],['customer-city','cityRequired',value=>value.trim().length>=2],['customer-branch','branchRequired',value=>value.trim().length>0]];
+  const fields=[['customer-name','nameRequired',value=>value.trim().split(/\s+/u).filter(part=>/\p{L}/u.test(part)).length>=2],['customer-phone','phoneRequired',value=>/^380[1-9]\d{8}$/.test(value.replace(/\D/g,''))],['customer-branch','branchRequired',value=>value.trim().length>0],['order-consent','agreeRequired',(_,field)=>field.checked]];
   let opener=null,validationActive=false;
   const quantity=()=>Number(form.querySelector('[name="quantity"]:checked').value);
   function validateFields(focusFirst=false){
    let firstInvalid=null;
-   fields.forEach(([id,key,valid])=>{const input=document.getElementById(id),error=document.getElementById(id+'-error'),invalid=!valid(input.value);input.setAttribute('aria-invalid',String(invalid));error.textContent=invalid?translations[language][key]:'';error.hidden=!invalid;if(invalid&&!firstInvalid)firstInvalid=input;});
+   fields.forEach(([id,key,valid])=>{const input=document.getElementById(id),error=document.getElementById(id+'-error'),invalid=!valid(input.value,input);input.setAttribute('aria-invalid',String(invalid));error.textContent=invalid?translations[language][key]:'';error.hidden=!invalid;if(invalid&&!firstInvalid)firstInvalid=input;});
    if(focusFirst&&firstInvalid)firstInvalid.focus();return !firstInvalid;
   }
   renderOrder=()=>{
@@ -174,21 +292,18 @@
    document.getElementById('blue-status').hidden=!selectedBlue;
    if(validationActive)validateFields();
   };
-  function finishClose(){if(dialog.open)return;document.documentElement.classList.remove('dialog-open');if(opener&&opener.isConnected)opener.focus({preventScroll:true});}
+  function finishClose(){if(dialog.open)return;syncScrollLock();if(opener&&opener.isConnected)opener.focus({preventScroll:true});}
   function closeOrder(){if(dialog.open){dialog.close();finishClose();}}
   document.querySelectorAll('[data-order-quantity]').forEach(card=>card.addEventListener('click',()=>{
    opener=card;form.querySelector(`[name="quantity"][value="${card.dataset.orderQuantity}"]`).checked=true;
    renderOrder();document.getElementById('order-submit-status').hidden=true;
-   dialog.showModal();document.documentElement.classList.add('dialog-open');
+   dialog.showModal();syncScrollLock();
    dialog.scrollTop=0;document.getElementById('dialog-title').focus({preventScroll:true});
   }));
   document.querySelector('.dialog-close').addEventListener('click',closeOrder);
   dialog.addEventListener('cancel',event=>{event.preventDefault();closeOrder();});
   dialog.addEventListener('close',finishClose);
-  const outside=event=>{const rect=dialog.getBoundingClientRect();return event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom;};
-  let backdropPressed=false;
-  dialog.addEventListener('pointerdown',event=>{backdropPressed=event.target===dialog&&outside(event);});
-  dialog.addEventListener('click',event=>{if(backdropPressed&&event.target===dialog&&outside(event))closeOrder();backdropPressed=false;});
+  closeOnBackdrop(dialog, closeOrder);
   dialog.addEventListener('keydown',event=>{
    if(event.key!=='Tab')return;
    const focusable=[...dialog.querySelectorAll('button,input')].filter(el=>!el.disabled&&el.getClientRects().length&&(!el.matches('input[type="radio"]')||el.checked));
