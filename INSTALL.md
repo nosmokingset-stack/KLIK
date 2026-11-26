@@ -1,4 +1,4 @@
-# Install KLIK v1.4 in Blogger
+# Install KLIK v1.5 in Blogger
 
 The provided template.xml already contains direct public HTTPS image URLs from the KLIK GitHub repository. No manual image upload to Blogger, URL copying or XML image edits are required.
 
@@ -9,7 +9,7 @@ The provided template.xml already contains direct public HTTPS image URLs from t
 
 This task did not install or publish the theme in Blogger. XML syntax and the local browser version are checked; final platform acceptance must be verified in its editor.
 
-For v1.4 also check the comparison marks, FAQ toggles, both clickable packs, independent colors for a pair, fixed city and mandatory consent in both languages. Open each legal document from the footer and from a filled order; confirm closing returns focus and leaves all fields intact. The form does not send orders or claim success. See [the release verification report](VERIFY-V1.4.md) for the test matrix and launch blockers.
+For v1.5 also check the comparison marks, FAQ toggles, both clickable packs, independent colors, direct settlement/branch/locker search and mandatory consent in both languages. Open each legal document from the footer and from a filled order; confirm closing returns focus and leaves all fields intact. The real store is disabled by two server-side controls. Never turn on either control or install the theme on the live blog without explicit owner approval. See [the release verification report](VERIFY-V1.5.md).
 
 ## Asset management
 
@@ -21,6 +21,6 @@ For local preview, image paths remain relative. For Blogger, the builder makes s
 
 The initial HTML language and SEO metadata are Ukrainian. UA/RU changes the interface, alt and accessible labels; it does not create independent language URLs. In XML, canonical and og:url follow Blogger data; anchor navigation is domain-independent. The future klik.kh.ua domain has not been connected.
 
-Optional favicon, Search Console verification and Analytics insertion points are commented in build.cjs/template.xml. Add future configuration to build.cjs so it survives rebuilding. There are no active analytics integrations, fabricated ratings or working order submission.
+Optional favicon, Search Console verification and Analytics insertion points are commented in build.cjs/template.xml. Add future configuration to build.cjs so it survives rebuilding. There are no active analytics integrations or fabricated ratings. Order submission is implemented but remains disabled pending the owner's explicit approval.
 
 Reference: [Blogger layout sections](https://support.google.com/blogger/answer/46888), [b:skin CSS](https://support.google.com/blogger/answer/46871), [theme editing](https://support.google.com/blogger/answer/176245).

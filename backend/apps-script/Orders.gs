@@ -42,7 +42,7 @@ function createOrderPrivate_(book,payload){
   const props=PropertiesService.getScriptProperties();
   const testBook=props.getProperty('KLIK_TEST_BOOK_ID')===book.getId();
   if(!testBook&&props.getProperty('ALLOW_LIVE_ORDERS')!=='YES')return {ok:false,error:'store_closed'};
-  const cityName=CacheService.getScriptCache().get('ua3:valid:'+payload.settlementRef);
+  const cityName=CacheService.getScriptCache().get('ua4:valid:'+payload.settlementRef);
   if(!cityName || cityName!==payload.settlementName)throw Error('city_expired');
   const point=verifiedPoint_(payload.settlementRef,payload.pointRef);
   const lock=LockService.getScriptLock();lock.waitLock(20000);
@@ -56,7 +56,9 @@ function createOrderPrivate_(book,payload){
     if(v.priceChanged)return {ok:false,error:'price_changed',price:v.price};
     const counterKey=book.getId()===props.getProperty('KLIK_TEST_BOOK_ID')?'ORDER_TEST_COUNTER':'ORDER_COUNTER';
     notify=counterKey!=='ORDER_TEST_COUNTER';
-    const raw=props.getProperty(counterKey),counter=raw===null&&counterKey==='ORDER_TEST_COUNTER'?0:Number(raw);
+    const raw=props.getProperty(counterKey);
+    if(raw===null&&counterKey==='ORDER_COUNTER')throw Error('counter_missing');
+    const counter=raw===null?0:Number(raw);
     if(!Number.isSafeInteger(counter)||counter<0)throw Error('counter');
     const next=counter+1,number='KLIK'+String(next).padStart(6,'0');
     // Reserve before writing: a failed write may leave a gap, but cannot reuse a number.
@@ -71,6 +73,7 @@ function createOrderPrivate_(book,payload){
   }finally{lock.releaseLock();}
   try{
     const saved=findOrder_(book.getSheetByName('Замовлення'),payload.requestId);
+    try{book.getSheetByName('Журнал').appendRow([new Date(),'Замовлення','Інформація',result.number,'Замовлення збережено','ok']);}catch(_){}
     if(saved&&notify)sendOrderNoticeOnce_(book,result.number,saved);
   }catch(_){
     // A saved order is never rolled back because mail or logging failed.

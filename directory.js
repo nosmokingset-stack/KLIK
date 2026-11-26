@@ -49,13 +49,18 @@
    const c=await send('config');
    if(!Number.isSafeInteger(c.one)||!Number.isSafeInteger(c.two)||c.one<=0||c.two<=0||typeof c.legal!=='string')throw Error('config');
    config=window.klikPublicConfig=c;
+   root.querySelector('#order-service-note').hidden=c.enabled;
    root.querySelectorAll('[name=color1][value=blue],[name=color2][value=blue]').forEach(input=>{input.disabled=!c.blue;});
    root.querySelectorAll('.package-option').forEach((el,i)=>{el.querySelector('.package-price').firstChild.textContent=(i?c.two:c.one)+' ';});
+   document.querySelectorAll('.price-card .price').forEach((el,i)=>{el.firstChild.textContent=(i?c.two:c.one)+' ';});
+   const saving=2*c.one-c.two;
+   document.querySelectorAll('[data-i18n=saving]').forEach(el=>{el.hidden=saving<=0;if(saving>0)el.textContent=(ru()?'Экономия ':'Економія ')+saving+' грн';});
    const count=Number(root.querySelector('[name=quantity]:checked').value);
    root.querySelector('#order-total').textContent=(count===1?c.one:c.two)+' грн';
   }catch(_){config=null;window.klikPublicConfig=null;}
  }
  loadConfig();
+ document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>{if(config)loadConfig();}));
  root.addEventListener('input',()=>{if(!inFlight)requestId=null;});
  root.addEventListener('change',()=>{if(!inFlight)requestId=null;});
  root.addEventListener('submit',event=>{
@@ -91,16 +96,30 @@
   const timer=setTimeout(()=>{window.removeEventListener('message',response);if(inFlight){inFlight=false;button.disabled=false;show(say('Відповідь не отримано. Спробуй ще раз: поля форми збережено.','Ответ не получен. Попробуй ещё раз: поля формы сохранены.'));}},35000);
   function response(e){
    if(!inFlight||!resultFrame||!/^https:\/\/[a-z0-9-]+\.googleusercontent\.com$/i.test(e.origin))return;
-   let child;try{child=resultFrame.contentWindow[0];}catch(_){}
-   if(e.source!==resultFrame.contentWindow&&e.source!==child)return;
+   function contains(win,target,depth){
+    if(win===target)return true;if(depth>=5)return false;
+    try{for(let i=0;i<Math.min(win.length,10);i++)if(contains(win[i],target,depth+1))return true;}catch(_){}
+    return false;
+   }
+   if(!contains(resultFrame.contentWindow,e.source,0))return;
    if(!e.data||e.data.channel!=='klik-order-v1'||e.data.nonce!==requestNonce)return;
    clearTimeout(timer);window.removeEventListener('message',response);inFlight=false;button.disabled=false;
    const r=e.data.result||{};
    if(r.ok&&/^KLIK\d{6,}$/.test(r.number)){
-    show(say('Дякуємо! Замовлення '+r.number+' збережено. Ми зв’яжемося з тобою для підтвердження.','Спасибо! Заказ '+r.number+' сохранён. Мы свяжемся с тобой для подтверждения.'));
-    button.disabled=true;
+    status.hidden=false;status.classList.add('order-success');status.replaceChildren();
+    const title=document.createElement('strong');title.textContent=say('Дякуємо за замовлення!','Спасибо за заказ!');
+    const details=document.createElement('p');
+    const names=order.colors.map(c=>c==='yellow'?say('жовтий','жёлтый'):say('синій','синий')).join(', ');
+    const pack=order.quantity===1?say('Одна кнопка','Одна кнопка'):say('Дві кнопки','Две кнопки');
+    details.textContent=r.number+' · '+pack+' · '+names+' · '+order.confirmedPrice+' грн · '+selectedBranch.name;
+    const contact=document.createElement('p');contact.textContent=say('Найближчим часом ми зв’яжемося з тобою для підтвердження.','В ближайшее время мы свяжемся с тобой для подтверждения.');
+    const close=document.createElement('button');close.type='button';close.className='button';close.textContent=say('Закрити','Закрыть');close.addEventListener('click',()=>root.closest('dialog').close());
+    status.append(title,details,contact,close);status.scrollIntoView({block:'nearest'});button.disabled=true;
    }else if(r.error==='price_changed'){
     loadConfig();requestId=null;show(say('Ціна змінилася. Перевір нову суму та підтвердь замовлення ще раз.','Цена изменилась. Проверь новую сумму и подтверди заказ ещё раз.'));
+   }else if(r.error==='city_expired'){
+    selectedCity=null;selectedBranch=null;cityItems=[];branchItems=[];city.value='';branch.value='';city.focus();
+    show(say('Довідник оновився. Обери населений пункт і точку доставки ще раз.','Справочник обновился. Выбери населённый пункт и пункт доставки ещё раз.'));
    }else show(say('Не вдалося оформити замовлення. Дані збережено, спробуй ще раз.','Не удалось оформить заказ. Данные сохранены, попробуй ещё раз.'));
   }
   window.addEventListener('message',response);

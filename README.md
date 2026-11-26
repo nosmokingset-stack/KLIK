@@ -1,4 +1,4 @@
-# KLIK v1.4 – Blogger landing page
+# KLIK v1.5 – Blogger landing page
 
 KLIK — «Магнітна кнопка для води». Один клік – вільні руки!
 
@@ -8,11 +8,12 @@ Standalone Blogger XML theme and buildless local preview. Ukrainian is the defau
 
 Open index.html locally, or run `node serve.cjs` and visit http://127.0.0.1:4173/. `preview/index.html` is an alternate preview entry. Internet access is used for Google Fonts; system-font fallbacks are available.
 
-Version 1.4 contains six landing sections, ten localized FAQ entries and a Kharkiv-only order form. Customers can read the three legal drafts from the footer and the order dialog. The build includes legal.html in both outputs. See VERIFY-V1.4.md for the graphics diagnosis, checks and missing seller details. The form validates details locally.
+Version 1.5 contains six landing sections, ten localized FAQ entries and a Ukraine-wide delivery form for Nova Poshta branches and lockers. Customers can read the three legal drafts from the footer and the order dialog. The build includes legal.html in both outputs. The real store remains disabled both in the settings sheet and by a separate server flag; neither Blogger installation nor sales activation is included. See VERIFY-V1.5.md for tests, operational constraints and launch requirements.
 
-The existing header, navigation, brand typography/colors, decorative waves, eleven-section sequence and approved comparison block are preserved. The remaining eight sections are structural placeholders. Comparison text, frames and arrow are native, localized HTML/CSS/SVG. Reduced motion is supported throughout.
+The existing header, navigation, brand typography/colors, decorative waves and approved comparison block are preserved. Comparison text, frames and arrow are native, localized HTML/CSS/SVG. Reduced motion is supported throughout.
 
-- `body.html`, `site.css`, `styles-v1.2.css`, `site.js`: source; translations are centralized in site.js.
+- `body.html`, CSS files, `site.js` and `directory.js`: source; translations are centralized in site.js.
+- `backend/apps-script/`: separate KLIK Apps Script source. It must not be deployed over another project.
 - `build.cjs`: generates index.html, preview/index.html and standalone template.xml with inline CSS/JS.
 - `assets.config.json`: central public asset base, pinned to the asset commit.
 - `asset-links.json`: all direct public graphic URLs.

@@ -15,7 +15,7 @@ function testOrderOwner_(){
   settings.getRange(2,1,KLIK.settings.length,2).setValues(KLIK.settings);
   settings.getRange('B10').setValue(true);
   const requestId=Utilities.getUuid(),order={name:'Тест Покупець',phone:'380671234567',quantity:1,colors:['yellow'],
-    settlementRef:c.ref,settlementName:c.label,pointRef:point.ref,consent:true,legalVersion:'1.4-draft',
+    settlementRef:c.ref,settlementName:c.label,pointRef:point.ref,consent:true,legalVersion:'1.5-draft',
     language:'uk',requestId,confirmedPrice:199};
   // Do not touch the production counter: use a dedicated test property and restore under lock.
   const lock=LockService.getScriptLock();lock.waitLock(20000);

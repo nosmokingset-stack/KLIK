@@ -5,6 +5,7 @@ const id='aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa';
 const result=c.mapPoints_([
  {Ref:id,Description:'Відділення №1',WarehouseStatus:'Working'},
  {Ref:id,Description:'Поштомат №2',CategoryOfWarehouse:'Postomat'},
+ {Ref:id,Description:'Пункт приймання',CategoryOfWarehouse:'ParcelShop'},
  {Ref:id,Description:'Поштомат №3',WarehouseStatus:'Closed'},
  {Ref:'invalid',Description:'Відділення'}
 ]);

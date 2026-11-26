@@ -187,6 +187,8 @@
   "q10": "Как оформить заказ?",
   "a10": "Выбери нужный комплект в разделе «Стоимость и заказ», нажми «Заказать», выбери цвет кнопок и заполни контактные данные."
 });
+ Object.assign(translations.uk,{customerCity:'Населений пункт',customerBranch:'Відділення або поштомат Нової пошти'});
+ Object.assign(translations.ru,{customerCity:'Населённый пункт',customerBranch:'Отделение или почтомат Новой почты'});
  const legalDialog = document.getElementById('legal-dialog');
  const orderDialog = document.getElementById('order-dialog');
  const legalScroll = legalDialog.querySelector('.legal-scroll');

@@ -19,7 +19,7 @@ function doPost(e){
       const id=PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID');
       if(!id)throw Error('unavailable');
       result=createOrderPrivate_(SpreadsheetApp.openById(id),payload);
-    }catch(_){result={ok:false,error:'unavailable'};}
+    }catch(err){result={ok:false,error:err&&err.message==='city_expired'?'city_expired':'unavailable'};}
   }
   const message=JSON.stringify({channel:'klik-order-v1',nonce,result}).replace(/</g,'\\u003c').replace(/>/g,'\\u003e').replace(/&/g,'\\u0026');
   const target=allowed.includes(origin)?JSON.stringify(origin):'""';

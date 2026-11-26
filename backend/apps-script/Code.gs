@@ -1,11 +1,19 @@
 function onOpen() {
   migrateNotificationAddress_();
   cleanupDirectorySettings_();
-  cleanupDirectorySheet_();
+  migrateLegalVersion_();
+  try{cleanupDirectorySheet_();}catch(_){}
   SpreadsheetApp.getUi().createMenu('KLIK').addItem('Підготувати таблицю','setupKlik_')
     .addItem('Перевірити довідник Нової пошти','testDirectoryOwner_')
     .addItem('Перевірити тестове замовлення і email','testOrderOwner_')
     .addItem('Перевірити email сповіщень','testNotificationOwner_').addToUi();
+}
+function migrateLegalVersion_(){
+  const book=SpreadsheetApp.getActiveSpreadsheet(),props=PropertiesService.getScriptProperties();
+  if(!book||book.getId()!==props.getProperty('SPREADSHEET_ID'))return;
+  const s=book.getSheetByName('Налаштування');
+  if(s&&s.getRange('A11').getDisplayValue()==='Версія юридичних документів'&&s.getRange('B11').getDisplayValue()==='1.4-draft')
+    s.getRange('B11').setValue('1.5-draft');
 }
 function cleanupDirectorySheet_(){
   const book=SpreadsheetApp.getActiveSpreadsheet(),props=PropertiesService.getScriptProperties();

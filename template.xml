@@ -244,6 +244,8 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
 @media(prefers-reduced-motion:reduce){.legal-dialog[open]{animation:none}}
 
 .directory-status{display:block;font-size:13px;line-height:1.35;color:#405c7c;min-height:1em;margin-top:4px}
+.order-success{border-left:4px solid #168851;background:#effbf4;color:#173d28;padding:16px;overflow-wrap:anywhere}
+.order-success strong{display:block;font-size:18px}.order-success p{margin:8px 0}.order-success .button{margin-top:8px}
 
 ]]></b:skin>
 <b:template-skin><![CDATA[body#layout .blogger-system{display:block!important}]]></b:template-skin>
@@ -451,11 +453,7 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   <p>Продавець зобов’язується передати покупцеві замовлений товар, а покупець зобов’язується прийняти та оплатити його відповідно до умов договору.</p>
   <p>KLIK – магнітна кнопка, призначена для утримання штатної кнопки подачі води на сумісних міських автоматах видачі питної води.</p>
   <h3>3. Вартість товару</h3>
-  <p>Актуальні ціни зазначаються на сайті:</p>
-  <ul>
-  <li>Одна кнопка KLIK – 199 грн.</li>
-  <li>Комплект із двох кнопок KLIK – 299 грн.</li>
-  </ul>
+  <p>Актуальні ціни на один виріб і комплект із двох виробів зазначаються на сайті та у формі замовлення.</p>
   <p>Вартість доставки та можливі комісії поштового оператора не входять до вартості товару.</p>
   <p>Зміна ціни після підтвердження замовлення не допускається без погодження з покупцем.</p>
   <h3>4. Оформлення замовлення</h3>
@@ -492,11 +490,7 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   <p>Продавец обязуется передать покупателю заказанный товар, а покупатель обязуется принять и оплатить его в соответствии с условиями договора.</p>
   <p>KLIK – магнитная кнопка, предназначенная для удержания штатной кнопки подачи воды на совместимых городских автоматах выдачи питьевой воды.</p>
   <h3>3. Стоимость товара</h3>
-  <p>Актуальные цены указаны на сайте:</p>
-  <ul>
-  <li>Одна кнопка KLIK – 199 грн.</li>
-  <li>Комплект из двух кнопок KLIK – 299 грн.</li>
-  </ul>
+  <p>Актуальные цены на одно изделие и комплект из двух изделий указаны на сайте и в форме заказа.</p>
   <p>Стоимость доставки и возможные комиссии почтового оператора не входят в стоимость товара.</p>
   <p>Изменение цены после подтверждения заказа не допускается без согласования с покупателем.</p>
   <h3>4. Оформление заказа</h3>
@@ -776,6 +770,8 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   "q10": "Как оформить заказ?",
   "a10": "Выбери нужный комплект в разделе «Стоимость и заказ», нажми «Заказать», выбери цвет кнопок и заполни контактные данные."
 });
+ Object.assign(translations.uk,{customerCity:'Населений пункт',customerBranch:'Відділення або поштомат Нової пошти'});
+ Object.assign(translations.ru,{customerCity:'Населённый пункт',customerBranch:'Отделение или почтомат Новой почты'});
  const legalDialog = document.getElementById('legal-dialog');
  const orderDialog = document.getElementById('order-dialog');
  const legalScroll = legalDialog.querySelector('.legal-scroll');
@@ -973,13 +969,18 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
    const c=await send('config');
    if(!Number.isSafeInteger(c.one)||!Number.isSafeInteger(c.two)||c.one<=0||c.two<=0||typeof c.legal!=='string')throw Error('config');
    config=window.klikPublicConfig=c;
+   root.querySelector('#order-service-note').hidden=c.enabled;
    root.querySelectorAll('[name=color1][value=blue],[name=color2][value=blue]').forEach(input=>{input.disabled=!c.blue;});
    root.querySelectorAll('.package-option').forEach((el,i)=>{el.querySelector('.package-price').firstChild.textContent=(i?c.two:c.one)+' ';});
+   document.querySelectorAll('.price-card .price').forEach((el,i)=>{el.firstChild.textContent=(i?c.two:c.one)+' ';});
+   const saving=2*c.one-c.two;
+   document.querySelectorAll('[data-i18n=saving]').forEach(el=>{el.hidden=saving<=0;if(saving>0)el.textContent=(ru()?'Экономия ':'Економія ')+saving+' грн';});
    const count=Number(root.querySelector('[name=quantity]:checked').value);
    root.querySelector('#order-total').textContent=(count===1?c.one:c.two)+' грн';
   }catch(_){config=null;window.klikPublicConfig=null;}
  }
  loadConfig();
+ document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>{if(config)loadConfig();}));
  root.addEventListener('input',()=>{if(!inFlight)requestId=null;});
  root.addEventListener('change',()=>{if(!inFlight)requestId=null;});
  root.addEventListener('submit',event=>{
@@ -1015,16 +1016,30 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
   const timer=setTimeout(()=>{window.removeEventListener('message',response);if(inFlight){inFlight=false;button.disabled=false;show(say('Відповідь не отримано. Спробуй ще раз: поля форми збережено.','Ответ не получен. Попробуй ещё раз: поля формы сохранены.'));}},35000);
   function response(e){
    if(!inFlight||!resultFrame||!/^https:\/\/[a-z0-9-]+\.googleusercontent\.com$/i.test(e.origin))return;
-   let child;try{child=resultFrame.contentWindow[0];}catch(_){}
-   if(e.source!==resultFrame.contentWindow&&e.source!==child)return;
+   function contains(win,target,depth){
+    if(win===target)return true;if(depth>=5)return false;
+    try{for(let i=0;i<Math.min(win.length,10);i++)if(contains(win[i],target,depth+1))return true;}catch(_){}
+    return false;
+   }
+   if(!contains(resultFrame.contentWindow,e.source,0))return;
    if(!e.data||e.data.channel!=='klik-order-v1'||e.data.nonce!==requestNonce)return;
    clearTimeout(timer);window.removeEventListener('message',response);inFlight=false;button.disabled=false;
    const r=e.data.result||{};
    if(r.ok&&/^KLIK\d{6,}$/.test(r.number)){
-    show(say('Дякуємо! Замовлення '+r.number+' збережено. Ми зв’яжемося з тобою для підтвердження.','Спасибо! Заказ '+r.number+' сохранён. Мы свяжемся с тобой для подтверждения.'));
-    button.disabled=true;
+    status.hidden=false;status.classList.add('order-success');status.replaceChildren();
+    const title=document.createElement('strong');title.textContent=say('Дякуємо за замовлення!','Спасибо за заказ!');
+    const details=document.createElement('p');
+    const names=order.colors.map(c=>c==='yellow'?say('жовтий','жёлтый'):say('синій','синий')).join(', ');
+    const pack=order.quantity===1?say('Одна кнопка','Одна кнопка'):say('Дві кнопки','Две кнопки');
+    details.textContent=r.number+' · '+pack+' · '+names+' · '+order.confirmedPrice+' грн · '+selectedBranch.name;
+    const contact=document.createElement('p');contact.textContent=say('Найближчим часом ми зв’яжемося з тобою для підтвердження.','В ближайшее время мы свяжемся с тобой для подтверждения.');
+    const close=document.createElement('button');close.type='button';close.className='button';close.textContent=say('Закрити','Закрыть');close.addEventListener('click',()=>root.closest('dialog').close());
+    status.append(title,details,contact,close);status.scrollIntoView({block:'nearest'});button.disabled=true;
    }else if(r.error==='price_changed'){
     loadConfig();requestId=null;show(say('Ціна змінилася. Перевір нову суму та підтвердь замовлення ще раз.','Цена изменилась. Проверь новую сумму и подтверди заказ ещё раз.'));
+   }else if(r.error==='city_expired'){
+    selectedCity=null;selectedBranch=null;cityItems=[];branchItems=[];city.value='';branch.value='';city.focus();
+    show(say('Довідник оновився. Обери населений пункт і точку доставки ще раз.','Справочник обновился. Выбери населённый пункт и пункт доставки ещё раз.'));
    }else show(say('Не вдалося оформити замовлення. Дані збережено, спробуй ще раз.','Не удалось оформить заказ. Данные сохранены, попробуй ещё раз.'));
   }
   window.addEventListener('message',response);
