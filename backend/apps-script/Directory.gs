@@ -43,7 +43,7 @@ function cityPage_(ref,p){
   if(result.more)c.put('ua4:page:'+ref+':'+(p+1),'1',600);
   return result;
 }
-function mapPoints_(rows){
+function mapPoints_(rows,includeAliases){
   return rows.filter(w=>refOK_(w.Ref)&&w.Description&&(!w.WarehouseStatus||String(w.WarehouseStatus).toLowerCase()==='working'))
     .map(w=>{
       const name=String(w.Description),heading=name.split(':')[0].trim();
@@ -51,8 +51,41 @@ function mapPoints_(rows){
         /^(?:(?:поштове|вантажне)\s+)?відділення(?:\s|№|:|$)/i.test(heading)?'branch':null;
       const category=String(w.CategoryOfWarehouse||'').toLowerCase();
       if(!kind||category&&kind==='branch'&&category!=='branch'||category&&kind==='locker'&&!/postomat|poshtomat|postmachine/.test(category))return null;
-      return {ref:w.Ref,number:String(w.Number||''),name,address:w.ShortAddress||w.SettlementStreetDescription||name,kind};
+      const point={ref:w.Ref,number:String(w.Number||''),name,address:w.ShortAddress||w.SettlementStreetDescription||name,kind};
+      return includeAliases?Object.assign(point,{nameRu:String(w.DescriptionRu||''),addressRu:String(w.ShortAddressRu||'')}):point;
     }).filter(Boolean);
+}
+// Targeted lookup: one small carrier request rather than every page of a large city.
+// Legacy paged clients and private order verification keep their existing contract.
+function pointSearch_(ref,raw){
+  const q=String(raw||'').normalize('NFC').trim().replace(/\s+/g,' ');
+  if(!refOK_(ref)||q.length>80||/[\u0000-\u001f]/.test(q))throw Error('invalid');
+  if(!CacheService.getScriptCache().get('ua4:valid:'+ref))throw Error('expired');
+  return directoryCache_('search1:'+ref+':'+q.toLowerCase(),()=>{
+    const fields={SettlementRef:ref,Page:'1',Limit:'50'};
+    const number=q.match(/^(?:№\s*)?(\d+)$/);
+    if(q)fields.FindByString=number?number[1]:q;
+    const response=directoryRequest_('getWarehouses',fields);
+    return {items:mapPoints_(response.data,true),more:Number(response.info&&response.info.totalCount)>50};
+  });
+}
+// Read-only owner diagnostic: public directory data only; no sheets, orders or email.
+function testPointSearchReadOnly(){
+  const cityTests=[];
+  for(const query of ['Івано-Франківськ','Івано-Франківськ','Харьков','Львов']){
+    const key='ua4:s:'+query.toLowerCase(),cached=CacheService.getScriptCache().get(key)!==null,start=Date.now(),items=cityLookup_(query);
+    cityTests.push({query,serverCacheBefore:cached,ms:Date.now()-start,count:items.length});
+  }
+  const choices=cityLookup_('Харків'),city=choices.find(item=>/^м\.\s*Харків[,\s(]/.test(item.label));
+  if(!city)throw Error('city_not_found');
+  const result={scope:'KLIK carrier lookup only',city:city.label,cityLookups:cityTests,lookups:[]};
+  for(const query of ['1','1','Польова','Полевая','Поштомат']){
+    const key='ua4:search1:'+city.ref+':'+query.toLowerCase();
+    const cached=CacheService.getScriptCache().get(key)!==null,start=Date.now(),response=pointSearch_(city.ref,query);
+    result.lookups.push({query,serverCacheBefore:cached,ms:Date.now()-start,count:response.items.length,
+      branches:response.items.filter(item=>item.kind==='branch').length,lockers:response.items.filter(item=>item.kind==='locker').length});
+  }
+  console.log(JSON.stringify(result));return result;
 }
 function verifiedPoint_(settlementRef,pointRef){
   if(!refOK_(settlementRef)||!refOK_(pointRef))throw Error('invalid_point');
@@ -66,9 +99,10 @@ function verifiedPoint_(settlementRef,pointRef){
 function doGet(e){
   const p=e&&e.parameter||{};let body;
   try{
-    if(p.action==='health')body={ok:true,scope:'UA'};
-    else if(p.action==='cities')body={ok:true,items:cityLookup_(p.q)};
+    if(p.action==='health')body={ok:true,scope:'UA',features:{pointSearch:true}};
+    else if(p.action==='cities')body={ok:true,items:cityLookup_(p.q),features:{pointSearch:true}};
     else if(p.action==='points')body=Object.assign({ok:true},cityPage_(p.city,Number(p.page||1)));
+    else if(p.action==='pointsSearch')body=Object.assign({ok:true},pointSearch_(p.city,p.q));
     else if(p.action==='config'){
       const book=SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID'));
       const cfg=orderSettings_(book);

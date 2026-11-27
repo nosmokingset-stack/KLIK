@@ -252,6 +252,21 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
 .order-section #flag-blue-4 stop:nth-child(even){stop-color:#55b4ff}
 @media(max-width:650px){.section-ribbon{height:38px}}
 
+/* KLIK carrier suggestions: anchored overlay, no reflow, native input focus. */
+.directory-control{position:relative;min-width:0;width:100%;isolation:isolate}
+.directory-control>input{display:block;min-width:0;width:100%;min-height:46px;border:1px solid #cdd8e5;border-radius:12px;padding:11px 12px;color:var(--ink);font:inherit;font-size:16px;line-height:1.4;background:white;outline-offset:2px}
+.directory-control>input:focus{outline:2px solid var(--blue);border-color:var(--blue)}
+.directory-control>input:disabled{background:#f4f7fb;color:#718096;cursor:not-allowed}
+.directory-control.is-open{z-index:20}
+.directory-control.is-open>input{border-color:var(--blue);border-bottom-left-radius:0;border-bottom-right-radius:0}
+.directory-control>input[aria-invalid=true]{border-color:#be2937}
+.directory-list{position:absolute;top:calc(100% - 1px);left:0;right:0;width:100%;z-index:30;max-height:250px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;border:1px solid var(--blue);border-top:1px solid #d9e7fa;border-radius:0 0 12px 12px;background:white;box-shadow:0 12px 24px #0f172a1a;scrollbar-width:thin;scrollbar-color:#93b7e2 #f1f6fc}
+.directory-option{position:relative;display:grid;gap:4px;width:100%;padding:12px 15px;text-align:left;cursor:pointer;line-height:1.4;overflow-wrap:anywhere;border-bottom:1px solid #edf2f8;color:var(--ink)}
+.directory-option:last-child{border-bottom:0}.directory-option strong{font-size:14px;font-weight:600}.directory-option span{font-size:12px;color:#526174}.directory-option:hover,.directory-option.is-active{background:#e8f2ff}.directory-option[aria-selected=true]{background:#e8f2ff;box-shadow:inset 3px 0 var(--blue)}
+.directory-empty{padding:13px 15px;color:#526174;font-size:13px;line-height:1.5}
+.directory-status{min-height:0}.directory-status:empty{display:none}
+@media(max-width:600px){.directory-option{padding:12px}.directory-list{max-height:220px}.directory-option strong{font-size:14px}.directory-option span{font-size:12px}}
+
 ]]></b:skin>
 <b:template-skin><![CDATA[body#layout .blogger-system{display:block!important}]]></b:template-skin>
 </head><body>
@@ -385,7 +400,7 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
 <dialog class="order-dialog" id="order-dialog" aria-labelledby="dialog-title" aria-describedby="order-service-note"><div class="dialog-shell"><header class="dialog-header"><h2 id="dialog-title" tabindex="-1" data-i18n="dialogTitle">Замовлення KLIK</h2><div class="dialog-tools"><div class="languages" role="group" aria-label="Мова сайту" data-i18n-label="language"><button type="button" data-language="uk" aria-pressed="true" lang="uk">UA</button><button type="button" data-language="ru" aria-pressed="false" lang="ru">RU</button></div><button class="dialog-close" type="button" aria-label="Закрити вікно" data-i18n-label="closeDialog"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button></div></header>
 <form id="order-form" method="dialog" novalidate="novalidate"><fieldset class="package-fieldset"><legend data-i18n="choosePackage">Обери свій комплект</legend><div class="package-options"><label class="package-option"><input type="radio" name="quantity" value="1" checked="checked"/><span class="package-choice"><span class="selection-check" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span><strong data-i18n="one">Одна кнопка</strong><span class="package-price">199 <span data-i18n="currency">грн</span></span></span></label><label class="package-option"><input type="radio" name="quantity" value="2"/><span class="package-choice"><span class="selection-check" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span><strong data-i18n="two">Дві кнопки</strong><span class="package-price">299 <span data-i18n="currency">грн</span></span><span class="package-saving" data-i18n="saving">Економія 99 грн</span></span></label></div></fieldset>
 <div class="color-fieldsets"><fieldset class="color-fieldset" id="color-fieldset-1"><legend id="first-color-legend">Обери колір</legend><div class="color-options"><label class="color-option"><input type="radio" name="color1" value="yellow" checked="checked"/><span class="color-choice"><img src="https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/01-yellow-single-640-transparent.webp" width="64" height="64" alt="" loading="lazy"/><span data-i18n="yellow">Жовтий</span><span class="selection-check" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span></span></label><label class="color-option"><input type="radio" name="color1" value="blue"/><span class="color-choice"><img src="https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/02-blue-single-640-transparent.webp" width="64" height="64" alt="" loading="lazy"/><span data-i18n="blue">Синій</span><span class="selection-check" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span></span></label></div></fieldset><fieldset class="color-fieldset" id="color-fieldset-2" hidden="hidden"><legend data-i18n="colorTwo">Колір кнопки №2</legend><div class="color-options"><label class="color-option"><input type="radio" name="color2" value="yellow" checked="checked" disabled="disabled"/><span class="color-choice"><img src="https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/01-yellow-single-640-transparent.webp" width="64" height="64" alt="" loading="lazy"/><span data-i18n="yellow">Жовтий</span><span class="selection-check" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span></span></label><label class="color-option"><input type="radio" name="color2" value="blue" disabled="disabled"/><span class="color-choice"><img src="https://raw.githubusercontent.com/nosmokingset-stack/KLIK/06388e1b86cc8d621100590d82e1b7a8e948b238/assets/products/02-blue-single-640-transparent.webp" width="64" height="64" alt="" loading="lazy"/><span data-i18n="blue">Синій</span><span class="selection-check" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span></span></label></div></fieldset></div><p class="blue-status" id="blue-status" role="status" hidden="hidden" data-i18n="blueStatus">Синій колір тимчасово недоступний.</p>
-<fieldset class="customer-fieldset"><legend data-i18n="customerDetails">Дані покупця</legend><div class="customer-fields"><div class="form-field"><label for="customer-name" data-i18n="customerName">Ім’я та прізвище</label><input id="customer-name" name="customer-name" type="text" autocomplete="name" maxlength="80" required="required" aria-describedby="customer-name-error"/><span class="field-error" id="customer-name-error" hidden="hidden"></span></div><div class="form-field"><label for="customer-phone" data-i18n="customerPhone">Номер телефону</label><input id="customer-phone" name="customer-phone" type="tel" autocomplete="tel" maxlength="25" required="required" aria-describedby="customer-phone-error" inputmode="tel" placeholder="+380 (__) ___-__-__"/><span class="field-error" id="customer-phone-error" hidden="hidden"></span></div><div class="form-field"><label for="customer-city" data-i18n="customerCity">Місто</label><input id="customer-city" name="customer-city" type="text" autocomplete="off" maxlength="80" list="city-options" required="required" aria-describedby="city-status"/><datalist id="city-options"></datalist><span id="city-status" class="directory-status" role="status"></span></div><div class="form-field"><label for="customer-branch" data-i18n="customerBranch">Відділення Нової пошти</label><input id="customer-branch" name="customer-branch" type="text" autocomplete="off" maxlength="180" list="branch-options" required="required" aria-describedby="customer-branch-error branch-status"/><datalist id="branch-options"></datalist><span id="branch-status" class="directory-status" role="status"></span><span class="field-error" id="customer-branch-error" hidden="hidden"></span></div></div></fieldset><div class="order-summary"><span data-i18n="totalLabel">До сплати</span><output id="order-total" aria-live="polite">199 грн</output></div><div class="payment-note"><svg class="icon" aria-hidden="true"><use href="#icon-pay"/></svg><div><p data-i18n="modalPay">Оплата при отриманні.</p><p data-i18n="shippingExcluded">Вартість доставки сплачується окремо.</p></div></div>
+<fieldset class="customer-fieldset"><legend data-i18n="customerDetails">Дані покупця</legend><div class="customer-fields"><div class="form-field"><label for="customer-name" data-i18n="customerName">Ім’я та прізвище</label><input id="customer-name" name="customer-name" type="text" autocomplete="name" maxlength="80" required="required" aria-describedby="customer-name-error"/><span class="field-error" id="customer-name-error" hidden="hidden"></span></div><div class="form-field"><label for="customer-phone" data-i18n="customerPhone">Номер телефону</label><input id="customer-phone" name="customer-phone" type="tel" autocomplete="tel" maxlength="25" required="required" aria-describedby="customer-phone-error" inputmode="tel" placeholder="+380 (__) ___-__-__"/><span class="field-error" id="customer-phone-error" hidden="hidden"></span></div><div class="form-field"><label for="customer-city" data-i18n="customerCity">Місто</label><div class="directory-control"><input id="customer-city" name="customer-city" type="text" autocomplete="off" maxlength="80" required="required" aria-describedby="city-status" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="city-options"/><div id="city-options" class="directory-list" role="listbox" hidden="hidden"></div></div><span id="city-status" class="directory-status" role="status"></span></div><div class="form-field"><label for="customer-branch" data-i18n="customerBranch">Відділення Нової пошти</label><div class="directory-control"><input id="customer-branch" name="customer-branch" type="text" autocomplete="off" maxlength="180" required="required" aria-describedby="customer-branch-error branch-status" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="branch-options"/><div id="branch-options" class="directory-list" role="listbox" hidden="hidden"></div></div><span id="branch-status" class="directory-status" role="status"></span><span class="field-error" id="customer-branch-error" hidden="hidden"></span></div></div></fieldset><div class="order-summary"><span data-i18n="totalLabel">До сплати</span><output id="order-total" aria-live="polite">199 грн</output></div><div class="payment-note"><svg class="icon" aria-hidden="true"><use href="#icon-pay"/></svg><div><p data-i18n="modalPay">Оплата при отриманні.</p><p data-i18n="shippingExcluded">Вартість доставки сплачується окремо.</p></div></div>
 <div class="consent"><input id="order-consent" type="checkbox" required="required" aria-labelledby="consent-text" aria-describedby="order-consent-error"/>
   <div id="consent-text"><label for="order-consent" data-i18n="agreeStart">Я ознайомився(-лася) з умовами</label> <button type="button" class="legal-link" data-document-open="offer" aria-haspopup="dialog" aria-controls="legal-dialog" data-i18n="agreeOffer">публічної оферти</button>, <button type="button" class="legal-link" data-document-open="privacy" aria-haspopup="dialog" aria-controls="legal-dialog" data-i18n="agreePrivacy">політикою конфіденційності</button> <span data-i18n="agreeAnd">та</span> <button type="button" class="legal-link" data-document-open="returns" aria-haspopup="dialog" aria-controls="legal-dialog" data-i18n="agreeReturns">умовами повернення товару</button>.</div>
   <p class="field-error" id="order-consent-error" hidden="hidden"></p>
@@ -922,6 +937,187 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
  }
 })();
 
+/* KLIK public delivery directory. No customer data is cached or transmitted here. */
+(function(){
+ 'use strict';
+ window.createKlikDirectorySearch=function({root,request,endpoint,onSelection}){
+  const city=root.querySelector('#customer-city'),branch=root.querySelector('#customer-branch');
+  const cityBox=root.querySelector('#city-options'),branchBox=root.querySelector('#branch-options');
+  const cityStatus=root.querySelector('#city-status'),branchStatus=root.querySelector('#branch-status');
+  const ru=()=>document.documentElement.lang==='ru',say=(uk,rus)=>ru()?rus:uk;
+  const statusTranslations=[
+   ['Не вдалося оновити довідник. Обери місто знову або повтори пошук.','Не удалось обновить справочник. Выбери город снова или повтори поиск.'],
+   ['Не вдалося завантажити. Повтори пошук.','Не удалось загрузить. Повтори поиск.'],
+   ['Обери населений пункт зі списку.','Выбери населённый пункт из списка.'],['Обери відділення або поштомат зі списку.','Выбери отделение или почтомат из списка.'],
+   ['Не знайдено. Спробуй номер або адресу.','Не найдено. Попробуй номер или адрес.'],['Не знайдено. Уточни назву.','Не найдено. Уточни название.'],
+   ['Введи щонайменше 3 символи','Введи не менее 3 символов'],['Пошук інших точок триває…','Поиск других пунктов продолжается…'],
+   ['Шукаємо інші точки…','Ищем другие пункты…'],['Список доповнюється','Список дополняется'],['Знайдено: ','Найдено: '],['Не знайдено','Не найдено'],['Шукаємо…','Ищем…']
+  ].sort((a,b)=>Math.max(...b.map(x=>x.length))-Math.max(...a.map(x=>x.length)));
+  const localizeStatus=message=>{let text=message;for(const [uk,rus] of statusTranslations)text=text.replaceAll(ru()?uk:rus,ru()?rus:uk);return text;};
+  const normalize=s=>String(s||'').normalize('NFC').trim().replace(/\s+/g,' ').toLowerCase();
+  const fold=s=>normalize(s).replace(/отделени[ея]/g,'відділення').replace(/почтомат|постамат/g,'поштомат').replace(/(?:улица|вулиця|\bул\.|вул\.)/g,' ').replace(/ская\b/g,'ська').replace(/[іїы]/g,'и').replace(/[єё]/g,'е').replace(/[ь'’ʼ]/g,'').replace(/\s+/g,' ');
+  const cacheKey='klik.np.public.v2:'+endpoint.split('/s/').pop().split('/')[0].slice(-16),ttl=180000,maxEntries=70;
+  const cache=new Map(),pending=new Map(),snapshots=new Map();let persistTimer;
+  try{const saved=JSON.parse(localStorage.getItem(cacheKey)||'[]');if(Array.isArray(saved))for(const [key,entry] of saved){if(entry&&Date.now()-entry.at<ttl&&entry.value?.ok===true)cache.set(key,entry);}}catch(_){}
+  function keyFor(action,payload){return action+':'+JSON.stringify(Object.entries(payload).sort(([a],[b])=>a.localeCompare(b)));}
+  function cached(action,payload){const key=keyFor(action,payload),item=cache.get(key);if(!item)return null;if(Date.now()-item.at>=ttl){cache.delete(key);return null;}return item.value;}
+  function remember(key,value){
+   cache.delete(key);cache.set(key,{at:Date.now(),value});while(cache.size>maxEntries)cache.delete(cache.keys().next().value);
+   clearTimeout(persistTimer);persistTimer=setTimeout(()=>{try{localStorage.setItem(cacheKey,JSON.stringify([...cache]));}catch(_){}},80);
+  }
+  function lookup(action,payload,refresh=false){
+   const key=keyFor(action,payload),hit=!refresh&&cached(action,payload);if(hit)return Promise.resolve(hit);
+   if(pending.has(key))return pending.get(key);
+   const task=request(action,payload).then(value=>{remember(key,value);return value;}).finally(()=>pending.delete(key));pending.set(key,task);return task;
+  }
+  let selectedCity=null,selectedBranch=null,cityItems=[],branchItems=[],lastCityQuery='';
+  let cityRevision=0,pointRevision=0,cityTimer,pointTimer,cityBusy=false,cityPending=null,pointBusy=false,pointPending=null,pointSearch=false;
+  let cityState='idle',pointState='idle';
+  const notify=()=>onSelection({city:selectedCity,branch:selectedBranch});
+  const pointLabel=item=>ru()&&item.nameRu?item.nameRu:item.name;
+  const validCity=item=>item&&typeof item.label==='string'&&/^[0-9a-f-]{36}$/i.test(item.ref);
+  const validPoint=item=>item&&typeof item.name==='string'&&/^[0-9a-f-]{36}$/i.test(item.ref)&&['branch','locker'].includes(item.kind);
+  function view(input,box,status,kind){
+   let rows=[],active=-1,selected=null,empty='',dismissed=false;const control=input.closest('.directory-control');
+   function close(dismiss=false){if(dismiss)dismissed=true;box.hidden=true;input.setAttribute('aria-expanded','false');input.removeAttribute('aria-activedescendant');control.classList.remove('is-open');active=-1;}
+   function size(){
+    if(box.hidden)return;const dialog=input.closest('dialog'),bounds=dialog.getBoundingClientRect(),field=input.getBoundingClientRect();
+    const header=dialog.querySelector('.dialog-header');if(field.top<bounds.top+(header?.offsetHeight||0)||field.top>bounds.bottom){close(true);return;}
+    let available=Math.min(innerHeight,bounds.bottom)-field.bottom-12;
+    if(available<125){dialog.scrollTop+=125-available;available=Math.min(innerHeight,dialog.getBoundingClientRect().bottom)-input.getBoundingClientRect().bottom-12;}
+    box.style.maxHeight=Math.max(72,Math.min(250,available))+'px';
+   }
+   function mark(){
+    [...box.querySelectorAll('[role="option"]')].forEach((node,index)=>{node.classList.toggle('is-active',index===active);node.setAttribute('aria-selected',String(rows[index]?.ref===selected));});
+    if(active>=0){const option=box.querySelectorAll('[role="option"]')[active];input.setAttribute('aria-activedescendant',option.id);option.scrollIntoView({block:'nearest'});}else input.removeAttribute('aria-activedescendant');
+   }
+   function show(items,selection,message=''){
+    if(dismissed)return;
+    rows=items;selected=selection;empty=message;active=-1;input.removeAttribute('aria-activedescendant');box.replaceChildren();
+    rows.forEach((item,index)=>{
+     const option=document.createElement('div');option.id=kind+'-suggestion-'+index;option.className='directory-option';option.setAttribute('role','option');option.setAttribute('aria-selected',String(item.ref===selected));
+     const title=document.createElement('strong'),meta=document.createElement('span');
+     if(kind==='city'){const parts=item.label.split(',');title.textContent=parts.shift();meta.textContent=parts.join(',').trim();}
+     else{title.textContent=pointLabel(item);meta.textContent=(ru()&&item.addressRu?item.addressRu:item.address)||'';}
+     option.append(title);if(meta.textContent)option.append(document.createTextNode(' '),meta);
+     option.addEventListener('pointerdown',event=>event.preventDefault());option.addEventListener('click',()=>choose(kind,item));box.append(option);
+    });
+    if(!rows.length){const messageNode=document.createElement('div');messageNode.className='directory-empty';messageNode.textContent=empty;box.append(messageNode);}
+    box.hidden=false;input.setAttribute('aria-expanded','true');control.classList.add('is-open');size();
+   }
+   input.addEventListener('keydown',event=>{
+    if(event.key==='Escape'&&!box.hidden){event.preventDefault();event.stopPropagation();close(true);return;}
+    if(event.key==='Tab'){close(true);return;}
+    if(box.hidden||!rows.length)return;
+    if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();active=active<0?(event.key==='ArrowDown'?0:rows.length-1):(active+(event.key==='ArrowDown'?1:-1)+rows.length)%rows.length;mark();}
+    else if(event.key==='Enter'&&active>=0){event.preventDefault();choose(kind,rows[active]);}
+   });
+   input.addEventListener('focus',()=>{dismissed=false;});input.addEventListener('input',()=>{dismissed=false;});
+   input.addEventListener('blur',()=>queueMicrotask(()=>{if(!control.contains(document.activeElement))close(true);}));
+   return {show,close,size,status,isOpen:()=>!box.hidden,refresh(){if(!box.hidden)show(rows,selected,localizeStatus(empty));}};
+  }
+  const cityView=view(city,cityBox,cityStatus,'city'),pointView=view(branch,branchBox,branchStatus,'point');
+  function loading(view,kind){
+   const revision=kind==='city'?cityRevision:pointRevision;
+   setTimeout(()=>{if(revision!==(kind==='city'?cityRevision:pointRevision))return;if((kind==='city'?cityState:pointState)!=='loading')return;if(document.activeElement===(kind==='city'?city:branch))view.show([],null,say('Шукаємо…','Ищем…'));},180);
+  }
+  function clearBranch(){selectedBranch=null;branch.value='';branch.disabled=!selectedCity;branchItems=[];pointRevision++;clearTimeout(pointTimer);pointPending=null;pointState='idle';branchStatus.textContent='';pointView.close();notify();}
+  function acceptFeatures(result){if(result.features?.pointSearch===true)pointSearch=true;}
+  function showCities(items){cityItems=items.filter(validCity);cityState='ready';cityStatus.textContent=cityItems.length?say('Знайдено: ','Найдено: ')+cityItems.length:say('Не знайдено','Не найдено');if(document.activeElement===city)cityView.show(cityItems,selectedCity?.ref,say('Не знайдено. Уточни назву.','Не найдено. Уточни название.'));}
+  function scheduleCities(){
+   const q=normalize(city.value),revision=++cityRevision;clearTimeout(cityTimer);cityPending=null;
+   if(selectedCity&&city.value===selectedCity.label)return;
+   selectedCity=null;clearBranch();cityView.close();cityItems=[];lastCityQuery=q;notify();
+   if(q.length<3){cityState='idle';cityStatus.textContent=say('Введи щонайменше 3 символи','Введи не менее 3 символов');return;}
+   const hit=cached('cities',{q});if(hit){acceptFeatures(hit);showCities(hit.items||[]);return;}
+   cityState='loading';cityStatus.textContent='';loading(cityView,'city');
+   cityTimer=setTimeout(()=>{cityPending={q,revision};drainCities();},150);
+  }
+  async function drainCities(){
+   if(cityBusy)return;cityBusy=true;
+   try{while(cityPending){const job=cityPending;cityPending=null;if(job.revision!==cityRevision)continue;
+    try{const result=await lookup('cities',{q:job.q});acceptFeatures(result);if(job.revision===cityRevision&&!selectedCity)showCities(result.items||[]);}
+    catch(_){if(job.revision===cityRevision){cityState='error';cityStatus.textContent=say('Не вдалося завантажити. Повтори пошук.','Не удалось загрузить. Повтори поиск.');cityView.close();}}
+   }}finally{cityBusy=false;}
+  }
+  function filterPoints(items,q){
+   const query=fold(q),tokens=query.split(' ').filter(Boolean),number=query.match(/^\s*(?:№\s*)?(\d+)\s*$/)?.[1];
+   return items.filter(item=>{const text=fold([item.name,item.address,item.nameRu,item.addressRu,item.number].join(' '));return tokens.every(token=>text.includes(token));})
+    .sort((a,b)=>{if(number){const score=item=>String(item.number)===number?0:String(item.number).startsWith(number)?1:2;return score(a)-score(b)||Number(a.number)-Number(b.number);}return Number(a.number)-Number(b.number);}).slice(0,30);
+  }
+  function renderPoints(job,items,complete){
+   if(job.revision!==pointRevision||job.city.ref!==selectedCity?.ref)return;
+   branchItems=filterPoints(items,job.q);pointState=complete?'ready':'partial';
+   branchStatus.textContent=branchItems.length?say('Знайдено: ','Найдено: ')+branchItems.length+(complete?'':say(' · Список доповнюється',' · Список дополняется')):complete?say('Не знайдено','Не найдено'):say('Пошук інших точок триває…','Поиск других пунктов продолжается…');
+   if(document.activeElement===branch)pointView.show(branchItems,selectedBranch?.ref,complete?say('Не знайдено. Спробуй номер або адресу.','Не найдено. Попробуй номер или адрес.'):say('Шукаємо інші точки…','Ищем другие пункты…'));
+  }
+  function snapshot(ref){let entry=snapshots.get(ref);if(!entry||Date.now()-entry.at>=ttl){entry={at:Date.now(),items:new Map(),page:1,complete:false};snapshots.set(ref,entry);while(snapshots.size>4)snapshots.delete(snapshots.keys().next().value);}return entry;}
+  function queuePoints(q,revision=++pointRevision){
+   if(!selectedCity)return;const job={q:normalize(q),revision,city:selectedCity};
+   const hit=pointSearch&&cached('pointsSearch',{city:selectedCity.ref,q:job.q}),entry=snapshot(selectedCity.ref);
+   if(hit)renderPoints(job,(hit.items||[]).filter(validPoint),true);else if(entry.items.size)renderPoints(job,[...entry.items.values()],entry.complete);
+   pointPending=job;drainPoints();
+  }
+  async function drainPoints(){
+   if(pointBusy)return;pointBusy=true;
+   try{while(pointPending){const job=pointPending;pointPending=null;if(job.revision!==pointRevision||job.city.ref!==selectedCity?.ref)continue;
+    try{
+     if(pointSearch){const hit=cached('pointsSearch',{city:job.city.ref,q:job.q});if(hit)renderPoints(job,(hit.items||[]).filter(validPoint),true);else{pointState='loading';loading(pointView,'point');const result=await lookup('pointsSearch',{city:job.city.ref,q:job.q});renderPoints(job,(result.items||[]).filter(validPoint),true);}}
+     else{
+      const entry=snapshot(job.city.ref);if(entry.items.size||entry.complete)renderPoints(job,[...entry.items.values()],entry.complete);else{pointState='loading';loading(pointView,'point');}
+      while(!entry.complete&&entry.page<=200&&job.revision===pointRevision&&job.city.ref===selectedCity?.ref&&!selectedBranch&&!pointPending){
+       const result=await lookup('points',{city:job.city.ref,page:entry.page});for(const item of result.items||[])if(validPoint(item))entry.items.set(item.ref,item);
+       entry.page++;entry.complete=!result.more;renderPoints(job,[...entry.items.values()],entry.complete);
+      }
+      if(entry.page>200&&!entry.complete)throw Error('incomplete');
+     }
+    }catch(error){
+     if(job.revision!==pointRevision)continue;
+     // CacheService may evict a city registration early. Renew it once, never loop.
+     if(!job.renewed&&['directory_unavailable','city_expired'].includes(error.code)){
+      try{const result=await lookup('cities',{q:lastCityQuery||normalize(job.city.label.split(',')[0].replace(/^м\.\s*/,''))},true);acceptFeatures(result);const renewed=(result.items||[]).find(item=>item.ref===job.city.ref);
+       if(renewed&&job.revision===pointRevision){selectedCity=renewed;city.value=renewed.label;notify();pointPending={...job,city:renewed,renewed:true};continue;}
+      }catch(_){}
+     }
+     if(job.revision!==pointRevision)continue;
+     pointState='error';branchStatus.textContent=say('Не вдалося оновити довідник. Обери місто знову або повтори пошук.','Не удалось обновить справочник. Выбери город снова или повтори поиск.');if(!branchItems.length)pointView.close();
+    }
+   }}finally{pointBusy=false;}
+  }
+  function schedulePoints(){
+   const revision=++pointRevision;clearTimeout(pointTimer);pointPending=null;
+   if(selectedBranch&&branch.value===pointLabel(selectedBranch))return;
+   selectedBranch=null;notify();if(!selectedCity){pointView.close();return;}
+   const q=normalize(branch.value),entry=snapshot(selectedCity.ref);
+   if(entry.items.size)renderPoints({q,revision,city:selectedCity},[...entry.items.values()],entry.complete);
+   const hit=pointSearch&&cached('pointsSearch',{city:selectedCity.ref,q});if(hit){renderPoints({q,revision,city:selectedCity},(hit.items||[]).filter(validPoint),true);return;}
+   pointTimer=setTimeout(()=>queuePoints(q,revision),100);
+  }
+  function choose(kind,item){
+   if(kind==='city'){
+    cityRevision++;clearTimeout(cityTimer);cityPending=null;selectedCity=item;city.value=item.label;cityView.close();cityStatus.textContent='';clearBranch();refreshLabels();notify();branch.focus({preventScroll:true});
+   }else{pointRevision++;clearTimeout(pointTimer);pointPending=null;selectedBranch=item;branch.value=pointLabel(item);pointView.close();branchStatus.textContent='';notify();}
+   root.dispatchEvent(new Event('change',{bubbles:true}));
+  }
+  city.addEventListener('input',scheduleCities);branch.addEventListener('input',schedulePoints);
+  city.addEventListener('focus',()=>{if(cityItems.length)cityView.show(cityItems,selectedCity?.ref);else if(!selectedCity&&normalize(city.value).length>=3)scheduleCities();});
+  branch.addEventListener('focus',()=>{if(!selectedCity)return;if(branchItems.length)pointView.show(branchItems,selectedBranch?.ref);if(!selectedBranch)queuePoints(branch.value);});
+  document.addEventListener('pointerdown',event=>{if(!event.target.closest('.directory-control')){cityView.close(true);pointView.close(true);}});
+  root.closest('dialog')?.addEventListener('close',()=>{cityView.close();pointView.close();pointRevision++;pointPending=null;clearTimeout(pointTimer);});
+  root.closest('dialog')?.addEventListener('scroll',()=>{cityView.size();pointView.size();},{passive:true});
+  window.addEventListener('resize',()=>{cityView.size();pointView.size();},{passive:true});
+  function refreshLabels(){
+   branch.placeholder=selectedCity?say('Номер, адреса або поштомат','Номер, адрес или почтомат'):say('Спочатку обери населений пункт','Сначала выбери населённый пункт');
+   if(selectedBranch)branch.value=pointLabel(selectedBranch);
+   cityStatus.textContent=localizeStatus(cityStatus.textContent);branchStatus.textContent=localizeStatus(branchStatus.textContent);
+   cityView.refresh();pointView.refresh();
+  }
+  new MutationObserver(refreshLabels).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  branch.disabled=true;refreshLabels();
+  return {reset(){const ref=selectedCity?.ref;if(ref){snapshots.delete(ref);for(const [key,entry] of cache)if(key.includes(ref)||key.startsWith('cities:')&&entry.value.items?.some(item=>item.ref===ref))cache.delete(key);try{localStorage.setItem(cacheKey,JSON.stringify([...cache]));}catch(_){}}cityRevision++;clearTimeout(cityTimer);cityPending=null;selectedCity=null;cityItems=[];city.value='';cityView.close();cityStatus.textContent='';clearBranch();refreshLabels();notify();},refreshLabels};
+ };
+})();
+
 (function(){
  'use strict';
  const root=document.getElementById('order-form');if(!root)return;
@@ -929,50 +1125,25 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
  const cities=root.querySelector('#city-options'),branches=root.querySelector('#branch-options');
  const cs=root.querySelector('#city-status'),bs=root.querySelector('#branch-status');
  const endpoint='https://script.google.com/macros/s/AKfycbxw9BRSOcWBCcMWZgxC0WvS_FIbUoFaGKjDMXQ971svfk0EAoim5iAPPVi2M1sR_VR1/exec';
- let selectedCity=null,selectedBranch=null,cityItems=[],branchItems=[],cityTimer,cityRevision=0,branchRevision=0;
+ let selectedCity=null,selectedBranch=null;
  const ru=()=>document.documentElement.lang==='ru';
  const say=(uk,rus)=>ru()?rus:uk;
  let config=null,requestId=null,inFlight=false,requestNonce='',resultFrame=null;
  function send(action,payload={}){
-  if(!['cities','points','config'].includes(action))return Promise.reject(Error('invalid'));
+  if(!['cities','points','pointsSearch','config'].includes(action))return Promise.reject(Error('invalid'));
   const callback='klikDirectory_'+crypto.randomUUID().replaceAll('-','');
   const url=new URL(endpoint);url.searchParams.set('action',action);url.searchParams.set('callback',callback);
   for(const [key,value] of Object.entries(payload))url.searchParams.set(key,String(value));
   return new Promise((resolve,reject)=>{
    const script=document.createElement('script');
-   const cleanup=()=>{clearTimeout(timeout);delete window[callback];script.remove();};
-   const timeout=setTimeout(()=>{cleanup();reject(Error('timeout'));},20000);
-   window[callback]=result=>{cleanup();if(result&&result.ok)resolve(result);else reject(Error('unavailable'));};
-   script.onerror=()=>{cleanup();reject(Error('offline'));};
-   script.src=url.href;document.head.append(script);
+   const cleanup=late=>{clearTimeout(timeout);script.remove();if(late){window[callback]=()=>{};setTimeout(()=>delete window[callback],300000);}else delete window[callback];};
+   const timeout=setTimeout(()=>{cleanup(true);reject(Error('timeout'));},20000);
+   window[callback]=result=>{cleanup(false);if(result&&result.ok)resolve(result);else{const error=Error('unavailable');error.code=result&&result.error;reject(error);}};
+   script.onerror=()=>{cleanup(true);reject(Error('offline'));};script.src=url.href;document.head.append(script);
   });
  }
- function options(list,items,format){list.replaceChildren(...items.map(item=>{const o=document.createElement('option');o.value=format(item);return o;}));}
- function clearBranch(){selectedBranch=null;branch.value='';branchItems=[];branches.replaceChildren();bs.textContent='';branchRevision++;}
- city.addEventListener('input',()=>{
-  const hit=cityItems.filter(c=>c.label===city.value);
-  if(hit.length===1){if(!selectedCity||selectedCity.ref!==hit[0].ref){selectedCity=hit[0];clearBranch();loadPoints(hit[0]);}return;}
-  selectedCity=null;clearBranch();const q=city.value.trim(),rev=++cityRevision;clearTimeout(cityTimer);
-  cities.replaceChildren();cityItems=[];
-  if(q.length<3){cs.textContent='';return;}
-  cs.textContent=say('Завантаження…','Загрузка…');
-  cityTimer=setTimeout(async()=>{try{const r=await send('cities',{q});if(rev!==cityRevision)return;cityItems=r.items;options(cities,cityItems,x=>x.label);cs.textContent=cityItems.length?'':say('Не знайдено','Не найдено');}catch(_){if(rev===cityRevision)cs.textContent=say('Не вдалося завантажити. Спробуй ще раз.','Не удалось загрузить. Попробуй ещё раз.');}},450);
- });
- async function loadPoints(item){
-  const rev=++branchRevision;bs.textContent=say('Завантаження…','Загрузка…');
-  try{
-   let page=1,more=true,all=[];
-   while(more&&page<=30){const r=await send('points',{city:item.ref,page});if(rev!==branchRevision)return;all=all.concat(r.items);more=r.more;page++;}
-   if(more)throw Error('incomplete');
-   branchItems=all;options(branches,all,x=>x.name);bs.textContent=all.length?'':say('Не знайдено','Не найдено');
-  }catch(_){if(rev===branchRevision)bs.textContent=say('Не вдалося завантажити. Обери населений пункт знову.','Не удалось загрузить. Выбери населённый пункт снова.');}
- }
- branch.addEventListener('input',()=>{const hits=branchItems.filter(x=>x.name===branch.value);selectedBranch=hits.length===1?hits[0]:null;});
- async function loadConfig(){
-  try{
-   const c=await send('config');
-   if(!Number.isSafeInteger(c.one)||!Number.isSafeInteger(c.two)||c.one<=0||c.two<=0||typeof c.legal!=='string')throw Error('config');
-   config=window.klikPublicConfig=c;
+ const picker=window.createKlikDirectorySearch({root,request:send,endpoint,onSelection:state=>{selectedCity=state.city;selectedBranch=state.branch;}});
+ function applyConfig(c){
    root.querySelector('#order-service-note').hidden=c.enabled;
    const count=Number(root.querySelector('[name=quantity]:checked').value);
    root.querySelectorAll('[name=color1],[name=color2]').forEach(input=>{
@@ -983,10 +1154,17 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
    const saving=2*c.one-c.two;
    document.querySelectorAll('[data-i18n=saving]').forEach(el=>{el.hidden=saving<=0;if(saving>0)el.textContent=(ru()?'Экономия ':'Економія ')+saving+' грн';});
    root.querySelector('#order-total').textContent=(count===1?c.one:c.two)+' грн';
+ }
+ async function loadConfig(){
+  try{
+   const c=await send('config');
+   if(!Number.isSafeInteger(c.one)||!Number.isSafeInteger(c.two)||c.one<=0||c.two<=0||typeof c.legal!=='string')throw Error('config');
+   config=window.klikPublicConfig=c;
+   applyConfig(c);
   }catch(_){config=null;window.klikPublicConfig=null;}
  }
  loadConfig();
- document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>{if(config)loadConfig();}));
+ document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>{if(config)applyConfig(config);}));
  root.addEventListener('input',()=>{if(!inFlight)requestId=null;});
  root.addEventListener('change',()=>{if(!inFlight)requestId=null;});
  root.addEventListener('submit',async event=>{
@@ -1054,7 +1232,7 @@ html.dialog-open,html.dialog-open body{overflow:hidden;overscroll-behavior:none}
    }else if(r.error==='price_changed'){
     loadConfig();requestId=null;show(say('Ціна змінилася. Перевір нову суму та підтвердь замовлення ще раз.','Цена изменилась. Проверь новую сумму и подтверди заказ ещё раз.'));
    }else if(r.error==='city_expired'){
-    selectedCity=null;selectedBranch=null;cityItems=[];branchItems=[];city.value='';branch.value='';city.focus();
+    picker.reset();city.focus();
     show(say('Довідник оновився. Обери населений пункт і точку доставки ще раз.','Справочник обновился. Выбери населённый пункт и пункт доставки ещё раз.'));
    }else show(say('Не вдалося оформити замовлення. Дані збережено, спробуй ще раз.','Не удалось оформить заказ. Данные сохранены, попробуй ещё раз.'));
   }

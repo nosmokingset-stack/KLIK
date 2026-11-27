@@ -2,6 +2,8 @@
 
 The provided template.xml already contains direct public HTTPS image URLs from the KLIK GitHub repository. No manual image upload to Blogger, URL copying or XML image edits are required.
 
+For the 2026-11-27 delivery-search update, Directory.gs is already saved in the separate **KLIK Orders** Apps Script source project. To activate targeted number/address searches over HTTP, update **its existing deployment** to a new version, preserving the current URL and access settings. Do not use any NOSMOKINGSET deployment. The new client detects the capability from cities responses; previously cached capability information expires within three minutes. Old points/page calls remain supported. No API key, sheet, order switch or price change is needed. See NP-SEARCH-REPORT.md for the measured legacy-compatible client and the separately verified new server method. The live deployment and Blogger theme were deliberately not published by this task.
+
 1. Download template.xml from the main branch of https://github.com/nosmokingset-stack/KLIK . Keep a backup of the existing Blogger theme and settings.
 2. Open the intended blog, currently https://klickkhua.blogspot.com/ , then Theme → Edit HTML (or restore/upload XML through the theme menu). Replace the theme with template.xml and save only when ready to publish it.
 3. If Blogger offers a separate mobile theme, select the current responsive theme for mobile devices.

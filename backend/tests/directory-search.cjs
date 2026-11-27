@@ -1,0 +1,13 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
+const source=fs.readFileSync(path.join(__dirname,'../apps-script/Directory.gs'),'utf8'),calls=[];
+const city='aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',point='bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb';
+const scope=vm.createContext({CacheService:{getScriptCache:()=>({get:key=>key==='ua4:valid:'+city?'м. Харків':null})}});
+vm.runInContext(source,scope);scope.directoryCache_=(_,load)=>load();scope.directoryRequest_=(method,fields)=>{calls.push({method,fields});return {data:[{Ref:point,Number:'1',Description:'Відділення №1: вул. Тестова, 1',DescriptionRu:'Отделение №1: ул. Тестовая, 1',ShortAddress:'вул. Тестова, 1',ShortAddressRu:'ул. Тестовая, 1',WarehouseStatus:'Working',CategoryOfWarehouse:'Branch'}],info:{totalCount:1}};};
+let result=scope.pointSearch_(city,'№ 1');assert.equal(calls[0].fields.FindByString,'1');assert.equal(calls[0].fields.SettlementRef,city);assert.equal(calls[0].fields.Limit,'50');assert.equal(result.items[0].nameRu,'Отделение №1: ул. Тестовая, 1');
+result=scope.pointSearch_(city,'Тестовая');assert.equal(calls[1].fields.FindByString,'Тестовая');assert.equal(result.items[0].addressRu,'ул. Тестовая, 1');
+scope.pointSearch_(city,'');assert.equal(calls[2].fields.FindByString,undefined);assert.equal(result.more,false);
+assert.throws(()=>scope.pointSearch_('invalid','1'));assert.throws(()=>scope.pointSearch_(point,'1'),/expired/);assert.throws(()=>scope.pointSearch_(city,'x'.repeat(81)));assert.equal(calls.length,3);
+const crypto=require('node:crypto');
+const privateVerifier=source.split('function verifiedPoint_')[1].split('function doGet')[0];
+assert.equal(crypto.createHash('sha256').update(privateVerifier.replaceAll('\r\n','\n')).digest('hex'),'5b8c48b514129bb025c9a213875f28722620350b593bf7e71d2a89e89a0633db','private point validation changed');
+console.log('PASS: targeted carrier query, number/address parameters, RU aliases, city gate, bounded payload and unchanged private point verification');

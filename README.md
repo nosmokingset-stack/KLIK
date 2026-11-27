@@ -6,13 +6,15 @@ Standalone Blogger XML theme and buildless local preview. Ukrainian is the defau
 
 ## Preview and source
 
+Delivery search was optimized on 2026-11-27. See [the measured before/after report](NP-SEARCH-REPORT.md) and preview/np-performance.json. The UI now uses anchored, keyboard-accessible lists, a short public-data cache and first-page rendering. New `pointsSearch` server code is saved in the separate KLIK Orders source project; activating it requires updating that existing web-app deployment. No live deployment or Blogger installation was performed. Until then the new client remains compatible with the old endpoint and progressively loads pages.
+
 Open index.html locally, or run `node serve.cjs` and visit http://127.0.0.1:4173/. `preview/index.html` is an alternate preview entry. Internet access is used for Google Fonts; system-font fallbacks are available.
 
 Version 1.5 contains six landing sections, ten localized FAQ entries and a Ukraine-wide delivery form for Nova Poshta branches and lockers. Customers can read the three legal drafts from the footer and the order dialog. The build includes legal.html in both outputs. The real store remains disabled by the order switch in the settings sheet; neither Blogger installation nor sales activation is included. See VERIFY-V1.5.md for tests, operational constraints and launch requirements.
 
 The existing header, navigation, brand typography/colors, decorative waves and approved comparison block are preserved. Comparison text, frames and arrow are native, localized HTML/CSS/SVG. Reduced motion is supported throughout.
 
-- `body.html`, CSS files, `site.js` and `directory.js`: source; translations are centralized in site.js.
+- `body.html`, CSS files, `site.js`, `directory-search.js` and `directory.js`: source; translations are centralized in site.js, with bilingual directory status messages in the search module.
 - `backend/apps-script/`: separate KLIK Apps Script source. It must not be deployed over another project.
 - `build.cjs`: generates index.html, preview/index.html and standalone template.xml with inline CSS/JS.
 - `assets.config.json`: central public asset base, pinned to the asset commit.

@@ -1,6 +1,7 @@
 .gitignore
 CHANGELOG.md
 INSTALL.md
+NP-SEARCH-REPORT.md
 PUBLICATION.md
 README.md
 VERIFY-V1.1.md
@@ -71,11 +72,13 @@ backend/apps-script/appsscript.json
 backend/tests/color-activation.cjs
 backend/tests/directory-filter.cjs
 backend/tests/directory-retries.cjs
+backend/tests/directory-search.cjs
 backend/tests/notifications.cjs
 backend/tests/orders.cjs
 backend/tests/transport.cjs
 body.html
 build.cjs
+directory-search.js
 directory.js
 index.html
 legal.html
@@ -118,6 +121,11 @@ preview/modal-one-1440-v1.2.png
 preview/modal-one-390-v1.2.png
 preview/modal-two-1440-v1.2.png
 preview/modal-two-390-v1.2.png
+preview/np-cities-1440.png
+preview/np-cities-390.png
+preview/np-performance.json
+preview/np-points-1440.png
+preview/np-points-390.png
 preview/order-1440-v1.2.png
 preview/order-390-v1.2.png
 preview/order-mobile-v1.5.png
@@ -146,6 +154,7 @@ references/README.md
 serve.cjs
 site.css
 site.js
+styles-directory.css
 styles-v1.2.css
 styles-v1.3.css
 styles-v1.4.css

@@ -1,0 +1,420 @@
+{
+  "recordedAt": "2026-11-27T09:45:01.545Z",
+  "scope": "KLIK directory optimization",
+  "query": "Харків",
+  "browser": [
+    {
+      "width": 1440,
+      "variant": "before",
+      "cacheScope": "cold/warm browser cache; live shared server cache not reset",
+      "queries": [
+        {
+          "pass": "first",
+          "cityMs": 2282,
+          "pointFirstVisibleMs": 13396,
+          "visiblePoints": 1771,
+          "requestsStarted": [
+            {
+              "action": "cities",
+              "page": null,
+              "q": "Харків"
+            },
+            {
+              "action": "points",
+              "page": "1",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "2",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "3",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "4",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "5",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "6",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "7",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "8",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "9",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "10",
+              "q": null
+            }
+          ]
+        },
+        {
+          "pass": "repeat",
+          "cityMs": 1899,
+          "pointFirstVisibleMs": 12865,
+          "visiblePoints": 1771,
+          "requestsStarted": [
+            {
+              "action": "cities",
+              "page": null,
+              "q": "Харків"
+            },
+            {
+              "action": "points",
+              "page": "1",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "2",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "3",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "4",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "5",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "6",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "7",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "8",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "9",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "10",
+              "q": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "variant": "after",
+      "cacheScope": "cold/warm browser cache; live shared server cache not reset",
+      "queries": [
+        {
+          "pass": "first",
+          "cityMs": 2466,
+          "pointFirstVisibleMs": 1137,
+          "visiblePoints": 30,
+          "requestsStarted": [
+            {
+              "action": "cities",
+              "page": null,
+              "q": "харків"
+            },
+            {
+              "action": "points",
+              "page": "1",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "2",
+              "q": null
+            }
+          ]
+        },
+        {
+          "pass": "repeat",
+          "cityMs": 8,
+          "pointFirstVisibleMs": 39,
+          "visiblePoints": 30,
+          "requestsStarted": []
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "variant": "before",
+      "cacheScope": "cold/warm browser cache; live shared server cache not reset",
+      "queries": [
+        {
+          "pass": "first",
+          "cityMs": 1988,
+          "pointFirstVisibleMs": 13945,
+          "visiblePoints": 1771,
+          "requestsStarted": [
+            {
+              "action": "cities",
+              "page": null,
+              "q": "Харків"
+            },
+            {
+              "action": "points",
+              "page": "1",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "2",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "3",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "4",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "5",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "6",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "7",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "8",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "9",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "10",
+              "q": null
+            }
+          ]
+        },
+        {
+          "pass": "repeat",
+          "cityMs": 2989,
+          "pointFirstVisibleMs": 15114,
+          "visiblePoints": 1771,
+          "requestsStarted": [
+            {
+              "action": "cities",
+              "page": null,
+              "q": "Харків"
+            },
+            {
+              "action": "points",
+              "page": "1",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "2",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "3",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "4",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "5",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "6",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "7",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "8",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "9",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "10",
+              "q": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "variant": "after",
+      "cacheScope": "cold/warm browser cache; live shared server cache not reset",
+      "queries": [
+        {
+          "pass": "first",
+          "cityMs": 2101,
+          "pointFirstVisibleMs": 1716,
+          "visiblePoints": 30,
+          "requestsStarted": [
+            {
+              "action": "cities",
+              "page": null,
+              "q": "харків"
+            },
+            {
+              "action": "points",
+              "page": "1",
+              "q": null
+            },
+            {
+              "action": "points",
+              "page": "2",
+              "q": null
+            }
+          ]
+        },
+        {
+          "pass": "repeat",
+          "cityMs": 7,
+          "pointFirstVisibleMs": 39,
+          "visiblePoints": 30,
+          "requestsStarted": []
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "server": {
+    "testedAt": "2026-11-27",
+    "transport": "Apps Script editor execution, not web-app HTTP",
+    "ordersCreated": 0,
+    "cityLookups": [
+      {
+        "q": "Івано-Франківськ",
+        "serverCacheBefore": false,
+        "ms": 883,
+        "count": 1
+      },
+      {
+        "q": "Івано-Франківськ",
+        "serverCacheBefore": true,
+        "ms": 93,
+        "count": 1
+      },
+      {
+        "q": "Харьков",
+        "serverCacheBefore": false,
+        "ms": 3265,
+        "count": 9
+      },
+      {
+        "q": "Львов",
+        "serverCacheBefore": false,
+        "ms": 2756,
+        "count": 10
+      }
+    ],
+    "pointLookups": [
+      {
+        "q": "1",
+        "serverCacheBefore": false,
+        "ms": 2515,
+        "count": 50
+      },
+      {
+        "q": "1",
+        "serverCacheBefore": true,
+        "ms": 39,
+        "count": 50
+      },
+      {
+        "q": "Польова",
+        "serverCacheBefore": false,
+        "ms": 2723,
+        "branches": 1,
+        "lockers": 2
+      },
+      {
+        "q": "Полевая",
+        "serverCacheBefore": false,
+        "ms": 2816,
+        "branches": 1,
+        "lockers": 2
+      },
+      {
+        "q": "Поштомат",
+        "serverCacheBefore": false,
+        "ms": 2925,
+        "lockers": 50
+      }
+    ]
+  },
+  "notes": [
+    "Browser cold/warm refers to client cache. Shared server cache was not reset.",
+    "Old first points waited for all 1771 rows. New first points display up to 30 from the first page.",
+    "Browser measurements use the unchanged published legacy KLIK endpoint.",
+    "Targeted pointsSearch tested against real Nova Poshta in Apps Script editor; redeploy still required for HTTP activation.",
+    "Reference project examined read-only; no orders submitted."
+  ]
+}

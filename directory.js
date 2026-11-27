@@ -5,50 +5,25 @@
  const cities=root.querySelector('#city-options'),branches=root.querySelector('#branch-options');
  const cs=root.querySelector('#city-status'),bs=root.querySelector('#branch-status');
  const endpoint='https://script.google.com/macros/s/AKfycbxw9BRSOcWBCcMWZgxC0WvS_FIbUoFaGKjDMXQ971svfk0EAoim5iAPPVi2M1sR_VR1/exec';
- let selectedCity=null,selectedBranch=null,cityItems=[],branchItems=[],cityTimer,cityRevision=0,branchRevision=0;
+ let selectedCity=null,selectedBranch=null;
  const ru=()=>document.documentElement.lang==='ru';
  const say=(uk,rus)=>ru()?rus:uk;
  let config=null,requestId=null,inFlight=false,requestNonce='',resultFrame=null;
  function send(action,payload={}){
-  if(!['cities','points','config'].includes(action))return Promise.reject(Error('invalid'));
+  if(!['cities','points','pointsSearch','config'].includes(action))return Promise.reject(Error('invalid'));
   const callback='klikDirectory_'+crypto.randomUUID().replaceAll('-','');
   const url=new URL(endpoint);url.searchParams.set('action',action);url.searchParams.set('callback',callback);
   for(const [key,value] of Object.entries(payload))url.searchParams.set(key,String(value));
   return new Promise((resolve,reject)=>{
    const script=document.createElement('script');
-   const cleanup=()=>{clearTimeout(timeout);delete window[callback];script.remove();};
-   const timeout=setTimeout(()=>{cleanup();reject(Error('timeout'));},20000);
-   window[callback]=result=>{cleanup();if(result&&result.ok)resolve(result);else reject(Error('unavailable'));};
-   script.onerror=()=>{cleanup();reject(Error('offline'));};
-   script.src=url.href;document.head.append(script);
+   const cleanup=late=>{clearTimeout(timeout);script.remove();if(late){window[callback]=()=>{};setTimeout(()=>delete window[callback],300000);}else delete window[callback];};
+   const timeout=setTimeout(()=>{cleanup(true);reject(Error('timeout'));},20000);
+   window[callback]=result=>{cleanup(false);if(result&&result.ok)resolve(result);else{const error=Error('unavailable');error.code=result&&result.error;reject(error);}};
+   script.onerror=()=>{cleanup(true);reject(Error('offline'));};script.src=url.href;document.head.append(script);
   });
  }
- function options(list,items,format){list.replaceChildren(...items.map(item=>{const o=document.createElement('option');o.value=format(item);return o;}));}
- function clearBranch(){selectedBranch=null;branch.value='';branchItems=[];branches.replaceChildren();bs.textContent='';branchRevision++;}
- city.addEventListener('input',()=>{
-  const hit=cityItems.filter(c=>c.label===city.value);
-  if(hit.length===1){if(!selectedCity||selectedCity.ref!==hit[0].ref){selectedCity=hit[0];clearBranch();loadPoints(hit[0]);}return;}
-  selectedCity=null;clearBranch();const q=city.value.trim(),rev=++cityRevision;clearTimeout(cityTimer);
-  cities.replaceChildren();cityItems=[];
-  if(q.length<3){cs.textContent='';return;}
-  cs.textContent=say('Завантаження…','Загрузка…');
-  cityTimer=setTimeout(async()=>{try{const r=await send('cities',{q});if(rev!==cityRevision)return;cityItems=r.items;options(cities,cityItems,x=>x.label);cs.textContent=cityItems.length?'':say('Не знайдено','Не найдено');}catch(_){if(rev===cityRevision)cs.textContent=say('Не вдалося завантажити. Спробуй ще раз.','Не удалось загрузить. Попробуй ещё раз.');}},450);
- });
- async function loadPoints(item){
-  const rev=++branchRevision;bs.textContent=say('Завантаження…','Загрузка…');
-  try{
-   let page=1,more=true,all=[];
-   while(more&&page<=30){const r=await send('points',{city:item.ref,page});if(rev!==branchRevision)return;all=all.concat(r.items);more=r.more;page++;}
-   if(more)throw Error('incomplete');
-   branchItems=all;options(branches,all,x=>x.name);bs.textContent=all.length?'':say('Не знайдено','Не найдено');
-  }catch(_){if(rev===branchRevision)bs.textContent=say('Не вдалося завантажити. Обери населений пункт знову.','Не удалось загрузить. Выбери населённый пункт снова.');}
- }
- branch.addEventListener('input',()=>{const hits=branchItems.filter(x=>x.name===branch.value);selectedBranch=hits.length===1?hits[0]:null;});
- async function loadConfig(){
-  try{
-   const c=await send('config');
-   if(!Number.isSafeInteger(c.one)||!Number.isSafeInteger(c.two)||c.one<=0||c.two<=0||typeof c.legal!=='string')throw Error('config');
-   config=window.klikPublicConfig=c;
+ const picker=window.createKlikDirectorySearch({root,request:send,endpoint,onSelection:state=>{selectedCity=state.city;selectedBranch=state.branch;}});
+ function applyConfig(c){
    root.querySelector('#order-service-note').hidden=c.enabled;
    const count=Number(root.querySelector('[name=quantity]:checked').value);
    root.querySelectorAll('[name=color1],[name=color2]').forEach(input=>{
@@ -59,10 +34,17 @@
    const saving=2*c.one-c.two;
    document.querySelectorAll('[data-i18n=saving]').forEach(el=>{el.hidden=saving<=0;if(saving>0)el.textContent=(ru()?'Экономия ':'Економія ')+saving+' грн';});
    root.querySelector('#order-total').textContent=(count===1?c.one:c.two)+' грн';
+ }
+ async function loadConfig(){
+  try{
+   const c=await send('config');
+   if(!Number.isSafeInteger(c.one)||!Number.isSafeInteger(c.two)||c.one<=0||c.two<=0||typeof c.legal!=='string')throw Error('config');
+   config=window.klikPublicConfig=c;
+   applyConfig(c);
   }catch(_){config=null;window.klikPublicConfig=null;}
  }
  loadConfig();
- document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>{if(config)loadConfig();}));
+ document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>{if(config)applyConfig(config);}));
  root.addEventListener('input',()=>{if(!inFlight)requestId=null;});
  root.addEventListener('change',()=>{if(!inFlight)requestId=null;});
  root.addEventListener('submit',async event=>{
@@ -130,7 +112,7 @@
    }else if(r.error==='price_changed'){
     loadConfig();requestId=null;show(say('Ціна змінилася. Перевір нову суму та підтвердь замовлення ще раз.','Цена изменилась. Проверь новую сумму и подтверди заказ ещё раз.'));
    }else if(r.error==='city_expired'){
-    selectedCity=null;selectedBranch=null;cityItems=[];branchItems=[];city.value='';branch.value='';city.focus();
+    picker.reset();city.focus();
     show(say('Довідник оновився. Обери населений пункт і точку доставки ще раз.','Справочник обновился. Выбери населённый пункт и пункт доставки ещё раз.'));
    }else show(say('Не вдалося оформити замовлення. Дані збережено, спробуй ще раз.','Не удалось оформить заказ. Данные сохранены, попробуй ещё раз.'));
   }
