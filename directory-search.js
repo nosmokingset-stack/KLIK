@@ -168,6 +168,7 @@
   root.closest('dialog')?.addEventListener('scroll',()=>{cityView.size();pointView.size();},{passive:true});
   window.addEventListener('resize',()=>{cityView.size();pointView.size();},{passive:true});
   function refreshLabels(){
+   city.placeholder=say('Почни вводити, наприклад, Харків','Начни вводить, например, Харьков');
    branch.placeholder=selectedCity?say('Номер, адреса або поштомат','Номер, адрес или почтомат'):say('Спочатку обери населений пункт','Сначала выбери населённый пункт');
    if(selectedBranch)branch.value=pointLabel(selectedBranch);
    cityStatus.textContent=localizeStatus(cityStatus.textContent);branchStatus.textContent=localizeStatus(branchStatus.textContent);

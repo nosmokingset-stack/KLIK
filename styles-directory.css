@@ -1,4 +1,5 @@
 /* KLIK carrier suggestions: anchored overlay, no reflow, native input focus. */
+#customer-city::placeholder{color:#757575;opacity:1}
 .directory-control{position:relative;min-width:0;width:100%;isolation:isolate}
 .directory-control>input{display:block;min-width:0;width:100%;min-height:46px;border:1px solid #cdd8e5;border-radius:12px;padding:11px 12px;color:var(--ink);font:inherit;font-size:16px;line-height:1.4;background:white;outline-offset:2px}
 .directory-control>input:focus{outline:2px solid var(--blue);border-color:var(--blue)}
