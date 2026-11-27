@@ -1,0 +1,39 @@
+/* Background masks follow the original SVG boundaries; content stays unclipped. */
+:root{--ribbon-height:60px}
+#hero,#problem,#how-to-use,#care,#order,#faq,#contacts{position:relative;isolation:isolate;overflow:visible;background:none}
+#hero,#problem,#care{overflow-x:clip}
+#hero{--section-background:linear-gradient(118deg,#fff 7%,#f1fbff 44%,#bdeaff 100%)}
+#problem{--section-background:linear-gradient(165deg,#e8f2ff,#dbf4ff 68%,#f9fdff)}
+#how-to-use{--section-background:linear-gradient(#edf9ff 0%,white 35%,#ecf8ff 100%)}
+#care{--section-background:linear-gradient(118deg,#51ccf5,#c5efff 54%,#6ad0ff)}
+#order{--section-background:linear-gradient(165deg,var(--blue),var(--deep))}
+#faq{--section-background:var(--pale)}
+#contacts{--section-background:#0b2969}
+#hero::before,#problem::before,#how-to-use::before,#care::before,#order::before,#faq::before,#contacts::before{
+ content:"";position:absolute;inset:0 0 calc(-1 * var(--ribbon-height));z-index:-1;pointer-events:none;
+ background:var(--section-background);
+ mask-image:var(--boundary-top,linear-gradient(#000,#000)),linear-gradient(#000,#000),var(--boundary-bottom,linear-gradient(#000,#000));
+ mask-size:100% var(--ribbon-height),100% calc(100% - 2 * var(--ribbon-height) + 2px),100% var(--ribbon-height);
+ mask-position:top,center,bottom;mask-repeat:no-repeat;
+}
+#contacts::before{bottom:0}
+#hero{--boundary-bottom:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTAgOS42MDAwMDAwMDAwMDAwMDEgQzE1MCAwIDMzMCAyOC44IDQ5MCAxOS4yMDAwMDAwMDAwMDAwMDMgQzY1MCA5LjYwMDAwMDAwMDAwMDAwMSA3OTAgMCA5NjAgMTQuNCBDMTE0MCAzMiAxMjgwIDEyLjggMTQ0MCA4IEwxNDQwIDAgTDAgMCBaIi8+PC9zdmc+")}
+#problem{--boundary-top:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTE0NDAgODAgTDE0NDAgNDggQzEyODAgNTIuOCAxMTQwIDcyIDk2MCA1NC40IEM3OTAgNDAgNjUwIDQ5LjYgNDkwIDU5LjIgQzMzMCA2OC44IDE1MCA0MCAwIDQ5LjYgTDAgODAgWiIvPjwvc3ZnPg==")}
+#problem{--boundary-bottom:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTAgMTcuNiBDMTc1IDMyIDM0MCAxLjYgNTAwIDggQzY1MCAxNC40IDgxMCAzMC40MDAwMDAwMDAwMDAwMDIgOTcwIDIwLjggQzExMjAgOS42MDAwMDAwMDAwMDAwMDEgMTI4MCAzLjIgMTQ0MCAxNC40IEwxNDQwIDAgTDAgMCBaIi8+PC9zdmc+")}
+#how-to-use{--boundary-top:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTE0NDAgODAgTDE0NDAgNTQuNCBDMTI4MCA0My4yIDExMjAgNDkuNiA5NzAgNjAuOCBDODEwIDcwLjQgNjUwIDU0LjQgNTAwIDQ4IEMzNDAgNDEuNiAxNzUgNzIgMCA1Ny42IEwwIDgwIFoiLz48L3N2Zz4=")}
+#how-to-use{--boundary-bottom:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTAgNC44MDAwMDAwMDAwMDAwMDEgQzE2NSAxLjYgMjgwIDI3LjIwMDAwMDAwMDAwMDAwMyA0NDAgMjUuNiBDNjEwIDI0IDc1MCAzLjIgOTIwIDYuNCBDMTEwMCA5LjYwMDAwMDAwMDAwMDAwMSAxMjYwIDMyIDE0NDAgMTkuMjAwMDAwMDAwMDAwMDAzIEwxNDQwIDAgTDAgMCBaIi8+PC9zdmc+")}
+#care{--boundary-top:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTE0NDAgODAgTDE0NDAgNTkuMiBDMTI2MCA3MiAxMTAwIDQ5LjYgOTIwIDQ2LjQgQzc1MCA0My4yIDYxMCA2NCA0NDAgNjUuNiBDMjgwIDY3LjIgMTY1IDQxLjYgMCA0NC44IEwwIDgwIFoiLz48L3N2Zz4=")}
+#care{--boundary-bottom:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTAgMTYgQzE3MCAyOC44IDMzMCAyNS42IDUwMCA5LjYwMDAwMDAwMDAwMDAwMSBDNjUwIDAgODEwIDggOTgwIDIyLjQwMDAwMDAwMDAwMDAwMiBDMTE1MCAzNS4yIDEzMDAgMTIuOCAxNDQwIDYuNCBMMTQ0MCAwIEwwIDAgWiIvPjwvc3ZnPg==")}
+#order{--boundary-top:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTE0NDAgODAgTDE0NDAgNDYuNCBDMTMwMCA1Mi44IDExNTAgNzUuMiA5ODAgNjIuNDAwMDAwMDAwMDAwMDA2IEM4MTAgNDggNjUwIDQwIDUwMCA0OS42IEMzMzAgNjUuNiAxNzAgNjguOCAwIDU2IEwwIDgwIFoiLz48L3N2Zz4=")}
+#order{--boundary-bottom:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTAgOCBDMTQwIDEuNiAzMDAgMTQuNCA0NzAgMjUuNiBDNjMwIDM1LjIgODAwIDE5LjIwMDAwMDAwMDAwMDAwMyA5NjAgOCBDMTEzMCAwIDEyOTAgMTYgMTQ0MCAyMC44IEwxNDQwIDAgTDAgMCBaIi8+PC9zdmc+")}
+#faq{--boundary-top:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTE0NDAgODAgTDE0NDAgNjAuOCBDMTI5MCA1NiAxMTMwIDQwIDk2MCA0OCBDODAwIDU5LjIgNjMwIDc1LjIgNDcwIDY1LjYgQzMwMCA1NC40IDE0MCA0MS42IDAgNDggTDAgODAgWiIvPjwvc3ZnPg==")}
+#faq{--boundary-bottom:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTAgMTkuMjAwMDAwMDAwMDAwMDAzIEMxODAgMzIgMzIwIDQuODAwMDAwMDAwMDAwMDAxIDQ4MCA2LjQgQzY0MCA4IDc5MCAzMC40MDAwMDAwMDAwMDAwMDIgOTYwIDI1LjYgQzExMzAgMTkuMjAwMDAwMDAwMDAwMDAzIDEyOTAgMCAxNDQwIDkuNjAwMDAwMDAwMDAwMDAxIEwxNDQwIDAgTDAgMCBaIi8+PC9zdmc+")}
+#contacts{--boundary-top:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTE0NDAgODAgTDE0NDAgNDkuNiBDMTI5MCA0MCAxMTMwIDU5LjIgOTYwIDY1LjYgQzc5MCA3MC40IDY0MCA0OCA0ODAgNDYuNCBDMzIwIDQ0LjggMTgwIDcyIDAgNTkuMiBMMCA4MCBaIi8+PC9zdmc+")}
+.hero-comfort{color:var(--deep);font-size:clamp(16px,1.35vw,19px);font-weight:700;line-height:1.6;margin:27px 0}
+.problem-heading{margin-bottom:20px}
+.problem-introduction{max-width:960px;margin:0 auto 30px;text-align:center;font-size:18px;line-height:1.8}
+.problem-collage{margin:0 auto 34px;max-width:1240px}
+.problem-collage img{width:100%;height:auto;border-radius:20px}
+.problem>.container>.problem-subtitle{text-align:center;margin-bottom:34px}
+.how-end p{margin-top:0}
+@media(max-width:650px){:root{--ribbon-height:38px}.hero-comfort{font-size:18px;margin:23px 0}.problem-introduction{font-size:16px;line-height:1.75;margin-bottom:22px}.problem-collage{margin-bottom:24px}.problem-collage img{border-radius:12px}.problem>.container>.problem-subtitle{margin-bottom:25px}}

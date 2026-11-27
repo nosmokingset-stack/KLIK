@@ -4,6 +4,7 @@ INSTALL.md
 NP-SEARCH-REPORT.md
 PUBLICATION.md
 README.md
+VERIFY-DESIGN.md
 VERIFY-V1.1.md
 VERIFY-V1.2.md
 VERIFY-V1.3.md
@@ -24,6 +25,9 @@ assets/how-to/step-02.webp
 assets/how-to/step-03.webp
 assets/icons/sprite.svg
 assets/logo/klik-approved.webp
+assets/problem/README.md
+assets/problem/water-collage-1774.webp
+assets/problem/water-collage-800.webp
 assets/products/01-yellow-single-1200-transparent.webp
 assets/products/01-yellow-single-1200-white.webp
 assets/products/01-yellow-single-640-transparent.webp
@@ -84,6 +88,18 @@ index.html
 legal.html
 preview/care-v1.3.png
 preview/contacts-v1.4.png
+preview/design-hero-1440-ru.png
+preview/design-hero-1440-uk.png
+preview/design-hero-390-ru.png
+preview/design-hero-390-uk.png
+preview/design-home-1440-ru.png
+preview/design-home-1440-uk.png
+preview/design-home-390-ru.png
+preview/design-home-390-uk.png
+preview/design-problem-1440-ru.png
+preview/design-problem-1440-uk.png
+preview/design-problem-390-ru.png
+preview/design-problem-390-uk.png
 preview/desktop-v1.1.png
 preview/desktop-v1.3.png
 preview/desktop-v1.4.png
@@ -154,6 +170,7 @@ references/README.md
 serve.cjs
 site.css
 site.js
+styles-design.css
 styles-directory.css
 styles-v1.2.css
 styles-v1.3.css
