@@ -93,3 +93,11 @@
 **/credentials*.json
 **/client_secret*.json
 **/.env*
+
+!/styles-design.css
+!/VERIFY-DESIGN.md
+!/assets/problem/
+/assets/problem/*
+!/assets/problem/*.webp
+!/assets/problem/README.md
+!/preview/design-*.png
